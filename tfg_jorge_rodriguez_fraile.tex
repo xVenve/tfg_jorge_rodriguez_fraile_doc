@@ -1,21 +1,8 @@
 %----------
-%   IMPORTANTE
-%----------
-
-% Si nunca has utilizado LaTeX es conveniente que aprendas una serie de conceptos básicos antes de utilizar esta plantilla. Te aconsejamos que leas previamente algún tutorial (puedes encontar muchos en Internet).
-
-% Esta plantilla está basada en las recomendaciones de la guía "Trabajo fin de Grado: Escribir el TFG", que encontrarás en http://uc3m.libguides.com/TFG/escribir
-% contiene recomendaciones de la Biblioteca basadas principalmente en estilos APA e IEEE, pero debes seguir siempre las orientaciones de tu Tutor de TFG y la normativa de TFG para tu titulación.
-
-% Encontrarás un ejemplo de TFG realizado con esta misma plantilla en la carpeta "_ejemplo_TFG_2019". Consúltalo porque contiene ejemplos útiles para incorporar tablas, figuras, listados de código, bibliografía, etc.
-
-
-%----------
 %	CONFIGURACIÓN DEL DOCUMENTO
 %----------
 
 % Definimos las características del documento y añadimos una serie de paquetes (\usepackage{package}) que agregan funcionalidades a LaTeX.
-
 \documentclass[12pt]{report} %fuente a 12pt
 
 % MÁRGENES: 2,5 cm sup. e inf.; 3 cm izdo. y dcho.
@@ -36,7 +23,7 @@ hmargin=3cm
 \definecolor{gray75}{gray}{.75}
 \definecolor{gray45}{gray}{.45}
 
-% Soporte para GENERAR PDF/A --es importante de cara a su inclusión en e-Archivo porque es el formato óptimo de preservación y a la generación de metadatos, tal y como se describe en http://uc3m.libguides.com/ld.php?content_id=31389625. En la carpeta incluímos el archivo plantilla_tfg_2017.xmpdata en el que puedes incluir los metadatos que se incorporarán al archivo PDF cuando lo compiles. Ese archivo debe llamarse igual que tu archivo .tex. Puedes ver un ejemplo en esta misma carpeta.
+% Soporte para GENERAR PDF/A
 \usepackage[a-1b]{pdfx}
 
 % ENLACES
@@ -107,7 +94,7 @@ hmargin=3cm
 {\titlerule*[.7pc]{.}\contentspage}  
 
 
-% DISEÑO DE TABLAS. Puedes elegir entre el estilo para ingeniería o para ciencias sociales y humanidades. Por defecto, está activado el estilo de ingeniería. Si deseas utilizar el otro, comenta las líneas del diseño de ingeniería y descomenta las del diseño de ciencias sociales y humanidades
+% DISEÑO DE TABLAS.
 \usepackage{multirow} % permite combinar celdas 
 \usepackage{caption} % para personalizar el título de tablas y figuras
 \usepackage{floatrow} % utilizamos este paquete y sus macros \ttabbox y \ffigbox para alinear los nombres de tablas y figuras de acuerdo con el estilo definido. Para su uso ver archivo de ejemplo 
@@ -126,7 +113,7 @@ hmargin=3cm
 	font=small,
 }
 
-% DISEÑO DE FIGURAS. Puedes elegir entre el estilo para ingeniería o para ciencias sociales y humanidades. Por defecto, está activado el estilo de ingeniería. Si deseas utilizar el otro, comenta las líneas del diseño de ingeniería y descomenta las del diseño de ciencias sociales y humanidades
+% DISEÑO DE FIGURAS.
 \usepackage{graphicx}
 \graphicspath{{imagenes/}} %ruta a la carpeta de imágenes
 
@@ -180,17 +167,11 @@ hmargin=3cm
 \renewcommand{\lstlistingname}{\uppercase{Código}}
 
 
-%BIBLIOGRAFÍA - PUEDES ELEGIR ENTRE ESTILO IEEE O APA. POR DEFECTO ESTÁ CONFIGURADO IEEE. SI DESEAS USAR APA, COMENTA LAS LÍNEA DE IEEE Y DESCOMENTA LAS DE APA. Si haces cambios en la configuración de la bibliografía y no obtienes los resultados esperados, es recomendable limpiar los archivos auxiliares y volver a compilar en este orden: COMPILAR-BIBLIOGRAFIA-COMPILAR
-
-% Tienes más información sobre cómo generar bibliografía y CONFIGURAR TU EDITOR DE TEXTO para compilar con biber en http://tex.stackexchange.com/questions/154751/biblatex-with-biber-configuring-my-editor-to-avoid-undefined-citations , https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX y en http://www.ctan.org/tex-archive/macros/latex/exptl/biblatex-contrib
+%BIBLIOGRAFÍA
 % También te recomendamos consultar la guía temática de la Biblioteca sobre citas bibliográficas: http://uc3m.libguides.com/guias_tematicas/citas_bibliograficas/inicio
 
 % CONFIGURACIÓN PARA LA BIBLIOGRAFÍA IEEE
-\usepackage[backend=biber, style=ieee, isbn=false,sortcites, maxbibnames=5, minbibnames=1]{biblatex} % Configuración para el estilo de citas de IEEE, recomendado para el área de ingeniería. "maxbibnames" indica que a partir de 5 autores trunque la lista en el primero (minbibnames) y añada "et al." tal y como se utiliza en el estilo IEEE.
-
-%CONFIGURACIÓN PARA LA BIBLIOGRAFÍA APA
-%\usepackage[style=apa, backend=biber, natbib=true, hyperref=true, uniquelist=false, sortcites]{biblatex}
-%\DeclareLanguageMapping{spanish}{spanish-apa}
+\usepackage[backend=biber, style=ieee, isbn=false,sortcites, maxbibnames=5, minbibnames=1]{biblatex} 
 
 % Añadimos las siguientes indicaciones para mejorar la adaptación de los estilos en español
 \DefineBibliographyStrings{spanish}{%
@@ -216,44 +197,42 @@ hmargin=3cm
 
 \begin{document}
 \pagenumbering{roman} % Se utilizan cifras romanas en la numeración de las páginas previas al cuerpo del trabajo
-	
+
 %----------
 %	PORTADA
 %----------	
 \begin{titlepage}
 	\begin{sffamily}
-	\color{azulUC3M}
-	\begin{center}
-		\begin{figure}[H] %incluimos el logotipo de la Universidad
-			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
-		\end{figure}
-		\vspace{2.5cm}
-		\begin{Large}
-			Grado en Ingeniería Informática\\			
-			2021-2022\\
-			\vspace{2cm}		
-			\textsl{Trabajo Fin de Grado}
-			\bigskip
-			
-		\end{Large}
-		 	{\Huge ``Título del trabajo''}\\
-		 	\vspace*{0.5cm}
-	 		\rule{10.5cm}{0.1mm}\\
+		\color{azulUC3M}
+		\begin{center}
+			\begin{figure}[H] %incluimos el logotipo de la Universidad
+				\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+			\end{figure}
+			\vspace{2.5cm}
+			\begin{Large}
+				Grado en Ingeniería Informática\\
+				2021-2022\\
+				\vspace{2cm}
+				\textsl{Trabajo Fin de Grado}
+				\bigskip
+
+			\end{Large}
+			{\Huge ``Diseño e implementación de un sistema de control ambiental y de videovigilancia para un CPD''}\\
+			\vspace*{0.5cm}
+			\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Jorge Rodríguez Fraile}\\ 
+			{\LARGE Jorge Rodríguez Fraile}\\
 			\vspace*{1cm}
-		\begin{Large}
-			Tutor/es\\
-			Nombre Apellido1 Apellido2\\
-			Nombre Apellido1 Apellido2\\
-			Lugar y fecha de presentación prevista\\
-		\end{Large}
-	\end{center}
-	\vfill
-	\color{black}
-	% si nuestro trabajo se va a publicar con una licencia Creative Commons, incluir estas líneas. Es la opción recomendada.
-	\includegraphics[width=4.2cm]{imagenes/creativecommons.png}\\ %incluimos el logotipo de creativecommons
-	Esta obra se encuentra sujeta a la licencia Creative Commons \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
+			\begin{Large}
+				Tutor\\
+				Javier Fernández Muñoz\\
+				Lugar y fecha de presentación prevista\\
+			\end{Large}
+		\end{center}
+		\vfill
+		\color{black}
+		\includegraphics[width=4.2cm]{imagenes/creativecommons.png}\\ %incluimos el logotipo de creativecommons
+		Esta obra se encuentra sujeta a la licencia Creative Commons \textbf{Reconocimiento - No Comercial - Sin Obra Derivada}
 	\end{sffamily}
 \end{titlepage}
 
@@ -266,19 +245,19 @@ hmargin=3cm
 %----------	
 \renewcommand\abstractname{\large\bfseries\filcenter\uppercase{Resumen}}
 \begin{abstract}
-\thispagestyle{plain}
-\setcounter{page}{3}
-	
+	\thispagestyle{plain}
+	\setcounter{page}{3}
+
 	% ESCRIBIR EL RESUMEN AQUÍ
-	
+
 	\textbf{Palabras clave:}
 	% Escribir las palabras clave aquí
-	
+
 	\vfill
 \end{abstract}
-	\newpage % página en blanco o de cortesía
-	\thispagestyle{empty}
-	\mbox{}
+\newpage % página en blanco o de cortesía
+\thispagestyle{empty}
+\mbox{}
 
 
 %----------
@@ -287,15 +266,15 @@ hmargin=3cm
 \chapter*{Dedicatoria}
 
 \setcounter{page}{5}
-	
-	% ESCRIBIR LA DEDICATORIA AQUÍ	
-		
-	\vfill
-	
-	\newpage % página en blanco o de cortesía
-	\thispagestyle{empty}
-	\mbox{}
-	
+
+% ESCRIBIR LA DEDICATORIA AQUÍ	
+
+\vfill
+
+\newpage % página en blanco o de cortesía
+\thispagestyle{empty}
+\mbox{}
+
 
 %----------
 %	ÍNDICES
@@ -331,6 +310,20 @@ hmargin=3cm
 \thispagestyle{empty}
 \mbox{}
 
+%--
+% Lista de abreviaturas
+%-
+\chapter*{lista de abreviaturas}
+\begin{tabbing}	 % https://site112.com/ordenar-lista-alfabeticamente
+	CPD	\quad\quad\=	Centro de Procesamiento de Datos \\
+	TFG	\>	Trabajo de Fin de Grado \\
+	UC3M	\>	Universidad Carlos III de Madrid
+\end{tabbing}
+
+\newpage % página en blanco o de cortesía
+\thispagestyle{empty}
+\mbox{}
+
 
 %----------
 %	TRABAJO
@@ -339,8 +332,70 @@ hmargin=3cm
 \pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
 
 \chapter{Introducción}
+\section{Motivación del trabajo}
 
-	% COMENZAR A ESCRIBIR EL TRABAJO
+\section{Objetivos}
+
+\section{Metodología}
+
+\section{Estructura del documento}
+
+
+
+\chapter{Estado del arte}
+\section{Soluciones actuales}
+
+\section{Critica al estado del arte}
+
+\section{Propuesta}
+
+
+
+\chapter{Análisis del sistema}
+\section{Requisitos de usuario}
+
+\section{Casos de uso}
+
+\section{Requisitos de software}
+
+\section{Matriz de trazabilidad}
+
+
+
+\chapter{Diseño del sistema}
+\section{Arquitectura}
+
+\section{Modelo de datos}
+
+\section{Interfaz}
+
+
+
+\chapter{Implementación}
+
+
+
+\chapter{Pruebas}
+
+
+
+\chapter{Gestión del proyecto}
+\section{Planificación}
+
+\section{Presupuesto}
+
+
+
+\chapter{Marco regulador}
+
+
+
+\chapter{Conclusiones}
+\section{Conclusiones del proyecto}
+
+\section{Conclusiones personales}
+
+\section{Líneas futuras}
 
 
 
@@ -348,7 +403,7 @@ hmargin=3cm
 %	BIBLIOGRAFÍA
 %----------	
 
-%\nocite{*} % Si quieres que aparezcan en la bibliografía todos los documentos que la componen (también los que no estén citados en el texto) descomenta está lína
+\nocite{*} % Si quieres que aparezcan en la bibliografía todos los documentos que la componen (también los que no estén citados en el texto) descomenta está lína
 
 \clearpage
 \addcontentsline{toc}{chapter}{Bibliografía}
