@@ -1,7 +1,82 @@
 \chapter{Gestión del proyecto}
 \label{ch:gestion}
 \section{Planificación}
-EXPLICAR COMO SE ORGANIZARAN LAS DISTINTAS FASES, ACOMPAÑADO DE UN GANTT
+EXPLICAR LOS PLAZOS DEL PROYECTO Y DECIR QUE SE HA DISTRIBUIDO EN EL TIEMPO COMO SE INDICARA EN LA SIGUIENTE SECCIÓN
+
+\subsection{Desglose por fases}
+EXPLICAR BREVEMENTE LAS FASES Y PONER TABLA DE FASES
+
+\subsection{Diagrama de Gantt}
+EXPLICAR QUE NOS APOYAMOS EN ESTA REPRESENTACIÓN DAR CLARIDAD
+
+\ganttset{calendar week text= \small {\startday/\startmonth}}
+\begin{figure}[H]
+  \ffigbox[\FBwidth]
+  {\caption{Diagrama de Gantt}} % Hasta determinar fechas se ha puesto 27-06-2021 que no se utiliza para facilitar el remplazo
+  {\resizebox{\textwidth}{!}{%
+      \begin{ganttchart}[
+        x unit=1.5mm,
+        time slot format=little-endian,
+        hgrid style/.style={dotted, line width=.75pt},
+        vgrid={*6{draw=black!5, line width=.75pt},*1{dash pattern=on 3.5pt off 4.5pt}},
+        bar label font=\mdseries\small\color{black!70},
+        bar/.append style={draw=none, fill=ganttblue},
+        group left shift=0,
+        group right shift=0,
+        group peaks tip position=0,
+        ]{21-06-2021}{16-1-2022}
+        \gantttitlecalendar{year, month=name, week} \\[grid]
+        
+        \ganttbar{Propuesta}{29-06-2021}{23-07-2021}\\[grid]
+        
+        \ganttbar{Documentación previa}{15-07-2021}{03-08-2021}\\[grid]
+        
+        \ganttgroup{Introducción}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Motivación}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Objetivos}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Metodología}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Estado del arte}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Soluciones actuales}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Critica al estado del arte}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Propuesta}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Análisis}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Requisitos de usuario }{27-06-2021}{27-06-2021}\\
+        \ganttbar{Casos de uso}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Requisitos de software}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Matrices de trazabilidad}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Diseño}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Arquitectura}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Modelo de datos}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Interfaz}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Implementación}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Programación Raspberry}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Programación web}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Creación base de datos}{03-08-2021}{04-08-2021}\\[grid]
+        
+        \ganttbar{Pruebas}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Gestión del proyectos}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Planificación}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Presupuestos}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttbar{Marco regulador}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Conclusiones}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Conclusiones del proyecto}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Conclusiones personales}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Líneas futuras}{27-06-2021}{27-06-2021}\\[grid]
+        
+        \ganttgroup{Redacción}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Resumen}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Dedicatoria}{27-06-2021}{27-06-2021}\\
+        \ganttbar{Abreviaturas}{27-06-2021}{27-06-2021}\\[grid]
+      \end{ganttchart} %
+    }}
+\end{figure}
 
 \section{Presupuesto}
 PONER BREVE INTRODUCCIÓN Y PONER EL COSTE TOTAL
@@ -13,31 +88,31 @@ PONER DESGLOSE POR CARGO Y TABLA CON EL COSTE TOTAL
 EXPLICACIÓN BREVE DE LOS PRECIOS Y DEL COMPUTO DE LA AMORTIZACIÓN CON SUS TIEMPOS DE VIDA\cite{electronic_lifetime}
 
 \begin{table}[H]
-	\centering
-	\caption{Coste de amortización del equipo}
-	\label{tab:amortizacion}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{l|r|cccc|r|}
-			\hline
-			\multicolumn{1}{|c|}{\textbf{Descripción}}   & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Coste\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Unidades}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}\% Uso\\ dedicado\\ proyecto\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Dedicación\\ (meses)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Periodo de\\ depreciación\end{tabular}}  & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Coste\\ imputable\end{tabular}}} \\ \hline
-			\multicolumn{1}{|l|}{MacBook Pro 13” 256 GB} & 2,000.00 €                                              & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 48                                  & 333.33 €                                                \\ \hline
-			\multicolumn{1}{|l|}{Hub USB Tipo C}         & 30.54 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 4.07 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{OnePlus 6 8 GB 128 GB}  & 487.69 €                                                & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 36                                  & 108.38 €                                                \\ \hline
-			\multicolumn{1}{|l|}{Raspberry Pi 3 B+}      & 47.95 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 6.39 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Alimentador 5 V}        & 6.53 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.87 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Verbatim Micro SDHC}    & 3.90 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.52 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Jumpers}                & 5.49 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.73 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Cable Ethernet}         & 3.00 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.40 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{VMA311}                 & 5.29 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.71 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Protoboard}             & 3.50 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.47 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{Ov5647 x2}              & 15.99 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 2.13 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{SDS011}                 & 30.19 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 4.03 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{MQ7 x2}                 & 10.00 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 1.33 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{MCP3008}                & 5.14 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 0.69 €                                                  \\ \hline
-			\multicolumn{1}{|l|}{MH-Z14A}                & 35.99 €                                                 & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                & \multicolumn{1}{c|}{8}                                  & 60                                  & 4.80 €                                                  \\ \hline
-			\multicolumn{1}{r|}{\textbf{Total}}          & 2,691.20 €                                              & \multicolumn{1}{l}{}                   & \multicolumn{1}{l}{}                                    & \multicolumn{1}{l}{}                                    & \multicolumn{1}{r|}{\textbf{Total}} & \textbf{468.84 €}                                       \\ \cline{2-2} \cline{7-7}
-		\end{tabular}%
-	}
+  \centering
+  \caption{Coste de amortización del equipo}
+  \label{tab:amortizacion}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|r|cccc|r|}
+      \hline
+      \multicolumn{1}{|c|}{\textbf{Descripción}}   & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Coste\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Unidades}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}\% Uso\\ dedicado\\ proyecto\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Dedicación\\ (meses)\end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}Periodo de\\ depreciación\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Coste\\ imputable\end{tabular}}} \\ \hline
+      \multicolumn{1}{|l|}{MacBook Pro 13” 256 GB} & 2,000.00 €                                                  & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 48                                     & 333.33 €                                                    \\ \hline
+      \multicolumn{1}{|l|}{Hub USB Tipo C}         & 30.54 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 4.07 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{OnePlus 6 8 GB 128 GB}  & 487.69 €                                                    & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 36                                     & 108.38 €                                                    \\ \hline
+      \multicolumn{1}{|l|}{Raspberry Pi 3 B+}      & 47.95 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 6.39 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Alimentador 5 V}        & 6.53 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.87 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Verbatim Micro SDHC}    & 3.90 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.52 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Jumpers}                & 5.49 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.73 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Cable Ethernet}         & 3.00 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.40 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{VMA311}                 & 5.29 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.71 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Protoboard}             & 3.50 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.47 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{Ov5647 x2}              & 15.99 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 2.13 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{SDS011}                 & 30.19 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 4.03 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{MQ7 x2}                 & 10.00 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 1.33 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{MCP3008}                & 5.14 €                                                      & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 0.69 €                                                      \\ \hline
+      \multicolumn{1}{|l|}{MH-Z14A}                & 35.99 €                                                     & \multicolumn{1}{c|}{1}                 & \multicolumn{1}{c|}{100}                                    & \multicolumn{1}{c|}{8}                                      & 60                                     & 4.80 €                                                      \\ \hline
+      \multicolumn{1}{r|}{\textbf{Total}}          & 2,691.20 €                                                  & \multicolumn{1}{l}{}                   & \multicolumn{1}{l}{}                                        & \multicolumn{1}{l}{}                                        & \multicolumn{1}{r|}{\textbf{Total}}    & \textbf{468.84 €}                                           \\ \cline{2-2} \cline{7-7}
+    \end{tabular}%
+  }
 \end{table}
 
 \subsection{Material fungible}

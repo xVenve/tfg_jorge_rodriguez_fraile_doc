@@ -12,6 +12,7 @@
 % DEFINICIÓN DE COLORES para portada y listados de código
 \usepackage[table]{xcolor}
 \definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{ganttblue}{RGB}{51,102,254}
 \definecolor{gray97}{gray}{.97}
 \definecolor{gray75}{gray}{.75}
 \definecolor{gray45}{gray}{.45}
@@ -36,6 +37,7 @@
 
 \usepackage[spanish, es-tabla]{babel}
 \usepackage[babel, spanish=spanish]{csquotes}
+\usepackage{translator}
 \AtBeginEnvironment{quote}{\small}
 
 % diseño de PIE DE PÁGINA
@@ -129,6 +131,9 @@
 % LISTADOS DE CÓDIGO
 % soporte y estilo para listados de código. Más información en https://es.wikibooks.org/wiki/Manual_de_LaTeX/Listados_de_código/Listados_con_listings
 \usepackage{listings}
+
+% DIAGRAMA DE GANTT
+\usepackage{pgfgantt}
 
 % definimos un estilo de listings
 \lstdefinestyle{estilo}{ frame=Ltb,
