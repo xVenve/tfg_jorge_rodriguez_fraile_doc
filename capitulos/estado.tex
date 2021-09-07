@@ -1,29 +1,39 @@
 \chapter{Estado del arte}
 \label{ch:estado}
-En este capítulo se presentan de una manera más detallada cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. Después se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, esto nos dará una visión general de la situación para desarrollar nuestro sistema. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten.
+En este capítulo se presentan de una manera más detallada cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. Después se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
 
 \section{Seguridad física en los CPD}
-\noindent Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE) para construir un CPD seguro es necesario tener en cuenta las siguientes áreas \cite{noauthor_pon_2015}:
+Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE) para construir un CPD seguro es necesario tener en cuenta las siguientes áreas \cite{noauthor_pon_2015}:
 \begin{itemize}
-	\item \textbf{Control de acceso:} Es uno de los aspectos de seguridad más importantes para tener en cuenta porque nos permite evitar que personas ajenas puedan acceder a estos recintos y hagan un uso indebido de las instalaciones o provoque daños intencionadamente. Del mismo modo se tiene controlado al personal autorizado que pueda entrar en el recinto con intención de perjudicar a la empresa, manteniendo un registro de todos los accesos. Pueden instalarse sistema de acceso por huella digital, verificación de voz, lectores de tarjetas, etc. También se debe asegurar que la sala no pueda ser accedida por la fuerza, con puertas blindadas, o quede accidentalmente abierta, con una alarma si esto ocurre.
-	\item \textbf{Seguimiento dentro de la sala:} Como complemento al anterior, es conveniente saber que se hace en cada momento en el interior de estas salas por parte del personal autorizado. Esto se consigue con la instalación de equipos de videovigilancia o un circuito cerrado de televisión (CCTV).
+	\item \textbf{Control de acceso:} Es uno de los aspectos de seguridad más importantes a tener en cuenta, porque nos permite evitar que personas ajenas puedan acceder a estos recintos y hagan un uso indebido de las instalaciones o provoque daños intencionadamente, del mismo modo, se tiene controlado al personal autorizado que pueda entrar en el recinto con intención de perjudicar a la empresa, manteniendo un registro de todos los accesos. Pueden instalarse sistema de acceso por huella digital, verificación de voz, lectores de tarjetas, etc. 
+	
+	También se debe asegurar que no se pueda acceder a la sala mediante el empleo de la fuerza, con la instalación de puertas blindadas o acorazadas, o sistemas que eviten que las puertas puedan quedar abiertas accidentalmente, mediante el uso de sistemas de alarma si esto ocurre.
+	\item \textbf{Seguimiento dentro de la sala:} Como complemento a lo anterior, es conveniente tener conocimiento de todo lo que haga el personal autorizado en el interior de estos recintos en cada momento. Esto se consigue con la instalación de equipos de videovigilancia o un circuito cerrado de televisión (CCTV).
 	\item \textbf{Dificultar la identificación del CPD:} Dentro de lo posible es conveniente que el menor número de personas posible tenga conocimiento de la ubicación exacta del CPD, para evitar cualquier manipulación.
-	\item \textbf{Medidas contra incendios:} Aparte de estar construidos con materiales resistentes a altas temperaturas o ignífugos, se tienen sensores de humo y calor que permiten detectar si se está produciendo un incendio. En cuento se detecta un incendio, se activa el sistema de extinción por gas, para evitar dañar los equipos, y estos sistemas pasan revisiones periódicamente para su correcto funcionamiento.
+	\item \textbf{Medidas contra incendios:} Aparte de estar construidos con materiales resistentes a altas temperaturas o ignífugos, existirán sensores de humo y calor que permiten detectar si se está produciendo un incendio. En cuanto se detecte un incendio, se activará el sistema de extinción por gas, para evitar dañar los equipos. Estos sistemas pasarán revisiones periódicamente para su correcto funcionamiento.
 	      \pagebreak
-	\item \textbf{Seguridad del cableado:} Se emplea cableado apantallado para evitar acoplamientos o interferencias, además se tienen claramente diferenciados los cables según su función, como los de alimentación y de comunicaciones, para facilitar el mantenimiento del CPD.
-	\item \textbf{Medidas contra problemas de suministro eléctrico:} Es otro de los aspectos fundamentales de los CPD que permite mantener la disponibilidad del servicio y evitar la pérdida o dañado de los datos. Las medidas que se toman son implantar un mecanismo de redundancia eléctrica para poder soportar los cortes de luz o subidas de tensión, como son los Sistemas de Alimentación Ininterrumpida (SAI) o grupos electrógenos.
-	\item \textbf{Suelo y techo técnico:} Este suelo nos permite elevar los equipos y llevar todo el cableado por debajo, de esta manera está todo más limpio para que fluya la ventilación. El techo por otro lado permite instalar el sistema de ventilación oculto en el techo y extraer mejor el aire caliente. Ambos sistemas son muy importantes para el reducir el consumo de energía empleado para climatizar, hasta en un 45\% \cite{noauthor_suelo_2020}, además de permitir el correcto movimiento del flujo de aire por la sala. Otra función que ofrecen es evitar los daños por inundación.
-	\item \textbf{Sistema de climatización:} Se encarga de controlar la temperatura y humedad de la sala regulando el enfriamiento, ventilación, humidificación y flujo de aire, aunque hay sistemas que climatizan a través de agua o están inmersos en fluido dieléctrico. También hay sistemas que controlan la calidad del aire y los gases. Las medidas ambientales recomendadas internacionalmente son: para la temperatura 18 °C - 27 °C y para la humedad 40 \% - 60 \% \cite{noauthor_recommended_nodate}.
+	\item \textbf{Seguridad del cableado:} Se emplea cableado apantallado para evitar acoplamientos o interferencias, además de estar claramente diferenciados según su función, como los de alimentación y de comunicaciones, para facilitar el mantenimiento del CPD.
+	\item \textbf{Medidas contra problemas de suministro eléctrico:} Es otro de los sistemas fundamentales en los CPD, que permite mantener el suministro eléctrico necesario para garantizar la disponibilidad del servicio y evitar la pérdida o dañado de los datos y de los propios equipos. Las medidas que se toman a este respecto son la implantación de mecanismos de redundancia eléctrica para que los servidores no pierdan la alimentación eléctrica en caso de un corte de la empresa suministradora, como son los Sistemas de Alimentación Ininterrumpida (SAI) o grupos electrógenos.
+	\item \textbf{Suelo y techo técnico:} Este tipo de suelos nos permiten, a la vez que elevar los equipos respecto al nivel original de la sala, distribuir todo el cableado necesario por debajo de él, siendo más fácil el mantenimiento, quedando la sala más limpia y despejada y garantizando una ventilación que evite sobrecalentamientos. El techo técnico permite lo mismo que el suelo, pero con las instalaciones por encima de un falso techo registrable permitiendo a la vez instalar el propio sistema de climatización de la sala. Ambos sistemas son muy importantes para el reducir el consumo de energía empleado para climatizar, hasta en un 45\% \cite{noauthor_suelo_2020}, además de permitir un constante movimiento del flujo de aire por la sala. Otra función que ofrecen es evitar los daños por inundación.
+	\item \textbf{Sistema de climatización:} Se encarga de controlar la temperatura y humedad de la sala regulando el enfriamiento, ventilación, humidificación y flujo de aire. También existen sistemas que mantienen la temperatura idónea de los equipos mediante refrigeración líquida e incluso inmersos en fluidos dieléctricos.
+	
+	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \% \cite{noauthor_recommended_nodate}.
 \end{itemize}
 
 \section{Soluciones actuales}
-En esta sección se presentarán cuáles son las alternativas que existen actualmente y que tienen el mismo propósito que el sistema que se va a desarrollar en este proyecto. \\ Como se trata de un sistema de control ambiental y videovigilancia, no cubriremos todos los aspectos de seguridad que se han presentado en la sección anterior, pero sí Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización. \\ INCOMPLETO, FALTAN ENCONTRARLAS
+En esta sección se presentarán cuáles son las alternativas que existen actualmente y que tienen el mismo propósito que el sistema que se va a desarrollar en este proyecto.
+
+Como se trata de un sistema de control ambiental y videovigilancia no cubriremos todos los aspectos de seguridad que se han presentado en la sección anterior, pero sí se desarrollaran: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
+
+INCOMPLETO, FALTA ENCONTRARLAS
 
 \section{Critica al Estado del arte}
 PUNTOS FUERTES DE CADA UNA
 
 \section{Propuesta}
-El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones que dispondrá de una placa y una serie de sensores, que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser visionada mediante una web. \\ Este dispositivo constará de las siguientes funcionalidades:
+El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones que dispondrá de una placa y una serie de sensores, que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
+
+Este dispositivo constará de las siguientes funcionalidades:
 \begin{itemize}
 	\item Proporcionar imagen en tiempo real del interior de la sala, que nos permitirá ver lo que ocurre y poder actuar de una manera eficaz ante cualquier circunstancia adversa que lo requiera. La imagen podrá ser vista, aparte de por el personal de seguridad si es que existe en el propio edificio, también por vía IP por la persona o personas encargadas de la misma mediante la clave necesaria.
 	\item Controlar la temperatura y humedad ambiental de la sala, para detectar posibles fallos en el sistema de climatización o fugas de agua de instalaciones próximas que puedan provocar la entrada de agua en el recinto.
@@ -32,7 +42,7 @@ El sistema que se va a desarrollar consistirá en un dispositivo de reducidas di
 \end{itemize}
 
 \section{Estudio de Alternativas de Solución}
-\noindent En esta sección se presentarán las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la sección anterior.
+En esta sección se presentarán las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la sección anterior.
 
 \subsection{Alternativas: Placa}
 Para comenzar debemos analizar cuáles son las posibles placas sobre las que podemos desarrollar nuestro dispositivo. Las placas que se buscan deben ser programables y permitirnos instalar una serie de sensores que podamos monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation. 
@@ -44,7 +54,9 @@ Para comenzar debemos analizar cuáles son las posibles placas sobre las que pod
 		\input{./imagenes/Raspberry_Pi_Logo.eps_tex}}
 \end{figure}
 
-Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste que comenzaron a venderse en 2012, ideales para proyectos de electrónica que requieran de una máquina potente de reducidas de dimensiones. Cuenta con su propio sistema operativo y es capaz de funcionar como un ordenador completo. Todas las versiones incluyen un procesador Broadcom, RAM, GPU, conexión de cámara y 40 pines GPIO (Entrada/Salida de Propósito General), pero no cuentan con memoria interna y debe ser añadida por MicroSD \cite{noauthor_raspberry_2021}. \\ A continuación se presentan las valoradas para este proyecto, que consisten en el modelo reducido para domótica y los dos modelos más recientes \cite{noauthor_raspberry_nodate}:
+Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste, que comenzaron a venderse en 2012 y son las ideales para proyectos de electrónica que requieran de una máquina potente de reducidas de dimensiones. Cuenta con su propio sistema operativo y es capaz de funcionar como un ordenador completo. Todas las versiones incluyen un procesador Broadcom, RAM, GPU, conexión de cámara y 40 pines GPIO (Entrada/Salida de Propósito General), pero no cuentan con memoria interna y debe ser añadida por MicroSD \cite{noauthor_raspberry_2021}.
+
+A continuación se presentan las valoradas para este proyecto, que son el modelo reducido para domótica y los dos modelos más recientes \cite{noauthor_raspberry_nodate}:
 \begin{figure}[!htb]
 	\minipage{0.32\textwidth}
 	\includegraphics[width=\linewidth]{raspberry-pi-zero.jpg}
@@ -80,12 +92,12 @@ Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste que comenz
 \end{table}
 
 \subsection{Alternativas: Componentes}
-Se estudiarán los diferentes sensores y cámaras que se podrán integrar en el dispositivo para controlar el estado y ambiente de la sala con la finalidad de mantener la seguridad de los equipos que se encuentra en la misma.
+Se estudiarán los diferentes sensores y cámaras que se podrán integrar en el dispositivo, para controlar el estado y ambiente de la sala con la finalidad de mantener la seguridad de los equipos que se encuentra en la misma.
 
 \paragraph{Sensores}\mbox{} \\
-Como se explicó en la propuesta se han buscado sensores capaces de captar temperatura, humedad, CO, CO$_2$ y de calidad del aire. A continuación se exponen los sensores que se han encontrado que cubren estas necesidades y que más tarde decidiremos si se adaptan al proyecto.
+Como se explicó en la propuesta se han buscado sensores capaces de captar temperatura, humedad, CO, CO$_2$ y la calidad del aire. A continuación se exponen los sensores que se han encontrado y que cubren estas necesidades. Más adelante decidiremos si se adaptan al proyecto.
 
-\noindent Comencemos con el sensor de temperatura y humedad que es frecuente que ambos aparezcan juntos en el mismo sensor \cite{noauthor_comparing_2019}:
+Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos aparezcan juntos en el mismo sensor \cite{noauthor_comparing_2019}:
 
 \begin{table}[H]
 	\centering
@@ -108,7 +120,7 @@ Como se explicó en la propuesta se han buscado sensores capaces de captar tempe
 	}
 \end{table}
 
-\noindent Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7 cuyas especificaciones son las siguientes:
+Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7, cuyas especificaciones son las siguientes.
 
 \minipage{0.5\textwidth}
 \begin{figure}[H]
@@ -136,7 +148,8 @@ Como se explicó en la propuesta se han buscado sensores capaces de captar tempe
 \end{table}
 \endminipage
 
-\noindent Ahora se mostrarán los sensores de dióxido de carbono (CO$_2$) que se han considerado para este proyecto.
+\pagebreak
+A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se han considerado para este proyecto.
 
 \begin{table}[H]
 	\centering
@@ -153,7 +166,7 @@ Como se explicó en la propuesta se han buscado sensores capaces de captar tempe
 	}
 \end{table}
 
-\noindent Por último, antes de pasar a la parte de videovigilancia se mostrarán las especificaciones del módulo de calidad de aire que se ha encontrado más adecuado. En este caso no se mostrarán varias posibilidades dado que no hay muchos módulos que solo incorporen este tipo de sensor, todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir la materia particulada (PM) de 2.5 y 10 micrómetros, cuyas características son las siguientes \cite{noauthor_nova_nodate}:
+Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad de aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir la materia particulada (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes \cite{noauthor_nova_nodate}:
 
 \minipage{0.5\textwidth}
 \begin{figure}[H]
@@ -183,6 +196,7 @@ Como se explicó en la propuesta se han buscado sensores capaces de captar tempe
 \end{table}
 \endminipage
 
+\pagebreak
 \paragraph{Cámaras}\mbox{} \\
 Las cámaras que se presentan a continuación han sido buscadas con la intención de que sean compatibles con la Raspberry Pi, por lo que su conexión debe ser mediante la CSI de la placa. Se han propuesto una serie de cámaras con diferentes categorías\cite{cholewiak_raspberry_2017}, algunas cuentan con una mejor resolución, angular o ambos. Aun así las cuatro cámaras tienen los mismos modos de grabación: 1080p30, 720p60 y 640×480p60/90.
 
@@ -203,10 +217,10 @@ Las cámaras que se presentan a continuación han sido buscadas con la intenció
 \end{table}
 
 \section{Hardware y Software seleccionado}
-\noindent En esta sección se escogerá una solución de entre las expuestas en las subsecciones antes descritas.
+En esta sección se escogerá una solución de entre las expuestas en las subsecciones antes descritas.
 
 \subsection{Placa}
-Entre las tres placas que se han valorado, aunque la Zero está más pensada para dispositivos ligeros y compactos, se ha decidido descartarla por sus reducidas capacidades y la falta de wifi o ethernet que requerirían un módulo extra para obtener conexión a internet. Entre las dos restantes se ha optado por la Raspberry Pi 3B+ porque ante la similitud de características de las placas y su coste, esta tenía más disponibilidad en el mercado y el suministro era más rápido. 
+Entre las tres placas que se han valorado, aunque la Zero está más pensada para dispositivos ligeros y compactos, se ha decidido descartarla por sus reducidas capacidades y la falta de wifi o ethernet que requerirían un módulo extra para obtener conexión a internet. Entre las dos restantes se ha optado por la Raspberry Pi 3B+, porque ante la similitud de características de las placas y su coste, esta tenía más disponibilidad en el mercado y el suministro era más rápido. 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Esquema de Raspberry Pi 3 B+}}
@@ -215,7 +229,7 @@ Entre las tres placas que se han valorado, aunque la Zero está más pensada par
 En cuanto al sistema operativo que se emplea en esta placa, se ha decidido utilizar Raspbian que es una distribución de Linux basado en Debian que está altamente optimizada para estas placas, además por tratarse de un sistema operativo que es conocido por el programador que llevara a cabo el desarrollo.
 
 \subsection{Componentes}
-El sensor de temperatura y humedad que se ha evaluado como la mejor opción ha sido el DHT11. Por un precio reducido es capaz de medir tanto temperatura como humedad, ambas en el rango en el que se mueven las medidas en un CPD (18 °C - 27 °C y  40 \% - 60 \%) con una precisión aceptable. La decisión por el DHT11 y no el DHT22 ha sido que tiene un mayor coste y sus superan con mucho las temperaturas que se mediaran, desaprovechando sus capacidades.
+El sensor de temperatura y humedad que se ha elegido como la mejor opción ha sido el DHT11. Por un precio reducido es capaz de medir tanto temperatura como humedad, ambas en el rango en el que se mueven las medidas en un CPD (18 °C - 27 °C y  40 \% - 60 \%) con una precisión aceptable. La decisión por el DHT11 y no el DHT22 ha sido que tiene un mayor coste y supera, con mucho, las temperaturas que se medirían, desaprovechando sus capacidades.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Sensor DHT11}}
@@ -227,9 +241,9 @@ El sensor de CO$_2$ por el que nos hemos decantado ha sido el MH-Z14A, que ante 
 	{\caption{Sensor MH-Z14A}}
 	{\includegraphics[scale=0.4]{MH-Z14A.jpg}}
 \end{figure}
-Con respecto al sensor de CO como al de calidad el aire, como se ha explicado anteriormente se ha escogido el MQ-7 y SDS011 por la falta de variedad y disponibilidad en esta clase de sensores, pero esto no ha hecho que se hayan escogido componentes de peor calidad o que no vayan a desempeñar su función adecuadamente.
+Con respecto al sensor de CO y al de calidad el aire, se ha escogido el MQ-7 y SDS011 por la falta de variedad y disponibilidad en esta clase de sensores, pero esto no ha hecho que se hayan escogido componentes de peor calidad o que no vayan a desempeñar su función adecuadamente.
 
-En cuanto a la cámara tras analizar las especificaciones de las candidatas se ha decidido que la que mejor se adapta al proyecto es la Raspberry Pi Camera. Se ha seleccionado esta cámara dado que todas ellas graban con las mismas resoluciones y frecuencias de cuadros, y como se trata de un dispositivo orientado a videovigilancia no buscamos que la resolución de las fotos sea la mejor, sino que pueda proporcionar una buena imagen a tiempo real por un bajo coste. Además el angular de la Raspberry Pi Camera es suficiente para captar lo que se encuentra dentro de la sala.
+En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se ha decidido que la que mejor se adapta al proyecto es la Raspberry Pi Camera. Se ha seleccionado esta cámara dado que todas ellas graban con las mismas resoluciones y frecuencias de cuadros, y como se trata de un dispositivo orientado a videovigilancia no buscamos que la resolución de las fotos sea la mejor, sino que pueda proporcionar una buena imagen a tiempo real por un bajo coste. Además el angular de la Raspberry Pi Camera es suficiente para captar lo que se encuentra dentro de la sala.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Modulo Raspberry Pi Camera}}
@@ -237,7 +251,7 @@ En cuanto a la cámara tras analizar las especificaciones de las candidatas se h
 \end{figure}
 
 \subsection{Lenguajes de programación}
-En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo llevara a cabo, estos lenguajes serán PHP para la web y Python para el dispositivo
+En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo llevara a cabo, estos lenguajes son PHP para la web y Python para el dispositivo.
 
 \paragraph{PHP}\mbox{} \\
 \begin{figure}[H]
@@ -245,7 +259,9 @@ En esta subsección se expondrán los lenguajes que se emplearán tanto para el 
 	{\caption{Logo PHP}}
 	{\includegraphics[scale=0.08]{phplogo.jpg}}
 \end{figure}
-PHP (Hypertext Preprocessor)\cite{welling_php_2003} es un lenguaje de programación para desarrollo web de código abierto desde el lado del servidor creado originalmente en 1994 por Rasmus Lerdorf, aunque hoy en día es producido por The PHP Group. Este lenguaje puede ser embebido en una página HTML para que se ejecute cada vez que sea visualizado, el código en este lenguaje es interpretado por el servidor para convertirlo en otro lenguaje de salida. \\ Es el más utilizado en toda la red en abril de 2021 \cite{noauthor_usage_nodate} con un 79\% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor en 2021.
+PHP (Hypertext Preprocessor)\cite{welling_php_2003} es un lenguaje de programación para desarrollo web de código abierto desde el lado del servidor, creado originalmente en 1994 por Rasmus Lerdorf, aunque hoy en día es producido por The PHP Group. Este lenguaje puede ser embebido en una página HTML para que se ejecute cada vez que sea visualizado, el código en este lenguaje es interpretado por el servidor para convertirlo en otro lenguaje de salida.
+
+Es el más utilizado en toda la red en abril de 2021 \cite{noauthor_usage_nodate} con un 79\% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor en 2021.
 
 Para desarrollar la web se utilizará el editor de código fuente Visual Studio Code, editor multiplataforma de código abierto creado por Microsoft en 2015 \cite{noauthor_visual_2021} que dispone de infinidad de extensiones para facilitar el desarrollo en cualquier lenguaje de programación.
 
@@ -255,9 +271,11 @@ Para desarrollar la web se utilizará el editor de código fuente Visual Studio 
 	{\caption{Logo Python}}
 	{\includegraphics[scale=0.1]{Python-logo.jpg}}
 \end{figure}
-Python es un lenguaje de programación de alto nivel interpretado desarrollado por la Python Software Foundation en 1991 \cite{montoro_python_2012} cuya intención es facilitar la legibilidad del código, haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década llegando a ser uno de los lenguajes de propósito general más extendidos, puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
+Python es un lenguaje de programación de alto nivel interpretado desarrollado por la Python Software Foundation en 1991 \cite{montoro_python_2012}, cuya intención es facilitar la legibilidad del código haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década llegando a ser uno de los lenguajes de propósito general más extendidos, puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
 
-Para programar todo el comportamiento del dispositivo se empleará este lenguaje por su sencillez y utilidad, el IDE que empleara el programador será PyCharm Professional edition creado por JetBrains en 2010 \cite{noauthor_pycharm_2021} al que se tiene acceso gracias a la licencia de estudiante, aunque también hay una edición gratuita llamada Community edition. \\ Se ha decidido el uso de este, en vez de emplear también Visual Studio Code, al estar orientado al desarrollo de programas en Python y por la posibilidad de conectarse vía SSH con la Raspberry Pi para sincronizar los programas y facilitar el proceso.
+Para programar todo el comportamiento del dispositivo se empleará este lenguaje por su sencillez y utilidad, el IDE que empleara el programador será PyCharm Professional edition creado por JetBrains en 2010 \cite{noauthor_pycharm_2021} al que se tiene acceso gracias a la licencia de estudiante, aunque también hay una edición gratuita llamada Community edition.
+
+Se ha decidido el uso de este, en vez de emplear también Visual Studio Code, al estar orientado al desarrollo de programas en Python y por la posibilidad de conectarse vía SSH con la Raspberry Pi para sincronizar los programas y facilitar el proceso.
 
 \subsection{Servidor y Base de datos}
 \begin{figure}[H]
