@@ -1,8 +1,8 @@
 \chapter{Análisis del sistema}
 \label{ch:analisis}
-En este capítulo se explicará de qué es capaz el producto desarrollado. Comienza con una descripción del sistema de una manera detallada, después se extraerán los requisitos de usuario y casos de uso, que nos permiten hacernos una idea clara de lo que necesita el sistema y poder conceptualizarlo en forma de requisitos de software. En último lugar se establecerá la relación entre los requisitos de usuario y los de software en una matriz de trazabilidad, pudiendo así comprobar que todas las peticiones del usuario han sido tenidas en cuenta.
+En este capítulo se explica de qué es capaz el producto desarrollado. Comienza con una descripción del sistema de una manera detallada, a continuación se extraerán los requisitos de usuario y casos de uso, lo que nos permite hacernos una idea clara de lo que necesita el sistema y así poder conceptualizarlo en forma de requisitos de software. En último lugar se establece la relación entre los requisitos de usuario y los de software en una matriz de trazabilidad, pudiendo así comprobar que todas las peticiones del usuario han sido tenidas en cuenta.
 
-Además, este capítulo sirve como base para los siguientes, como son el de Diseño y el de Implementación, en los que, basándose en los requisitos recogidos, se empezara a dar forma al sistema.
+Además, este capítulo sirve como base para los siguientes, como son el de Diseño y el de Implementación, en los que basándose en los requisitos recogidos se empezara a dar forma al sistema.
 
 \section{Definición del Sistema}
 El propósito de este proyecto es desarrollar un dispositivo que nos proporcione videovigilancia y medidas de diferentes factores ambientales, para garantizar la seguridad de un CPD. Las diferentes medidas que se tomen se almacenaran para poder ser consultadas junto con la imagen de videovigilancia a través de una plataforma web.
@@ -78,7 +78,7 @@ Como se puede ver en el diagrama el sistema consistirá en:
 \end{itemize}
 
 \section{Requisitos de usuario}
-En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto en forma de requisitos de usuario que serán mostrados según la siguiente plantilla.
+En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto, en forma de requisitos de usuario, que serán mostrados según la siguiente plantilla.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Requisitos de Usuario}
@@ -98,7 +98,7 @@ En esta sección se recogen todas exigencias que el cliente nos solicita para es
 	\item \textbf{Nombre:} Nombre representativo del asunto del requisito.
 	\item \textbf{Descripción:} Exposición más detallada del requisito.
 	\item \textbf{Prioridad:} Indica si debe ser considerado desde el principio o si por el contrario puede retrasarse. Puede ser: Alta, Mediana o Baja.
-	\item \textbf{Necesidad:} Importancia del requisito sobre el sistema, pudiendo ser: Esencia, Deseable u Opcional.
+	\item \textbf{Necesidad:} Importancia del requisito sobre el sistema, pudiendo ser: Esencial, Deseable u Opcional.
 	\item \textbf{Fuente:} Procedencia del requisito.
 	\item \textbf{Versión:} Indica si ha sufrido variaciones a lo largo del tiempo.
 \end{itemize}
@@ -139,7 +139,7 @@ Los requisitos de usuario son los siguientes:
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-0\number\ru}}} \\ \hline
-		\textbf{Nombre}      & Medir la CO                                                                                                           \\ \hline
+		\textbf{Nombre}      & Medir el CO                                                                                                           \\ \hline
 		\textbf{Descripción} & El dispositivo debe contar con un sensor capaz medir el monóxido de carbono de la sala entre los valores establecidos \\ \hline
 		\textbf{Prioridad}   & Media                                                                                                                 \\ \hline
 		\textbf{Necesidad}   & Deseable                                                                                                              \\ \hline
@@ -251,12 +251,12 @@ Los requisitos de usuario son los siguientes:
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
-		\textbf{Nombre}      & Conexión con la web                                                                      \\ \hline
-		\textbf{Descripción} & El dispositivo debe ser capaz de transmitir las medidas e imagen para que se vean la web \\ \hline
-		\textbf{Prioridad}   & Media                                                                                    \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                 \\ \hline
-		\textbf{Fuente}      & Cliente                                                                                  \\ \hline
-		\textbf{Versión}     & 1.0                                                                                      \\ \hline
+		\textbf{Nombre}      & Conexión con la web                                                                          \\ \hline
+		\textbf{Descripción} & El dispositivo debe ser capaz de transmitir las medidas e imagen para que se vean  en la web \\ \hline
+		\textbf{Prioridad}   & Media                                                                                        \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                     \\ \hline
+		\textbf{Fuente}      & Cliente                                                                                      \\ \hline
+		\textbf{Versión}     & 1.0                                                                                          \\ \hline
 	\end{tabular}
 \end{table}
 \advance\ru by 1
@@ -279,12 +279,12 @@ Los requisitos de usuario son los siguientes:
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
-		\textbf{Nombre}      & Inicio de sesión                                                                                    \\ \hline
-		\textbf{Descripción} & El usuario para acceder a la web debe aporta un usuario y contraseña que se ha asignado previamente \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                            \\ \hline
-		\textbf{Fuente}      & Cliente                                                                                             \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                 \\ \hline
+		\textbf{Nombre}      & Inicio de sesión                                                                                        \\ \hline
+		\textbf{Descripción} & El usuario para acceder a la web debe aportar un usuario y contraseña que se le ha asignado previamente \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                    \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                \\ \hline
+		\textbf{Fuente}      & Cliente                                                                                                 \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                     \\ \hline
 	\end{tabular}
 \end{table}
 \advance\ru by 1
@@ -391,12 +391,12 @@ Los requisitos de usuario son los siguientes:
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
-		\textbf{Nombre}      & Imagen de la cámara                                                                              \\ \hline
-		\textbf{Descripción} & La imagen de la cámara deben ser tomadas en todo momento, mientras el dispositivo esté conectado \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                             \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                         \\ \hline
-		\textbf{Fuente}      & Cliente                                                                                          \\ \hline
-		\textbf{Versión}     & 1.0                                                                                              \\ \hline
+		\textbf{Nombre}      & Imagen de la cámara                                                                            \\ \hline
+		\textbf{Descripción} & La imagen de la cámara debe ser tomada en todo momento, mientras el dispositivo esté conectado \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                           \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                       \\ \hline
+		\textbf{Fuente}      & Cliente                                                                                        \\ \hline
+		\textbf{Versión}     & 1.0                                                                                            \\ \hline
 	\end{tabular}
 \end{table}
 \advance\ru by 1
@@ -405,12 +405,12 @@ Los requisitos de usuario son los siguientes:
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
-		\textbf{Nombre}      & Navegar entre las medidas                                                                                      \\ \hline
-		\textbf{Descripción} & Cuando se está en una página de dispositivo debe poderse mover con facilidad entre todos los datos registrados \\ \hline
-		\textbf{Prioridad}   & Media                                                                                                          \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                                                       \\ \hline
-		\textbf{Fuente}      & Cliente                                                                                                        \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                            \\ \hline
+		\textbf{Nombre}      & Navegar entre las medidas                                                                                                   \\ \hline
+		\textbf{Descripción} & Cuando se está en una página de dispositivo, el usuario, debe poder moverse con facilidad entre todos los datos registrados \\ \hline
+		\textbf{Prioridad}   & Media                                                                                                                       \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                                                                    \\ \hline
+		\textbf{Fuente}      & Cliente                                                                                                                     \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                         \\ \hline
 	\end{tabular}
 \end{table}
 \advance\ru by 1
@@ -439,7 +439,7 @@ Se presenta a continuación un diagrama que resume todos los casos de uso del si
 	{\includegraphics[scale=0.8]{casos-de-uso.jpeg}}
 \end{figure}
 
-Para realizar una descripción más detallada de los casos de uso emplearemos la representación tabular que se muestra en la siguiente plantilla.
+Para realizar una descripción más detallada de los casos de uso, empleamos la representación tabular que se muestra en la siguiente plantilla.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Casos de Uso}
@@ -459,11 +459,11 @@ Para realizar una descripción más detallada de los casos de uso emplearemos la
 	\item \textbf{Caso de uso:} Nombre que identifica el caso de uso.
 	\item \textbf{Actores:} Partes implicadas en el caso de uso.
 	\item \textbf{Descripción:} Breve exposición de la situación.
-	\item \textbf{Precondiciones:} Condiciones que se deben cumplir para que tenga lugar en caso de uso.
+	\item \textbf{Precondiciones:} Condiciones que se deben cumplir para que tenga lugar el caso de uso.
 	\item \textbf{Postcondiciones:} Que ocurre si se cumple el caso de uso.
 \end{itemize}
 
-Ahora que entendemos el significado de cada una de las casillas procedemos a detallar los casos de uso.
+Ahora que entendemos el significado de cada una de las casillas se procede a detallar los casos de uso.
 \newcount\cu
 \cu=1
 \begin{table}[H]
@@ -517,7 +517,7 @@ Ahora que entendemos el significado de cada una de las casillas procedemos a det
 		\textbf{Caso de uso}     & Comprobar cámara                                          \\ \hline
 		\textbf{Actores}         & Administrador                                             \\ \hline
 		\textbf{Descripción}     & Comprobar que la imagen de la cámara se ve y se actualiza \\ \hline
-		\textbf{Precondiciones}  & Poseer usuario y clave de acceso de la web                \\ \hline
+		\textbf{Precondiciones}  & Poseer usuario y clave de acceso a la web                 \\ \hline
 		\textbf{Postcondiciones} & El administrador ha verificado que funciona correctamente \\ \hline
 	\end{tabular}
 \end{table}
@@ -593,7 +593,7 @@ Ahora que entendemos el significado de cada una de las casillas procedemos a det
 \end{table}
 
 \section{Requisitos de software}
-Los requisitos descritos en esta sección se basan en los requisitos de usuario proporcionados por el cliente y los casos de uso asociados al sistema. La plantilla que se seguirá será la siguiente:
+Los requisitos de software descritos en esta sección se basan en los requisitos de usuario proporcionados por el cliente y los casos de uso asociados al sistema. La plantilla que se seguirá será la siguiente:
 \begin{table}[H]
 	\caption{Plantilla de los Requisitos Funcionales y No funcionales}
 	\begin{tabular}{|l|p{.77\textwidth}|}
@@ -608,11 +608,11 @@ Los requisitos descritos en esta sección se basan en los requisitos de usuario 
 	\end{tabular}
 \end{table}
 \begin{itemize}
-	\item \textbf{ID-XX:} Identifica los requisitos mediante la siguiente codificación: ID será RF si es un requisito funcional o RN si es un requisito no funcional, y XX tomará un valor en función de la posición.
+	\item \textbf{ID-XX:} Identifica los requisitos mediante la siguiente codificación: ID será RF si es un requisito funcional o RN si es un requisito no funcional y XX tomará un valor en función de la posición.
 	\item \textbf{Nombre:} Nombre representativo del asunto del requisito.
 	\item \textbf{Descripción:} Exposición más detallada del requisito.
 	\item \textbf{Prioridad:} Indica si debe ser considerado desde el principio o si por el contrario puede retrasarse. Puede ser: Alta, Mediana o Baja.
-	\item \textbf{Necesidad:} Importancia del requisito sobre el sistema, pudiendo ser: Esencia, Deseable u Opcional.
+	\item \textbf{Necesidad:} Importancia del requisito sobre el sistema, pudiendo ser: Esencial, Deseable u Opcional.
 	\item \textbf{Fuente:} Procedencia del requisito.
 	\item \textbf{Versión:} Indica si ha sufrido variaciones a lo largo del tiempo.
 \end{itemize}
@@ -654,12 +654,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
-		\textbf{Nombre}      & Imagen cámara-web                                                         \\ \hline
-		\textbf{Descripción} & Las imágenes de la cámara del dispositivo de poder ser vista desde la web \\ \hline
-		\textbf{Prioridad}   & Alta                                                                      \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                  \\ \hline
-		\textbf{Fuente}      & Cliente                                                                   \\ \hline
-		\textbf{Versión}     & 1.0                                                                       \\ \hline
+		\textbf{Nombre}      & Imagen cámara-web                                                            \\ \hline
+		\textbf{Descripción} & Las imágenes de la cámara del dispositivo deben poder ser vista desde la web \\ \hline
+		\textbf{Prioridad}   & Alta                                                                         \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                     \\ \hline
+		\textbf{Fuente}      & Cliente                                                                      \\ \hline
+		\textbf{Versión}     & 1.0                                                                          \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rf by 1
@@ -724,7 +724,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
-		\textbf{Nombre}      & Bienvenida web                                                                                        \\ \hline
+		\textbf{Nombre}      & Bienvenida a la web                                                                                   \\ \hline
 		\textbf{Descripción} & Al acceder a la web el usuario podrá ver su nombre para comprobar que ha iniciado con éxito la sesión \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                                  \\ \hline
 		\textbf{Necesidad}   & Opcional                                                                                              \\ \hline
@@ -752,12 +752,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-\number\rf}}} \\ \hline
-		\textbf{Nombre}      & Página de dispositivo                                                                                                                          \\ \hline
-		\textbf{Descripción} & Una vez el usuario ha elegido un dispositivo de la lista de dispositivos, se le llevará a su página donde estarán las medidas e imagen tomadas \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                                                           \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                                                       \\ \hline
-		\textbf{Fuente}      & Cliente                                                                                                                                        \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                            \\ \hline
+		\textbf{Nombre}      & Página de dispositivo                                                                                                                         \\ \hline
+		\textbf{Descripción} & Una vez el usuario ha elegido un dispositivo de la lista de dispositivos, se le llevará a su página donde estarán las medidas e imagen tomada \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                                                          \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                                                      \\ \hline
+		\textbf{Fuente}      & Cliente                                                                                                                                       \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                           \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rf by 1
@@ -794,7 +794,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-\number\rf}}} \\ \hline
-		\textbf{Nombre}      & Medidas tomadas gráfica                                                                              \\ \hline
+		\textbf{Nombre}      & Gráfica de las medidas tomadas                                                                       \\ \hline
 		\textbf{Descripción} & Los datos que tome el dispositivo se mostraran de manera gráfica para ver la progresión en el tiempo \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                                 \\ \hline
 		\textbf{Necesidad}   & Deseable                                                                                             \\ \hline
@@ -825,12 +825,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-0\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Sensor de humedad                                                                                                \\ \hline
-		\textbf{Descripción} & El dispositivo contara con un sensor de humedad que alcanzara a medir al menos entre 40 \% y el 60 \% de humedad \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                             \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                         \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                         \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                              \\ \hline
+		\textbf{Nombre}      & Sensor de humedad                                                                                                  \\ \hline
+		\textbf{Descripción} & El dispositivo contara con un sensor de humedad que alcanzara a medir, al menos, entre 40 \% y el 60 \% de humedad \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                               \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                           \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                           \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -839,12 +839,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-0\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Sensor de monóxido de carbono                                                                                          \\ \hline
-		\textbf{Descripción} & El dispositivo contará con un sensor de CO que le permita detectar posibles fallos antes de que se produzca combustión \\ \hline
-		\textbf{Prioridad}   & Mediana                                                                                                                \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                                                               \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                               \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                    \\ \hline
+		\textbf{Nombre}      & Sensor de monóxido de carbono                                                                                              \\ \hline
+		\textbf{Descripción} & El dispositivo contará con un sensor de CO que le permita detectar posibles fallos antes de que se produzca una combustión \\ \hline
+		\textbf{Prioridad}   & Mediana                                                                                                                    \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                                                                   \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                   \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                        \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -881,12 +881,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-0\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Cámara del dispositivo                                              \\ \hline
-		\textbf{Descripción} & Se instalará en el dispositivo una cámara de video de al menos 720p \\ \hline
-		\textbf{Prioridad}   & Alta                                                                \\ \hline
-		\textbf{Necesidad}   & Esencial                                                            \\ \hline
-		\textbf{Fuente}      & Analista                                                            \\ \hline
-		\textbf{Versión}     & 1.0                                                                 \\ \hline
+		\textbf{Nombre}      & Cámara del dispositivo                                                \\ \hline
+		\textbf{Descripción} & Se instalará en el dispositivo una cámara de video de, al menos, 720p \\ \hline
+		\textbf{Prioridad}   & Alta                                                                  \\ \hline
+		\textbf{Necesidad}   & Esencial                                                              \\ \hline
+		\textbf{Fuente}      & Analista                                                              \\ \hline
+		\textbf{Versión}     & 1.0                                                                   \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -895,12 +895,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-0\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Duración de la imagen                                                          \\ \hline
-		\textbf{Descripción} & La cámara debe ser capaz de proporcionar imagen al menos  24 horas continuadas \\ \hline
-		\textbf{Prioridad}   & Media                                                                          \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                       \\ \hline
-		\textbf{Fuente}      & Analista                                                                       \\ \hline
-		\textbf{Versión}     & 1.0                                                                            \\ \hline
+		\textbf{Nombre}      & Duración de la imagen                                                           \\ \hline
+		\textbf{Descripción} & La cámara debe ser capaz de proporcionar imagen, al menos, 24 horas continuadas \\ \hline
+		\textbf{Prioridad}   & Media                                                                           \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                        \\ \hline
+		\textbf{Fuente}      & Analista                                                                        \\ \hline
+		\textbf{Versión}     & 1.0                                                                             \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -923,12 +923,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-0\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Bajo consumo                                                                                                                                               \\ \hline
-		\textbf{Descripción} & El dispositivo ejecutará el sistema operativo con el programa que le hace funcionar, reduciendo las operaciones a las básicas para que funcione el sistema \\ \hline
-		\textbf{Prioridad}   & baja                                                                                                                                                       \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                                                                                                   \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                                                   \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                                        \\ \hline
+		\textbf{Nombre}      & Bajo consumo                                                                                                                                                  \\ \hline
+		\textbf{Descripción} & El dispositivo ejecutará el sistema operativo con el programa que le permite funcionar, reduciendo las operaciones a las básicas para que funcione el sistema \\ \hline
+		\textbf{Prioridad}   & Baja                                                                                                                                                          \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                                                                                                      \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                                                      \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                                           \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -937,12 +937,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Servidor local                                                                               \\ \hline
-		\textbf{Descripción} & Se alojará de manera local la web y  el sistema de consistencia de los datos, mediante XAMPP \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                         \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                     \\ \hline
-		\textbf{Fuente}      & Analista                                                                                     \\ \hline
-		\textbf{Versión}     & 1.0                                                                                          \\ \hline
+		\textbf{Nombre}      & Servidor local                                                                                                     \\ \hline
+		\textbf{Descripción} & Habra un servidor donde se alojará de manera local la web y el sistema de pesistencia de los datos, mediante XAMPP \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                               \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                           \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                           \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -952,7 +952,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
 		\textbf{Nombre}      & Base de datos de medidas                                                                                                                                                                                       \\ \hline
-		\textbf{Descripción} & En el servidor local se alojará la base de datos en MariaDB, que almacenará la fecha de la medida, temperatura, humedad, partículas de 2,5 $\mu m$, partículas de 10 $\mu m$, porcentaje de CO y ppm de CO$_2$ \\ \hline
+		\textbf{Descripción} & En el servidor local se alojará la base de datos de MariaDB, que almacenará la fecha de la medida, temperatura, humedad, partículas de 2,5 $\mu m$, partículas de 10 $\mu m$, porcentaje de CO y ppm de CO$_2$ \\ \hline
 		\textbf{Prioridad}   & Alta                                                                                                                                                                                                           \\ \hline
 		\textbf{Necesidad}   & Esencial                                                                                                                                                                                                       \\ \hline
 		\textbf{Fuente}      & Analista                                                                                                                                                                                                       \\ \hline
@@ -979,12 +979,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Envío de medidas                                                                                                  \\ \hline
-		\textbf{Descripción} & El dispositivo mandará las medidas a la base de datos de medidas  mediante una solicitud de inserción de registro \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                              \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                          \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                          \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                               \\ \hline
+		\textbf{Nombre}      & Envío de medidas                                                                                      \\ \hline
+		\textbf{Descripción} & El dispositivo mandará las medidas a la base de datos mediante una solicitud de inserción de registro \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                  \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                              \\ \hline
+		\textbf{Fuente}      & Analista                                                                                              \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                   \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -993,12 +993,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Recepción de medidas web                                                                                  \\ \hline
-		\textbf{Descripción} & Las medidas que se muestran en la web son obtenidas de la base de datos de medidas mediante consultas SQL \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                      \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                  \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                  \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                       \\ \hline
+		\textbf{Nombre}      & Recepción de medidas web                                                                       \\ \hline
+		\textbf{Descripción} & Las medidas que se muestran en la web son obtenidas de la base de datos mediante consultas SQL \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                           \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                       \\ \hline
+		\textbf{Fuente}      & Analista                                                                                       \\ \hline
+		\textbf{Versión}     & 1.0                                                                                            \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1022,7 +1022,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
 		\textbf{Nombre}      & Base de datos de usuarios                                                                                                   \\ \hline
-		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de usuario en texto plano y el hash de la contraseña \\ \hline
+		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de usuario en texto plano y la contraseña encriptada \\ \hline
 		\textbf{Prioridad}   & Alta                                                                                                                        \\ \hline
 		\textbf{Necesidad}   & Esencial                                                                                                                    \\ \hline
 		\textbf{Fuente}      & Analista                                                                                                                    \\ \hline
@@ -1035,12 +1035,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Registro de usuario                                                                        \\ \hline
-		\textbf{Descripción} & El administrado añadirá manualmente un registro de usuario en la base de datos de usuarios \\ \hline
-		\textbf{Prioridad}   & Media                                                                                      \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                   \\ \hline
-		\textbf{Fuente}      & Analista                                                                                   \\ \hline
-		\textbf{Versión}     & 1.0                                                                                        \\ \hline
+		\textbf{Nombre}      & Registro de usuario                                                                         \\ \hline
+		\textbf{Descripción} & El administrador añadirá manualmente un registro de usuario en la base de datos de usuarios \\ \hline
+		\textbf{Prioridad}   & Media                                                                                       \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                    \\ \hline
+		\textbf{Fuente}      & Analista                                                                                    \\ \hline
+		\textbf{Versión}     & 1.0                                                                                         \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1049,12 +1049,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Seguridad de contraseña                                                      \\ \hline
-		\textbf{Descripción} & Las contraseñas no se almacenarán en texto plano, sino que se hará  hash MD5 \\ \hline
-		\textbf{Prioridad}   & Baja                                                                         \\ \hline
-		\textbf{Necesidad}   & Opcional                                                                     \\ \hline
-		\textbf{Fuente}      & Analista                                                                     \\ \hline
-		\textbf{Versión}     & 1.0                                                                          \\ \hline
+		\textbf{Nombre}      & Seguridad de contraseña                                                           \\ \hline
+		\textbf{Descripción} & Las contraseñas no se almacenarán en texto plano, sino que se encriptaran con MD5 \\ \hline
+		\textbf{Prioridad}   & Baja                                                                              \\ \hline
+		\textbf{Necesidad}   & Opcional                                                                          \\ \hline
+		\textbf{Fuente}      & Analista                                                                          \\ \hline
+		\textbf{Versión}     & 1.0                                                                               \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1063,12 +1063,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Base de datos de usuarios                                                                                                                                \\ \hline
-		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de dispositivo, su dirección IP de acceso, su último cambio de estado y su estado \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                                                                     \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                                                                 \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                                                 \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                                      \\ \hline
+		\textbf{Nombre}      & Base de datos de dispositivos                                                                                                                                            \\ \hline
+		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de dispositivo, su dirección IP de acceso, fecha de su último cambio de estado y su estado actual \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                                                                                     \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                                                                                 \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                                                                 \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                                                      \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1077,12 +1077,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Estado del dispositivo                                                                                                             \\ \hline
-		\textbf{Descripción} & El dispositivo al conectarse y desconectarse enviará una actualización al servidor par que actualice su estado en la base de datos \\ \hline
-		\textbf{Prioridad}   & Baja                                                                                                                               \\ \hline
-		\textbf{Necesidad}   & Opcional                                                                                                                           \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                           \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                \\ \hline
+		\textbf{Nombre}      & Estado del dispositivo                                                                                                              \\ \hline
+		\textbf{Descripción} & El dispositivo al conectarse y desconectarse enviará una actualización al servidor para que actualice su estado en la base de datos \\ \hline
+		\textbf{Prioridad}   & Baja                                                                                                                                \\ \hline
+		\textbf{Necesidad}   & Opcional                                                                                                                            \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                            \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                 \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1105,12 +1105,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Responsive                                                                                                                  \\ \hline
-		\textbf{Descripción} & La web debe estar adaptada para ser accedida desde ordenador, tablet y móvil según el WCAG \cite{initiative_wai_web_nodate} \\ \hline
-		\textbf{Prioridad}   & Baja                                                                                                                        \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                                                                    \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                    \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                         \\ \hline
+		\textbf{Nombre}      & Responsive                                                                                                                                 \\ \hline
+		\textbf{Descripción} & La web debe estar adaptada para que se pueda acceder a ella desde ordenador, tablet y móvil según el WCAG \cite{initiative_wai_web_nodate} \\ \hline
+		\textbf{Prioridad}   & Baja                                                                                                                                       \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                                                                                   \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                                   \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                        \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1119,12 +1119,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Disponibilidad de la web                                                    \\ \hline
-		\textbf{Descripción} & La web de estar accesible durante todos los días del año y a cualquier hora \\ \hline
-		\textbf{Prioridad}   & Alta                                                                        \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                    \\ \hline
-		\textbf{Fuente}      & Analista                                                                    \\ \hline
-		\textbf{Versión}     & 1.0                                                                         \\ \hline
+		\textbf{Nombre}      & Disponibilidad de la web                                                      \\ \hline
+		\textbf{Descripción} & La web debe estar accesible durante todos los días del año y a cualquier hora \\ \hline
+		\textbf{Prioridad}   & Alta                                                                          \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                      \\ \hline
+		\textbf{Fuente}      & Analista                                                                      \\ \hline
+		\textbf{Versión}     & 1.0                                                                           \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1133,18 +1133,18 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Disponibilidad de los dispositivos                                                                                   \\ \hline
-		\textbf{Descripción} & Los dispositivos debe funcionar durante al menos 7 días seguidas, pudiendo ser sustituidos o reiniciados cada semana \\ \hline
-		\textbf{Prioridad}   & Media                                                                                                                \\ \hline
-		\textbf{Necesidad}   & Deseable                                                                                                             \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                             \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                  \\ \hline
+		\textbf{Nombre}      & Disponibilidad de los dispositivos                                                                                     \\ \hline
+		\textbf{Descripción} & Los dispositivos debe funcionar durante, al menos, 7 días seguidos, pudiendo ser sustituidos o reiniciados cada semana \\ \hline
+		\textbf{Prioridad}   & Media                                                                                                                  \\ \hline
+		\textbf{Necesidad}   & Deseable                                                                                                               \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                               \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                    \\ \hline
 	\end{tabular}
 \end{table}
 \pagebreak
 
 \section{Matriz de trazabilidad}
-La intención de esta sección es poder comprobar que todos los requisitos que nos ha exigido el cliente quedan cubiertos y se tendrán en cuenta en el desarrollo de proyecto, así como ver de qué manera se materializa cada uno de esos conceptos pedidos. 
+La intención de esta sección es poder comprobar que todos los requisitos que nos ha exigido el cliente quedan cubiertos y se tendrán en cuenta en el desarrollo del proyecto, así como ver de qué manera se materializa cada uno de esos conceptos pedidos. 
 
 Para mostrar estas relaciones de manera clara se hará mediante una matriz de trazabilidad, que consiste en una tabla que relaciona los requisitos de usuario (columnas) con los requisitos funcionales y no funcionales (filas).
 
@@ -1153,7 +1153,8 @@ Para mostrar estas relaciones de manera clara se hará mediante una matriz de tr
 	\caption{Matriz de trazabilidad de requisitos I}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|
-			>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|c|}
+
+				>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|c|}
 			\hline
 			\textbf{RF N \textbackslash{}RU} & \cellcolor[HTML]{BFBFBF}\textbf{RU-01} & \cellcolor[HTML]{BFBFBF}\textbf{RU-02} & \cellcolor[HTML]{BFBFBF}\textbf{RU-03} & \cellcolor[HTML]{BFBFBF}\textbf{RU-04} & \cellcolor[HTML]{BFBFBF}\textbf{RU-05} & \cellcolor[HTML]{BFBFBF}\textbf{RU-06} & \cellcolor[HTML]{BFBFBF}\textbf{RU-07} & \cellcolor[HTML]{BFBFBF}\textbf{RU-08} & \cellcolor[HTML]{BFBFBF}\textbf{RU-09} & \cellcolor[HTML]{BFBFBF}\textbf{RU-10} & \cellcolor[HTML]{BFBFBF}\textbf{RU-11} & \cellcolor[HTML]{BFBFBF}\textbf{RU-12} \\ \hline
 			\textbf{RF-01}                   & X                                      & X                                      & X                                      & X                                      & X                                      &                                        &                                        &                                        &                                        &                                        &                                        &                                        \\ \hline
@@ -1202,7 +1203,8 @@ Para mostrar estas relaciones de manera clara se hará mediante una matriz de tr
 	\caption{Matriz de trazabilidad de requisitos II}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|
-			>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|}
+
+				>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|}
 			\hline
 			\textbf{RF N \textbackslash{}RU} & \cellcolor[HTML]{BFBFBF}\textbf{RU-13} & \cellcolor[HTML]{BFBFBF}\textbf{RU-14} & \cellcolor[HTML]{BFBFBF}\textbf{RU-15} & \cellcolor[HTML]{BFBFBF}\textbf{RU-16} & \cellcolor[HTML]{BFBFBF}\textbf{RU-17} & \cellcolor[HTML]{BFBFBF}\textbf{RU-18} & \cellcolor[HTML]{BFBFBF}\textbf{RU-19} & \cellcolor[HTML]{BFBFBF}\textbf{RU-20} & \cellcolor[HTML]{BFBFBF}\textbf{RU-21} & \cellcolor[HTML]{BFBFBF}\textbf{RU-22} & \cellcolor[HTML]{BFBFBF}\textbf{RU-23} \\ \hline
 			\textbf{RF-01}                   &                                        &                                        &                                        &                                        &                                        &                                        &                                        &                                        &                                        &                                        &                                        \\ \hline
