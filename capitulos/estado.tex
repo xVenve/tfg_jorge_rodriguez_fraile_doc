@@ -2,7 +2,7 @@
 \label{ch:estado}
 En este capítulo se presentan de una manera más detallada cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. Después se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
 
-\section{Seguridad física en los CPD}
+\section{Seguridad física en los CPD}\label{sec:seguridad_fisica_CPD}
 Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE) para construir un CPD seguro es necesario tener en cuenta las siguientes áreas \cite{noauthor_pon_2015}:
 \begin{itemize}
 	\item \textbf{Control de acceso:} Es uno de los aspectos de seguridad más importantes a tener en cuenta, porque nos permite evitar que personas ajenas puedan acceder a estos recintos y hagan un uso indebido de las instalaciones o provoque daños intencionadamente, del mismo modo, se tiene controlado al personal autorizado que pueda entrar en el recinto con intención de perjudicar a la empresa, manteniendo un registro de todos los accesos. Pueden instalarse sistema de acceso por huella digital, verificación de voz, lectores de tarjetas, etc. 
@@ -23,14 +23,14 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 \section{Soluciones actuales}
 En esta sección se presentarán cuáles son las alternativas que existen actualmente y que tienen el mismo propósito que el sistema que se va a desarrollar en este proyecto.
 
-Como se trata de un sistema de control ambiental y videovigilancia no cubriremos todos los aspectos de seguridad que se han presentado en la sección anterior, pero sí se desarrollaran: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
+Como se trata de un sistema de control ambiental y videovigilancia no cubriremos todos los aspectos de seguridad que se han presentado en la \autoref{sec:seguridad_fisica_CPD}, pero sí se desarrollaran: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
 
 INCOMPLETO, FALTA ENCONTRARLAS
 
 \section{Critica al Estado del arte}
 PUNTOS FUERTES DE CADA UNA
 
-\section{Propuesta}
+\section{Propuesta}\label{sec:propuesta}
 El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones que dispondrá de una placa y una serie de sensores, que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
 
 Este dispositivo constará de las siguientes funcionalidades:
@@ -42,7 +42,7 @@ Este dispositivo constará de las siguientes funcionalidades:
 \end{itemize}
 
 \section{Estudio de Alternativas de Solución}
-En esta sección se presentarán las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la sección anterior.
+En esta sección se presentarán las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la \autoref{sec:propuesta}.
 
 \subsection{Alternativas: Placa}
 Para comenzar debemos analizar cuáles son las posibles placas sobre las que podemos desarrollar nuestro dispositivo. Las placas que se buscan deben ser programables y permitirnos instalar una serie de sensores que podamos monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation. 

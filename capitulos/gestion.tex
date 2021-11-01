@@ -5,8 +5,8 @@ Esta sección tiene el propósito de mostrar cómo se ha distribuido la carga de
 
 En las siguientes subsecciones se podrá apreciar cuanto tiempo se ha asignado a cada una de ellas, primero mediante una representación tabular y después con un diagrama de Gantt de manera más visual.
 
-\subsection{Desglose por fases}
-La siguiente tabla representa la fecha de inicio y fin de cada uno de los plazos de trabajo de las actividades y tareas, acompañado del número de días totales empleados.
+\subsection{Desglose por fases}\label{subsec:desglose_fases}
+La \autoref{tab:desglose_dias_fases} representa la fecha de inicio y fin de cada uno de los plazos de trabajo de las actividades y tareas, acompañado del número de días totales empleados.
 
 \begin{longtable}[c]{lcc|c|}
 	\caption{Desglose de la planificación por fases}
@@ -70,12 +70,13 @@ La siguiente tabla representa la fecha de inicio y fin de cada uno de los plazos
 \end{longtable}
 
 \subsection{Diagrama de Gantt}
-Las actividades y tareas de la subsección anterior se han representado mediante un diagrama de Gantt para facilitar el entendimiento de la duración de los plazos de trabajo.
+Las actividades y tareas de la \autoref{subsec:desglose_fases} se han representado mediante un diagrama de Gantt (\autoref{fig:diagrama_gantt}) para facilitar el entendimiento de la duración de los plazos de trabajo.
 
 \ganttset{calendar week text= \small {\startday/\startmonth}}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama de Gantt del proyecto}} % Hasta determinar fechas se ha puesto 27-06-2021 que no se utiliza para facilitar el remplazo
+	{\caption{Diagrama de Gantt del proyecto}
+	\label{fig:diagrama_gantt}} % Hasta determinar fechas se ha puesto 27-06-2021 que no se utiliza para facilitar el remplazo
 	{\resizebox{\textwidth}{!}{%
 			\begin{ganttchart}[
 				x unit=1.5mm,
@@ -147,7 +148,7 @@ En esta sección se recopilarán y explicarán todos los gastos que se han gener
 Cada una de las siguientes subsecciones tratará sobre una de las fuentes de costes y la última será un resumen de estos, donde se expondrá el presupuesto total de la realización del trabajo.
 
 \subsection{Personal}
-El coste asociado al sueldo que se abonará al personal encargado en este proyecto se refleja en la tabla inferior.
+El coste asociado al sueldo que se abonará al personal encargado en este proyecto se refleja en la \autoref{tab:coste_personal}.
 
 Aunque este trabajo ha sido realizado por una única persona, en un equipo real estaría compuesto por diferentes profesionales con diferentes especialidades, de esta manera se ha distribuido las distintas tareas en los siguientes cargos:
 \begin{itemize}

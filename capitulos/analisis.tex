@@ -8,7 +8,8 @@ Además, este capítulo sirve como base para los siguientes, como son el de Dise
 El propósito de este proyecto es desarrollar un dispositivo que nos proporcione videovigilancia y medidas de diferentes factores ambientales, para garantizar la seguridad de un CPD. Las diferentes medidas que se tomen se almacenaran para poder ser consultadas junto con la imagen de videovigilancia a través de una plataforma web.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama del sistema}}
+	{\caption{Diagrama del sistema}
+	\label{fig:diagrama_sistema}}
 	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
 	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -64,7 +65,7 @@ El propósito de este proyecto es desarrollar un dispositivo que nos proporcione
 	\end{tikzpicture}}
 \end{figure}
 
-Como se puede ver en el diagrama el sistema consistirá en:
+Como se puede ver en la \autoref{fig:diagrama_sistema} el sistema consistirá en:
 \begin{itemize}
 	\item \textbf{Usuario:} Será el personal autorizado encargado de controlar las imágenes que proporcione la cámara y revisar las mediciones que transmitan los sensores del dispositivo.
 	\item \textbf{Administrador:} Persona encargada del mantenimiento de la Base de Datos y de la web, así como de la buena recepción de las mediciones y de las imágenes. Ante cualquier incidencia es el responsable de resolverla.
@@ -78,10 +79,11 @@ Como se puede ver en el diagrama el sistema consistirá en:
 \end{itemize}
 
 \section{Requisitos de usuario}
-En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto, en forma de requisitos de usuario, que serán mostrados según la siguiente plantilla.
+En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto, en forma de requisitos de usuario, que serán mostrados según la \autoref{tab:plantilla_ru}.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Requisitos de Usuario}
+	\label{tab:plantilla_ru}
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-XX}}} \\ \hline
@@ -431,18 +433,20 @@ Los requisitos de usuario son los siguientes:
 \pagebreak
 
 \section{Casos de uso}
-Se presenta a continuación un diagrama que resume todos los casos de uso del sistema.
+En la \autoref{fig:diagrama_casos_uso} que se muestra a continuación se resumen todos los casos de uso del sistema.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama de Casos de Uso}}
+	{\caption{Diagrama de Casos de Uso}
+	\label{fig:diagrama_casos_uso}}
 	{\includegraphics[scale=0.8]{casos-de-uso.jpeg}}
 \end{figure}
 
-Para realizar una descripción más detallada de los casos de uso, empleamos la representación tabular que se muestra en la siguiente plantilla.
+Para realizar una descripción más detallada de los casos de uso, empleamos la representación tabular que se muestra en la \autoref{tab:plantilla_cu}.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Casos de Uso}
+	\label{tab:plantilla_cu}
 	\begin{tabular}{|l|p{.75\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{CU-XX}}} \\ \hline
@@ -593,9 +597,10 @@ Ahora que entendemos el significado de cada una de las casillas se procede a det
 \end{table}
 
 \section{Requisitos de software}
-Los requisitos de software descritos en esta sección se basan en los requisitos de usuario proporcionados por el cliente y los casos de uso asociados al sistema. La plantilla que se seguirá será la siguiente:
+Los requisitos de software descritos en esta sección se basan en los requisitos de usuario proporcionados por el cliente y los casos de uso asociados al sistema. La plantilla que se sigue es la definida por la \autoref{tab:plantilla_rf_rn}.
 \begin{table}[H]
 	\caption{Plantilla de los Requisitos Funcionales y No funcionales}
+	\label{tab:plantilla_rf_rn}
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{ID-XX}}} \\ \hline
@@ -1146,11 +1151,12 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 \section{Matriz de trazabilidad}
 La intención de esta sección es poder comprobar que todos los requisitos que nos ha exigido el cliente quedan cubiertos y se tendrán en cuenta en el desarrollo del proyecto, así como ver de qué manera se materializa cada uno de esos conceptos pedidos. 
 
-Para mostrar estas relaciones de manera clara se hará mediante una matriz de trazabilidad, que consiste en una tabla que relaciona los requisitos de usuario (columnas) con los requisitos funcionales y no funcionales (filas).
+Para mostrar estas relaciones de manera clara se hará mediante una matriz de trazabilidad, que consiste en una tabla que relaciona los requisitos de usuario (columnas) con los requisitos funcionales y no funcionales (filas). Se partido en 2 para que se pueda visualizar mejor, \autoref{tab:trazabilidad_I} y \autoref{tab:trazabilidad_II}.
 
 \begin{table}[H]
 	\centering
 	\caption{Matriz de trazabilidad de requisitos I}
+	\label{tab:trazabilidad_I}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|
 			>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1200,6 +1206,7 @@ Para mostrar estas relaciones de manera clara se hará mediante una matriz de tr
 \begin{table}[H]
 	\centering
 	\caption{Matriz de trazabilidad de requisitos II}
+	\label{tab:trazabilidad_II}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|
 			>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|c|c|}
