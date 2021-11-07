@@ -7,7 +7,7 @@ También se define la manera en la que se almacenan los datos (\autoref{sec:mode
 Además lo definido a continuación sienta la base para poder comenzar el desarrollo e implementación del sistema que se define en los siguientes capítulos, \autoref{ch:implementacion} y \autoref{ch:pruebas}.
 
 \section{Arquitectura del Sistema}\label{sec:arquitectura}
-El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
+El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador \cite{bucanek_model-view-controller_2009}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
 \begin{itemize}
     \item \textbf{Modelo:} Parte encargada de la representación lógica de la información en el sistema, los mecanismos para acceder y almacenarla. Esta será la parte relacionada con la base de datos.
     \item \textbf{Vista:} Es la representación visual del sistema que se mostrará al usuario cuando utilice la aplicación.
@@ -40,25 +40,83 @@ En las siguientes secciones se define la parte de Modelo (\autoref{sec:modelo}) 
 \pagebreak
 
 \section{Modelo de datos}\label{sec:modelo}
-En este proyecto la base de datos es uno de los elementos más importantes que lo componen, no solo para permitir el acceso del personal autorizado a la aplicación, sino porque almacenará el histórico de las medidas tomadas en la sala.
+En este proyecto la base de datos es uno de los elementos más importantes que lo componen, no solo para permitir el acceso del personal autorizado a la aplicación, sino porque almacenará el histórico de las medidas tomadas en la sala que en un futuro nos permitirá analizar cómo ha sido el estado de la sala.
 
 La base de datos estará alojada en el servidor, donde podrá ser accedida por la aplicación más fácilmente para su visualización y consulta, además facilita que se puedan centralizar las medidas en un único lugar, para el caso de que se tuvieran múltiples dispositivos en un edificio y se deseara consultarlos desde un mismo lugar.
 
-\subsection{Estructura de tablas de base de datos}
-Las tablas que componen nuestra base de datos se describen a continuación.
+Como se comentó en la \autoref{subsec:servidorDB} se utiliza una base de datos MariaDB que se administra mediante phpMyAdmin \cite{noauthor_phpmyadmin_nodate}, que es un administrador de base de datos escrito en PHP, para realizar la mayoría de las tareas de una manera más sencilla y eficiente.
 
-Tabla de usuarios\dots
-\begin{itemize}
-    \item id
-    \item estado...
-\end{itemize}
+\subsection{Estructura de tablas de la base de datos}
+Se presentan en esta subsección las tablas que componen la base de datos, indicando la utilidad de cada una de ellas y los datos con sus tipos que se almacenan en ellas.
 
+\subsubsection{Tabla de usuarios}
+En esta tabla se almacenarán las credenciales de los usuarios que utilicen la aplicación. Estas credenciales se consultarán cuando un usuario trata de iniciar sesión, y serán añadidos por el administrador del sistema en esta tabla. Es importante destacar que la contraseña se almacena en formato hash (encriptada) para evitar que se pueda leer si llega a haber cualquier intruso. 
 
-Tabla de medidas\dots
-\begin{itemize}
-    \item dispositivo
-    \item fecha
-    \item temp...
-\end{itemize}
+A continuación, en la \autoref{tab:tabla_users} se muestra la estructura de la tabla:
+\begin{table}[H]
+    \centering
+    \caption{Estructura tabla users}
+    \label{tab:tabla_users}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{.2\textwidth}|p{.2\textwidth}|p{.6\textwidth}|}
+    \hline
+    \rowcolor[HTML]{BFBFBF} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Nombre}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Tipo}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Descripción}}} \\ \hline
+    username & varchar(32) & Nombre de usuario que identifica unívocamente al usuario \\ \hline
+    password & varchar(32) & MD5 de la clave de acceso que debe proporcionar para verificar su identidad \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+La clave primaria será en username de esta manera no habrá ningún problema de duplicidad de usuarios en la base de datos.
+
+\subsubsection{Tabla de dispositivos}
+En esta tabla se almacenarán los dispositivos que se han conectado con el servidor, estos dispositivos serán los que se puedan consultar desde la aplicación y que se mostrarán con la fecha de actualización junto con su estado actual.
+
+En la \autoref{tab:tabla_devices} se pueden ver los atributos que la componen:
+
+\begin{table}[H]
+    \centering
+    \caption{Tabla devices BBDD}
+    \label{tab:tabla_devices}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{.2\textwidth}|p{.2\textwidth}|p{.6\textwidth}|}
+        \hline
+    \rowcolor[HTML]{BFBFBF} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Nombre}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Tipo}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Descripción}}} \\ \hline
+    id & varchar(50) & Nombre identificativo del dispositivo, su dirección física \\ \hline
+    ip & varchar(16) & IP de la red local desde la que se puede acceder a sus datos \\ \hline
+    date & datetime & Fecha de la última actualización de estado \\ \hline
+    status & varchar(7) & Estado del dispositivo, Online u Offline \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+Como en la \autoref{tab:tabla_users} la clave primaria de la tabla es un nombre representativo, en este caso id, que identifica inequívocamente al dispositivo, de esta manera se puede utilizar para consultar los datos de un dispositivo en concreto. Cuando sea necesario puede variar la IP a la que está conectado, fecha y estado, pero el nombre identificador no puede cambiar.
+
+\subsubsection{Tabla de medidas}
+Es la tabla tan importante que se ha dicho antes, en esta tabla se almacenaran las medidas que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación junto con su imagen. Las medidas que se almacenan son: temperatura, humedad, PM2.5, PM10, CO y CO$_2$.
+
+Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
+
+\begin{table}[H]
+    \centering
+    \caption{Tabla sensor\_data BBDD}
+    \label{tab:tabla_sensor_data}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{.2\textwidth}|p{.2\textwidth}|p{.6\textwidth}|}
+        \hline
+    \rowcolor[HTML]{BFBFBF} 
+    \multicolumn{1}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Nombre}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Tipo}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{Descripción}}} \\ \hline
+    date & datetime & Fecha en la que se ha tomado la medida \\ \hline
+    device & varchar(50) & Identificador del dispositivo que captó la medida \\ \hline
+    temperature & float & Temperatura de la sala \\ \hline
+    humidity & float & Humedad de la sala \\ \hline
+    pm2\_5 & float & Cantidad de partículas de 2.5$\mu m$ en la sala \\ \hline
+    pm10 & float & Cantidad de partículas de 10$\mu m$ en la sala \\ \hline
+    co & float & Partículas por millón de CO en la sala \\ \hline
+    co2 & float & Porcentaje de CO$_2$ en el aire de la sala \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+Las claves primarias son date y device, estas claves identifican de manera única a una medida, por lo que se puede consultar una medida concreta de un dispositivo específico.
 
 \section{Interfaz de Usuario}\label{sec:interfaz}
