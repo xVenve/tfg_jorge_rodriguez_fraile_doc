@@ -9,7 +9,7 @@ El propósito de este proyecto es desarrollar un dispositivo que nos proporcione
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama del sistema}
-	\label{fig:diagrama_sistema}}
+		\label{fig:diagrama_sistema}}
 	{\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
 	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -438,7 +438,7 @@ En la \autoref{fig:diagrama_casos_uso} que se muestra a continuación se resumen
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama de Casos de Uso}
-	\label{fig:diagrama_casos_uso}}
+		\label{fig:diagrama_casos_uso}}
 	{\includegraphics[scale=0.8]{casos-de-uso.jpeg}}
 \end{figure}
 
@@ -956,12 +956,21 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Base de datos de medidas                                                                                                                                                                                       \\ \hline
-		\textbf{Descripción} & En el servidor local se alojará la base de datos de MariaDB, que almacenará la fecha de la medida, temperatura, humedad, partículas de 2,5 $\mu m$, partículas de 10 $\mu m$, porcentaje de CO y ppm de CO$_2$ \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                                                                                                                           \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                                                                                                                       \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                                                                                                       \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                                                                                            \\ \hline
+		\textbf{Nombre}      & Base de datos de medidas                                                                                            \\ \hline
+		\textbf{Descripción} & En el servidor local se alojará la base de datos de MariaDB, que almacenará para cada medida los siguientes campos:
+		\begin{itemize}
+			\item Fecha de la medida
+			\item Temperatura
+			\item Humedad
+			\item Partículas de 2,5 $\mu m$
+			\item Partículas de 10 $\mu m$
+			\item Porcentaje de CO
+			\item Partículas por millón de CO$_2$
+		\end{itemize}  \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                                                \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                                                            \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                            \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                 \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1026,12 +1035,16 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Base de datos de usuarios                                                                                                   \\ \hline
-		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de usuario en texto plano y la contraseña encriptada \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                                        \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                                    \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                    \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                         \\ \hline
+		\textbf{Nombre}      & Base de datos de usuarios                                                            \\ \hline
+		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacenan los siguientes campos:
+		\begin{itemize}
+			\item Nombre de usuario en texto plano
+			\item Contraseña del usuario encriptada
+		\end{itemize}  \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                 \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                             \\ \hline
+		\textbf{Fuente}      & Analista                                                                             \\ \hline
+		\textbf{Versión}     & 1.0                                                                                  \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1068,12 +1081,18 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Base de datos de dispositivos                                                                                                                                            \\ \hline
-		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacena el nombre de dispositivo, su dirección IP de acceso, fecha de su último cambio de estado y su estado actual \\ \hline
-		\textbf{Prioridad}   & Alta                                                                                                                                                                     \\ \hline
-		\textbf{Necesidad}   & Esencial                                                                                                                                                                 \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                                                                 \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                                                      \\ \hline
+		\textbf{Nombre}      & Base de datos de dispositivos                                                        \\ \hline
+		\textbf{Descripción} & La base de datos constará de una tabla en la que se almacenan los siguientes campos:
+		\begin{itemize}
+			\item Nombre identificativo del dispositivo
+			\item Dirección IP de acceso al dispositivo
+			\item Fecha de su último cambio de estado
+			\item Estado actual del dispositivo
+		\end{itemize}  \\ \hline
+		\textbf{Prioridad}   & Alta                                                                                 \\ \hline
+		\textbf{Necesidad}   & Esencial                                                                             \\ \hline
+		\textbf{Fuente}      & Analista                                                                             \\ \hline
+		\textbf{Versión}     & 1.0                                                                                  \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1
@@ -1082,12 +1101,16 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\begin{tabular}{|l|p{.77\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
-		\textbf{Nombre}      & Estado del dispositivo                                                                                                              \\ \hline
-		\textbf{Descripción} & El dispositivo al conectarse y desconectarse enviará una actualización al servidor para que actualice su estado en la base de datos \\ \hline
-		\textbf{Prioridad}   & Baja                                                                                                                                \\ \hline
-		\textbf{Necesidad}   & Opcional                                                                                                                            \\ \hline
-		\textbf{Fuente}      & Analista                                                                                                                            \\ \hline
-		\textbf{Versión}     & 1.0                                                                                                                                 \\ \hline
+		\textbf{Nombre}      & Estado del dispositivo                                                                                                                          \\ \hline
+		\textbf{Descripción} & El dispositivo al conectarse y desconectarse enviará una actualización al servidor para que actualice su estado en la base de datos, que serán:
+		\begin{itemize}
+			\item Online
+			\item Offline
+		\end{itemize} \\ \hline
+		\textbf{Prioridad}   & Baja                                                                                                                                            \\ \hline
+		\textbf{Necesidad}   & Opcional                                                                                                                                        \\ \hline
+		\textbf{Fuente}      & Analista                                                                                                                                        \\ \hline
+		\textbf{Versión}     & 1.0                                                                                                                                             \\ \hline
 	\end{tabular}
 \end{table}
 \advance\rn by 1

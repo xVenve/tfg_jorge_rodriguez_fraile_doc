@@ -1,15 +1,27 @@
-\chapter{Introducción} 
+\chapter{Introducción}
 \label{ch:introduccion}
 Desde hace décadas, sobre todo con el desarrollo del Big data, la cantidad de información que se mueve por internet y que deben controlar las empresas ha aumentado sobremanera, este crecimiento se estima en un 78 \% anual \cite{monleon-getino_impacto_2015}.
 
 Toda la distribución, almacenamiento y procesado de la información se ha ido descentralizando y ha dejado de realizarse las propias oficinas para hacerse en unas salas especializadas, llamadas \textit{Centros de Procesamiento de Datos} o \textit{CPD}. 
-
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Ejemplo de Centro de Procesado de Datos}}
+	{\includegraphics[scale=0.16]{CPDintro.jpg}}
+\end{figure}
 En estas salas se dispone del equipamiento informático necesario para realizar todas las tareas antes mencionadas y para garantizar unas condiciones óptimas de trabajo y facilitar el mantenimiento, además, disponen de diversos sistemas de control y seguridad que permita detectar cualquier tipo de incidente que pueda suponer la ralentización de los procesos o incluso la perdida de la información.
 
 El presente trabajo está dirigido al diseño e implementación de uno de esos sistemas de control y seguridad que poseen los CPD. En este primer capítulo se presentarán las motivaciones para su desarrollo y los objetivos de este TFG, así como la metodología de trabajo y la estructura el proyecto.
 
 \section{Motivación del trabajo}
-MEDIA CARA - CARA
+Contado todo lo anterior, podemos ver que estos centros son de vital importancia hoy en día, en el que toda nuestra vida está en la red, almacenada en un disco duro en alguna parte del mundo. Proteger estos lugares es fundamental para todas las partes implicadas, tanto para los usuarios de los datos como para la empresa que los almacena.
+
+Este proyecto surge a raíz de una propuesta lanzada por mi tutor de TFG, Javier Fernández Muñoz, en la que se propone el desarrollo de un sistema para controlar la temperatura de un CPD y tener visión de su interior. 
+
+Lo sugerido inicialmente son factores básicos para la seguridad de estos sitios y que garanticen su correcto funcionamiento, y sin los cuales se correría un riesgo importante y costoso para el propietario.
+
+Partiendo de esta premisa y dado mi interés por ampliar mis conocimientos sobre el desarrollo de software para pequeños dispositivos, decidí embarcarme en este trabajo, inicialmente solo había trabajado con pequeñas placas para hacer sencillos sistemas que encendieran un LED o movieran un motor. Por todo esto, este trabajo me servirá para meterme de lleno en este campo y poder descubrir nuevas formas de desarrollar software que no hemos tratado en el grado.
+
+Además, no solamente cubrirá la idea que tuvimos inicialmente de controlar la temperatura y visión, sino que se desarrollará un sistema completo, dispositivo y aplicación web, para controlar diferentes variables de un CPD, así como para tener visión en tiempo real de su situación. Esta nueva perspectiva, más completa, nos acerca algo más a un sistema que pudiéramos ver en un lugar tan clave como lo son estos.
 
 \section{Objetivos}
 El objetivo de este proyecto es desarrollar un dispositivo capaz de monitorizar diversas variables ambientales del interior de un CPD, realizando numerosas mediciones de estas, almacenar los datos recogidos y confeccionar los gráficos oportunos para su buen entendimiento, a la vez que transmitirá imágenes del interior, todo ello en tiempo real.
@@ -20,11 +32,13 @@ Como se ha dicho anteriormente los datos recogidos se almacenarán en una base d
 
 Otros objetivos relacionados son:
 \begin{itemize}
-    \item Acceso a la información de los diferentes dispositivos de medida conectados, para gestionarlos de manera más sencilla.
-    \item Base de datos y servidor web siempre accesible en la red, para tener conocimiento de posibles incidentes.
-    \item Sistema de seguridad mediante inicio de sesión, para acceder a los datos e imagen tomada.
-    \item Página web simple e intuitiva, para facilitar la gestión de la información mostrada.
-    \item Página web responsive, para móvil, tablet y ordenador.
+	\item Acceso a la información de los diferentes dispositivos de medida conectados, para gestionarlos de manera más sencilla.
+	      \pagebreak
+	      
+	\item Base de datos y servidor web siempre accesible en la red, para tener conocimiento de posibles incidentes.
+	\item Sistema de seguridad mediante inicio de sesión, para acceder a los datos e imagen tomada.
+	\item Página web simple e intuitiva, para facilitar la gestión de la información mostrada.
+	\item Página web responsive, para móvil, tablet y ordenador.
 \end{itemize}
 
 \section{Metodología}
@@ -37,7 +51,7 @@ Se muestra a continuación en la \autoref{fig:metrica_v3} un diagrama de Métric
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption[Diagrama Métrica V3]{Diagrama Métrica V3 \cite{portal_administracion_electronica_metrica_nodate}}
-    \label{fig:metrica_v3}}
+		\label{fig:metrica_v3}}
 	{\includegraphics[scale=0.6]{Metrica3.png}}
 \end{figure}
 
@@ -47,14 +61,14 @@ En esta sección se presentan los diferentes capítulos que conforman este docum
 Capítulos en los que se divide el documento:
 
 \begin{itemize}
-    \item \textbf{Introducción (\autoref{ch:introduccion}):} Este capítulo tiene como propósito presentar al lector el tema que se tratará antes de profundizar en él. También se presentan las motivaciones que se han tenido en cuenta para la elección de este tema y los objetivos de este TFG. Por último, se explica la estructura y metodología que sigue el contenido. 
-    \item \textbf{Estado del arte (\autoref{ch:estado}):} Consiste en un análisis de la situación actual del producto que planeamos desarrollar, buscando soluciones existentes al problema que intentamos solucionar o que sean similares. Después de conocer esas soluciones se buscan los puntos fuertes para intentar mejorarlos y los débiles para solucionarlos, para sacar el mejor producto posible al mercado.
-    \item \textbf{Análisis del sistema - ASI (\autoref{ch:analisis}):} Presenta las especificaciones del sistema que el cliente ha solicitado, así como los casos de uso, las diferentes situaciones en las que se podrá interactuar con el mismo. Las especificaciones se recogerán como requisitos de usuario, que tras haber sido analizadas por el analista se completaran y especificaran mejor en forma de requisitos funcionales y no funcionales. Para comprobar que todo ha sido recogido correctamente se verificara con matrices de trazabilidad.
-    \item \textbf{Diseño del sistema - DSI (\autoref{ch:diseno}):} 
-    \item \textbf{Implementación - CSI (\autoref{ch:implementacion}):} 
-    \item \textbf{Pruebas (\autoref{ch:pruebas}):} Se especifican cuáles serán las pruebas que se realizarán para comprobar que el sistema funciona correctamente, además de garantizar que se cumplen todas las especificaciones marcadas por el cliente en los requisitos del análisis.
-    \item \textbf{Gestión del proyecto - PSI (\autoref{ch:gestion}):} Expone la planificación temporal del proyecto, indicando el tiempo dedicado a cada una de las partes del documento, acompañado del diagrama de Gantt correspondiente. \\ Este capítulo también comprende el presupuesto, en el que se presentan de manera desglosada todos los gastos asociados al proyecto, y finaliza con un resumen en el que se indica el precio final del proyecto para nuestro cliente.
-    \item \textbf{Marco regulador (\autoref{ch:marco}):} Recoge los aspectos legales relacionados con el proyecto, con las tecnologías que se han empleado y el impacto de nuestro sistema.
-    \item \textbf{Conclusiones (\autoref{ch:conclusiones}):} Es el último capítulo del desarrollo del proyecto, en el que se recoge, tras todo el proceso de diseño e implementación, cuáles son las virtudes de este sistema, así como mi valoración personal sobre el conjunto de este trabajo. \\ Se concluye con una mirada al futuro, con posibles aplicaciones que se le podrán dar y analizando cuáles serían posibles mejoras y funcionalidades para el producto. 
-    \item \textbf{Bibliografía:} Recoge las referencias a todos los recursos que han sido consultados durante la realización de este documento, con el propósito de dar validez a la información que se ha presentado y si fuera necesario profundizar más en algún punto.
+	\item \textbf{Introducción (\autoref{ch:introduccion}):} Este capítulo tiene como propósito presentar al lector el tema que se tratará antes de profundizar en él. También se presentan las motivaciones que se han tenido en cuenta para la elección de este tema y los objetivos de este TFG. Por último, se explica la estructura y metodología que sigue el contenido.
+	\item \textbf{Estado del arte (\autoref{ch:estado}):} Consiste en un análisis de la situación actual del producto que planeamos desarrollar, buscando soluciones existentes al problema que intentamos solucionar o que sean similares. Después de conocer esas soluciones se buscan los puntos fuertes para intentar mejorarlos y los débiles para solucionarlos, para sacar el mejor producto posible al mercado.
+	\item \textbf{Análisis del sistema - ASI (\autoref{ch:analisis}):} Presenta las especificaciones del sistema que el cliente ha solicitado, así como los casos de uso, las diferentes situaciones en las que se podrá interactuar con el mismo. Las especificaciones se recogerán como requisitos de usuario, que tras haber sido analizadas por el analista se completaran y especificaran mejor en forma de requisitos funcionales y no funcionales. Para comprobar que todo ha sido recogido correctamente se verificara con matrices de trazabilidad.
+	\item \textbf{Diseño del sistema - DSI (\autoref{ch:diseno}):}
+	\item \textbf{Implementación - CSI (\autoref{ch:implementacion}):}
+	\item \textbf{Pruebas (\autoref{ch:pruebas}):} Se especifican cuáles serán las pruebas que se realizarán para comprobar que el sistema funciona correctamente, además de garantizar que se cumplen todas las especificaciones marcadas por el cliente en los requisitos del análisis.
+	\item \textbf{Gestión del proyecto - PSI (\autoref{ch:gestion}):} Expone la planificación temporal del proyecto, indicando el tiempo dedicado a cada una de las partes del documento, acompañado del diagrama de Gantt correspondiente. \\ Este capítulo también comprende el presupuesto, en el que se presentan de manera desglosada todos los gastos asociados al proyecto, y finaliza con un resumen en el que se indica el precio final del proyecto para nuestro cliente.
+	\item \textbf{Marco regulador (\autoref{ch:marco}):} Recoge los aspectos legales relacionados con el proyecto, con las tecnologías que se han empleado y el impacto de nuestro sistema.
+	\item \textbf{Conclusiones (\autoref{ch:conclusiones}):} Es el último capítulo del desarrollo del proyecto, en el que se recoge, tras todo el proceso de diseño e implementación, cuáles son las virtudes de este sistema, así como mi valoración personal sobre el conjunto de este trabajo. \\ Se concluye con una mirada al futuro, con posibles aplicaciones que se le podrán dar y analizando cuáles serían posibles mejoras y funcionalidades para el producto.
+	\item \textbf{Bibliografía:} Recoge las referencias a todos los recursos que han sido consultados durante la realización de este documento, con el propósito de dar validez a la información que se ha presentado y si fuera necesario profundizar más en algún punto.
 \end{itemize}
