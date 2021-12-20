@@ -160,4 +160,26 @@ Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 Las claves primarias son date y device, estas claves identifican de manera única a una medida, por lo que se puede consultar una medida concreta de un dispositivo específico.
 
 Además, existe una relación con la tabla devices en cuanto a que el campo device es clave ajena del campo id, de esta manera que cuando un dispositivo sea eliminado o actualizado se propague a esta tabla.
+
 \section{Interfaz de Usuario}\label{sec:interfaz}
+En esta sección se trata otro de los elementos clave del sistema, la interfaz de usuario. Esta hace posible el uso del sistema a personas no expertas, de manera que puedan manipularlo y hacer uso de este sin la necesidad de saber cómo se desarrolla un sistema de estas características.
+
+La parte del sistema a la que ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y movernos por las pantallas se emplea PHP.
+
+La web además es responsive por lo que es totalmente funcional tanto en dispositivos de altas resoluciones (televisiones, ordenadores de sobremesa, portátiles, etc.), como en dispositivos de bajas resoluciones (móviles, tablets, etc.).
+
+En la \autoref{fig:flujo_interfaz} se muestra el flujo de pantallas e interacciones que se sigue al acceder a la aplicación web, más tarde se explica en detalle cada una de las pantallas de la interfaz y que interacciones nos permite.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Diagrama de flujo de la web}
+		\label{fig:flujo_interfaz}}
+	{\includegraphics[scale=0.9]{flujoInterfaz.png}}
+\end{figure}
+
+\subsection{Página: Inicio de sesión}
+
+\subsection{Página: Principal}
+
+\subsection{Página: Dispositivo}
+
+Poner capturas y hablar en general, después poner las imágenes de móvil y explicar que se ha hecho para que sea responsive(dimensiones adaptables, tamaños de letra, contraste).
