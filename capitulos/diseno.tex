@@ -177,9 +177,46 @@ En la \autoref{fig:flujo_interfaz} se muestra el flujo de pantallas e interaccio
 \end{figure}
 
 \subsection{Página: Inicio de sesión}
+Es la primera pantalla que se encontrara el usuario cuando acceda a la aplicaccion, en esta, como se puede ver en la ILUSTRACION XX se le solicita intrudicir su nombre  de usuario y contraseña de acceso. Esta pantalla es fundamental para garantizar la seguridad del centro, de manera que no accedan personas no autorizadas y que puedan poner en riesgo su seguridad.
+
+Se puede ver de primeras que la paleta de colores se adapta a lo solicitado, utilizando colores de la gama de los azules que contratesn entre ellos, de manera que se pueda visualizar sin difultad todos los elementos, los codigos elegidos han sido:
+PONER LOS COLORES USADOS
+
+El primer campo, correspondiente al nombre de usuario se muestra el texto escrito, sin embargo en el de la contraseña se sustituiran visualmente por asteriscos garantizando la provacidad de la contraseña.
+
+En el caso de introducor unos credenciales no resgistrados en el sistema se avisa al usuario de que recise lo que ha escrito, dado que si no coinciden no se puede garantizar si identidad.
+
+Por otro lado, tambien se deben completar ambos campos, si esto no es así se lanza un aviso al usuario informandole que los debe cumplimentar si desea acceder.
+
+Una vez el usuario ha completado los campos podrá hacer clic en el boton "Iniciar sesión" que si cumple todo los anterior le llevara a la pantalla principal descita en la SUBSECCION XX
+
+En cuanto a la versión movil, se ha ajustado el tamaño del formaulario para que se ajuste y sea legible incluso en resoluciones pequeñas. Además el tamaño de letra es suficientemente grande como para que se pueda leer correctamente tanto en grandes como en pequenas resoluciones. PONER TAMANO LETRA
 
 \subsection{Página: Principal}
+Una vez el usuario a iniciado la sesion de manera satisfactoria, se pasara a la panatalla mostrada en la ILUSTRACION XX, en la que de primera podemos ver que nos muestra un mesaje de saludo, indicando el nombre de usuario.
+
+La clave de esta pantalla es la lista de los dispositivos en la que se muestran de manera tabular los datos de estos. Se imprimiran para cada dispositivo los datos almacenados en la base de datos.
+
+En la ultima posicion de cada fila de dipositivo hay un boton en el que pone "Acceso" que nos redirigira a la pagina de dispositivo, que se describe en la SUBSECCION XX.
+
+En la parte inferior aparece un boton con el texto "Cerrar sesion" que como su propio nombre indica, cierra la sesion y nos devuelve a la pagina de inicio de sesion, SUBSECCION XX.
+
+Por ultimo, en la version movil la tabla pasara a ocupar el ancho completo de la pantalla para que se pueda ver claraemnte el boton de la ultima posicion y facilitar acceder al dispositivo. En cuanto al texto de saludo se ha decidido mantener, pero ajustandose para que no se salga de la pantalla, evitando el scroll lateral.
 
 \subsection{Página: Dispositivo}
+Esta pantalla muestra la informacion clave de este proyecto, la imagen de la camara del dispositovo y las medidas tomadas. 
+
+A esta pagina se acceder una vez se ha seleccionado un dispositivo en la pagina principal, SUBSECCION XX, y tiene la apariencia que se muestra en la ILUSTRACION XX.
+
+En primer lugar, en la parte superior se muestra el nombre que identifica al dispositivo de manera que podemos saber en todo momento que datos estamos consultado.
+
+Inmediatamente despues, se muestra un cuadro con la imagen en tiempo real de la camara del dispositivo.
+
+A continuacion, se mostraran todas la medidas, primero de manera grafica y despues de manera tabular. 
+
+La parte de medidas en forma de graficas se divide en 3 apartados XXXX
+
+En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronologica, de mas nuevas a mas antiguas. Esta tabla esta compuesta por los XXX ultimos resgistros que cubren la ultima hora de mediciones de la sala.
+
 
 Poner capturas y hablar en general, después poner las imágenes de móvil y explicar que se ha hecho para que sea responsive(dimensiones adaptables, tamaños de letra, contraste).
