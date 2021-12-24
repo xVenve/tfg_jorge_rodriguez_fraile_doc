@@ -4,7 +4,7 @@ Tras haber realizado el análisis del sistema previamente, en este capítulo se 
 
 También se define la manera en la que se almacenan los datos (\autoref{sec:modelo}) y como son las interfaces que componen el sistema (\autoref{sec:interfaz}) con las que interactúa el usuario. 
 
-Además lo definido a continuación sienta la base para poder comenzar el desarrollo e implementación del sistema que se define en los siguientes capítulos, \autoref{ch:implementacion} y \autoref{ch:pruebas}.
+Además, lo definido a continuación sienta la base para poder comenzar el desarrollo e implementación del sistema que se define en los siguientes capítulos, \autoref{ch:implementacion} y \autoref{ch:pruebas}.
 
 \section{Arquitectura del Sistema}\label{sec:arquitectura}
 El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador \cite{bucanek_model-view-controller_2009}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
@@ -133,7 +133,7 @@ En la \autoref{tab:tabla_devices} se pueden ver los atributos que la componen:
 Como en la \autoref{tab:tabla_users} la clave primaria de la tabla es un nombre representativo, en este caso id, que identifica inequívocamente al dispositivo, de esta manera se puede utilizar para consultar los datos de un dispositivo en concreto. Cuando sea necesario puede variar la IP a la que está conectado, fecha y estado, pero el nombre identificador no puede cambiar.
 
 \subsubsection{Tabla de medidas}
-Es la tabla tan importante que se ha dicho antes, en esta tabla se almacenaran las medidas que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación junto con su imagen. Las medidas que se almacenan son: temperatura, humedad, PM2.5, PM10, CO y CO$_2$.
+Es la tabla tan importante que se ha dicho antes, en esta tabla se almacenaran las medidas que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación junto con su imagen. Las medidas que se almacenan son: temperatura, humedad, PM$_{2.5}$, PM$_{10}$, CO y CO$_2$.
 
 Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 
@@ -173,50 +173,105 @@ En la \autoref{fig:flujo_interfaz} se muestra el flujo de pantallas e interaccio
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama de flujo de la web}
 		\label{fig:flujo_interfaz}}
-	{\includegraphics[scale=0.9]{flujoInterfaz.png}}
+	{\includegraphics[scale=1]{flujoInterfaz.png}}
 \end{figure}
 
-\subsection{Página: Inicio de sesión}
-Es la primera pantalla que se encontrara el usuario cuando acceda a la aplicaccion, en esta, como se puede ver en la ILUSTRACION XX se le solicita intrudicir su nombre  de usuario y contraseña de acceso. Esta pantalla es fundamental para garantizar la seguridad del centro, de manera que no accedan personas no autorizadas y que puedan poner en riesgo su seguridad.
+\subsection{Página: Inicio de sesión}\label{subsec:iLogin}
+Es la primera pantalla que se encontrara el usuario cuando acceda a la aplicación, en esta, como se puede ver en la \autoref{fig:iLogin} se le solicita introducir su nombre de usuario y contraseña de acceso. Esta pantalla es fundamental para garantizar la seguridad del centro, de manera que no accedan personas no autorizadas y que puedan poner en riesgo su seguridad.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de inicio de sesión}
+		\label{fig:iLogin}}
+	{\includegraphics[scale=0.28]{login.png}}
+\end{figure}
+Se puede ver de primeras que la paleta de colores se adapta a lo solicitado, utilizando colores de la gama de los azules que contrasten entre ellos, de manera que se pueda visualizar sin dificultad todos los elementos, los códigos RGB hexadecimales elegidos son:
+\begin{itemize}
+	\item Primario. \#4169e1
+	\item Secundario. \#4169e1
+	\item Primario claro. \#191970
+	\item Secundario Oscuro. \#ccccff
+	\item Resaltado. \#9e9eff
+	\item Gris. \#dddddd
+\end{itemize}
+El primer campo, correspondiente al nombre de usuario se muestra el texto escrito, sin embargo, en el de la contraseña se sustituirán visualmente por asteriscos garantizando la privacidad de la contraseña.
 
-Se puede ver de primeras que la paleta de colores se adapta a lo solicitado, utilizando colores de la gama de los azules que contratesn entre ellos, de manera que se pueda visualizar sin difultad todos los elementos, los codigos elegidos han sido:
-PONER LOS COLORES USADOS
+En el caso de introducir unas credenciales no registradas en el sistema se avisa al usuario de que revise lo que ha escrito, ''Compruebe las credenciales'', dado que si no coinciden no se puede garantizar su identidad.
 
-El primer campo, correspondiente al nombre de usuario se muestra el texto escrito, sin embargo en el de la contraseña se sustituiran visualmente por asteriscos garantizando la provacidad de la contraseña.
+Por otro lado, también se deben completar ambos campos, si esto no es así se lanza un aviso al usuario informándole que los debe cumplimentar si desea acceder, ''Ambos campos son obligatorios''.
 
-En el caso de introducor unos credenciales no resgistrados en el sistema se avisa al usuario de que recise lo que ha escrito, dado que si no coinciden no se puede garantizar si identidad.
+Una vez el usuario ha completado los campos podrá hacer clic en el botón ''Iniciar sesión'' y si cumple todo lo anterior le llevará a la pantalla principal descrita en la \autoref{subsec:iPrincipal}.
 
-Por otro lado, tambien se deben completar ambos campos, si esto no es así se lanza un aviso al usuario informandole que los debe cumplimentar si desea acceder.
+En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para que se ajuste y sea legible incluso en resoluciones pequeñas. Además, el tamaño de letra es suficientemente grande, 14 pixeles para formulario y 10 pixeles para el botón, como para que se pueda leer correctamente tanto en grandes como en pequeñas resoluciones.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de inicio de sesión en móvil}
+		\label{fig:iLoginM}}
+	{\includegraphics[scale=0.6]{loginM.png}}
+\end{figure}
 
-Una vez el usuario ha completado los campos podrá hacer clic en el boton "Iniciar sesión" que si cumple todo los anterior le llevara a la pantalla principal descita en la SUBSECCION XX
+\subsection{Página: Principal}\label{subsec:iPrincipal}
+Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasará a la pantalla mostrada en la \autoref{fig:iPrincipal}, en la que de primera podemos ver que nos muestra un mensaje de saludo, indicando el nombre de usuario.
 
-En cuanto a la versión movil, se ha ajustado el tamaño del formaulario para que se ajuste y sea legible incluso en resoluciones pequeñas. Además el tamaño de letra es suficientemente grande como para que se pueda leer correctamente tanto en grandes como en pequenas resoluciones. PONER TAMANO LETRA
+La clave de esta pantalla es la lista de los dispositivos en la que se muestran de manera tabular los datos de estos. Se imprimirán para cada dispositivo los datos almacenados en la base de datos.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de pantalla principal}
+		\label{fig:iPrincipal}}
+	{\includegraphics[scale=0.28]{devices.png}}
+\end{figure}
+En la última posición de cada fila de dispositivos hay un botón en el que pone ''Acceso'' que nos redirigirá a la página de dispositivo, que se describe en la \autoref{subsec:iDispositivo}.
 
-\subsection{Página: Principal}
-Una vez el usuario a iniciado la sesion de manera satisfactoria, se pasara a la panatalla mostrada en la ILUSTRACION XX, en la que de primera podemos ver que nos muestra un mesaje de saludo, indicando el nombre de usuario.
+En la parte inferior aparece un botón con el texto ''Cerrar sesión'' que como su propio nombre indica, cierra la sesión y nos devuelve a la página de inicio de sesión, \autoref{subsec:iLogin}.
 
-La clave de esta pantalla es la lista de los dispositivos en la que se muestran de manera tabular los datos de estos. Se imprimiran para cada dispositivo los datos almacenados en la base de datos.
+Por último, en la versión móvil la tabla pasará a ocupar el ancho completo de la pantalla para que se pueda ver claramente el botón de la última posición y facilitar acceder al dispositivo. En cuanto al texto de saludo se ha decidido mantener, pero ajustándose para que no se salga de la pantalla, evitando el scroll lateral.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de pantalla principal en móvil}
+		\label{fig:iPrincipalM}}
+	{\includegraphics[scale=0.6]{devicesM.png}}
+\end{figure}
 
-En la ultima posicion de cada fila de dipositivo hay un boton en el que pone "Acceso" que nos redirigira a la pagina de dispositivo, que se describe en la SUBSECCION XX.
+\subsection{Página: Dispositivo}\label{subsec:iDispositivo}
+Esta pantalla muestra la información clave de este proyecto, la imagen de la cámara del dispositivo y las medidas tomadas. 
 
-En la parte inferior aparece un boton con el texto "Cerrar sesion" que como su propio nombre indica, cierra la sesion y nos devuelve a la pagina de inicio de sesion, SUBSECCION XX.
+A esta página se accede una vez se ha seleccionado un dispositivo en la página principal, \autoref{subsec:iPrincipal}, y tiene la apariencia que se muestra en la \autoref{fig:iDispositivoI}, \autoref{fig:iDispositivoII} y \autoref{fig:iDispositivoIII}.
 
-Por ultimo, en la version movil la tabla pasara a ocupar el ancho completo de la pantalla para que se pueda ver claraemnte el boton de la ultima posicion y facilitar acceder al dispositivo. En cuanto al texto de saludo se ha decidido mantener, pero ajustandose para que no se salga de la pantalla, evitando el scroll lateral.
+En primer lugar, en la parte superior se muestra el nombre que identifica al dispositivo de manera que podemos saber en todo momento que datos estamos consultando.
 
-\subsection{Página: Dispositivo}
-Esta pantalla muestra la informacion clave de este proyecto, la imagen de la camara del dispositovo y las medidas tomadas. 
+Inmediatamente después, se muestra un cuadro con la imagen en tiempo real de la cámara del dispositivo.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de dispositivo I}
+		\label{fig:iDispositivoI}}
+	{\includegraphics[scale=0.28]{medidas1.png}}
+\end{figure}
+A continuación, se mostrarán todas las medidas, primero de manera gráfica y después de manera tabular.
 
-A esta pagina se acceder una vez se ha seleccionado un dispositivo en la pagina principal, SUBSECCION XX, y tiene la apariencia que se muestra en la ILUSTRACION XX.
+La parte visual de las medidas se divide en 3 gráficas distintas para poder ver mejor como progresan en el tiempo sin que haya problemas de escalas entre ellas y sin saturar la pantalla. Las gráficas son:
+\begin{itemize}
+	\item Temperatura y Humedad.
+	\item PM$_{2.5}$, PM$_{10}$ y CO.
+	\item CO$_2$.
+\end{itemize}
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de dispositivo II}
+		\label{fig:iDispositivoII}}
+	{\includegraphics[scale=0.28]{medidas2.png}}
+\end{figure}
+En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronológica, de más nuevas a más antiguas. Esta tabla está compuesta por los 720 últimos registros que cubren la última hora de mediciones de la sala, puesto que se toma una medida cada 5 segundos.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de dispositivo III}
+		\label{fig:iDispositivoIII}}
+	{\includegraphics[scale=0.28]{medidas3.png}}
+\end{figure}
 
-En primer lugar, en la parte superior se muestra el nombre que identifica al dispositivo de manera que podemos saber en todo momento que datos estamos consultado.
-
-Inmediatamente despues, se muestra un cuadro con la imagen en tiempo real de la camara del dispositivo.
-
-A continuacion, se mostraran todas la medidas, primero de manera grafica y despues de manera tabular. 
-
-La parte de medidas en forma de graficas se divide en 3 apartados XXXX
-
-En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronologica, de mas nuevas a mas antiguas. Esta tabla esta compuesta por los XXX ultimos resgistros que cubren la ultima hora de mediciones de la sala.
-
-
-Poner capturas y hablar en general, después poner las imágenes de móvil y explicar que se ha hecho para que sea responsive(dimensiones adaptables, tamaños de letra, contraste).
+Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al ancho del dispositivo de manera que se puedan visualizar bien los datos, evitando así tener que hacer zum en la pantalla. Además, las gráficas ofrecen la posibilidad de acceder a un dato en particular si hacemos clic o tocamos una sección específica, indicando los valores y momento específicos.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Interfaz de dispositivo en móvil}
+		\label{fig:iDispositivoMI}}
+	{\includegraphics[scale=0.5]{medidas1M.png}
+		\includegraphics[scale=0.5]{medidas3M.png}}
+\end{figure}
