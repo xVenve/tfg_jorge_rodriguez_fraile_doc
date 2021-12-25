@@ -1,2 +1,241 @@
 \chapter{Implementación}
 \label{ch:implementacion}
+Una vez se ha definido en detalle cómo debe de ser el sistema se procede a la implementación de este, de manera que se hagan realidad todas las especificaciones. En este capítulo se entrará más en detalle cómo se ha realizado la programación de las distintas partes para que funcionen correctamente y en armonía entre ellas.
+
+Se tratarán todas las partes implicadas, desde el servidor en el que se aloja la aplicación y la base de datos, estas mismas y el dispositivo que se utiliza para recoger datos.
+
+\section{Servidor}
+En primer lugar, debemos montar el servidor sobre el que alojaremos la aplicación y la base de datos, para que de esta manera pueda ser accedido por los usuarios. Como se ha dicho en la \autoref{subsec:servidorDB}, se emplea la herramienta XAMPP para este propósito.
+
+Para comenzar a utilizar XAMPP simplemente se instala el programa en la máquina o servidor que se vaya a utilizar como máquina central, el instalable se puede descargar desde la página oficial \href{https://www.apachefriends.org/index.html}{https://www.apachefriends.org}.
+
+En este caso en la instalación solo será necesario que marquemos las opciones de instalar Apache y MySQL, puesto que es suficiente para el funcionamiento de la aplicación.
+
+Cuanto tenemos esto instalado, se arranca la herramienta y mediante su interfaz gráfica podremos configurar los puertos y direcciones sobre las que queremos que lance Apache y la base de datos MariaDB. Aunque, en la aplicación ponga MySQL se utiliza MariaDB dado que comparten los comandos.
+
+En este caso el servidor Apache de lanza sobre el puerto 80 y la base de datos en el puerto 3306, a los que se puede acceder utilizando la IP pública de la máquina o desde la máquina utilizando \textit{localhost}.
+
+\section{Base de datos}
+Cuando tenemos lanzado el servidor y hacemos \textit{Start} de la base de datos MySQL, se puede acceder a la administración con \textit{IP/phpmyadmin}, esto nos lleva a phpMyAdmin mediante esta interfaz web se puede realizar la configuración completa de la base de datos. En este caso no se ha utilizado la interfaz para configurarlo, sino que se ha utilizado el terminal que nos ofrece en la pestaña SQL. 
+\pagebreak
+
+El primer paso es crear en sí la base de datos donde tendremos nuestras tablas, para esto se emplea el siguiente comando:
+\begin{lstlisting}
+CREATE DATABASE tfg_db;
+\end{lstlisting}
+
+A continuación, se crea un usuario con todos los permisos, que es el que emplea el administrador de la base de datos y que le permite añadir las credenciales de acceso de los usuarios a la aplicación. Por otro lado, tendremos otro usuario con permisos de inserción y actualización de registros que es el utilizado por el dispositivo, dado que este añade medidas y actualiza su estado. Para lograr esto se introducen los siguientes comandos:
+\begin{lstlisting}
+CREATE USER 'tfg_user'@'%' IDENTIFIED BY 'tfg_pass';
+GRANT ALL PRIVILEGES ON tfg_db.* TO 'tfg_user'@'%';
+CREATE USER 'device_user'@'%' IDENTIFIED BY 'device_pass';
+GRANT INSERT, UPDATE ON *.* TO 'device_user'@'%';
+\end{lstlisting}
+
+Una vez tenemos los accesos creados, se procede a crear las tablas que se utilizaran en la aplicación, que son la de medidas (\textit{sensor\_data}), la de dispositivos (\textit{devices}) y la de usuarios (\textit{users}). Están formadas por los campos y relaciones descritas en la \autoref{sec:modelo} y los comandos correspondientes para su creación son:
+\begin{lstlisting}
+CREATE TABLE sensor_data (
+    date datetime NOT NULL,
+    device varchar(50) NOT NULL,
+    temperature float NOT NULL,
+    humidity float NOT NULL,
+    pm2_5 float NOT NULL,
+    pm10 float NOT NULL,
+    co float NOT NULL,
+    co2 mediumint(9) NOT NULL,
+    PRIMARY KEY (date, device),
+    CONSTRAINT deviceData FOREIGN KEY (device) 
+    REFERENCES devices(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE devices (
+    id varchar(50) NOT NULL,
+    ip varchar(16) NOT NULL,
+    date varchar(19) NOT NULL,
+    status varchar(7) NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE users (
+    username varchar(32) NOT NULL,
+    password varchar(32) NOT NULL,
+    PRIMARY KEY (username)
+);
+\end{lstlisting}
+
+Por parte de la base de datos este es el proceso que hay que realizar, pero en la \autoref{sec:implAplicacion} se explica cómo se realizan las consultas y en la \autoref{sec:implDispositivo} como se realizan las inserciones y actualizaciones.
+
+\section{Aplicación web}\label{sec:implAplicacion}
+En esta sección se explica cómo se ha implementado la lógica de las páginas vistas en la \autoref{sec:interfaz}, así como la definición de la estructura que las forman.
+
+\subsection{Página: Inicio de sesión}
+Esta primera pantalla comprueba primero si la sesión esta iniciada, si es así se redirige a la página principal, por el contrario, si no está iniciada aparece un formulario de HTML en el que se solicita el usuario y contraseña. 
+
+Este formulario al hacer \textit{submit} (botón "Iniciar sesión") activará un script que comprobará si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenados, se pasa a comprobar si el usuario existe en la base de datos, para esto en primer lugar se pasará la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe el usuario y que revise las credenciales.
+
+La lógica explicada se corresponde al siguiente fragmento de código:
+\begin{lstlisting}
+$connect = mysqli_connect("localhost", "tfg_user", "tfg_pass", "tfg_db");
+session_start();
+if (isset($_SESSION["username"])) {
+    header("location:main.php");
+}
+if (isset($_POST["login"])) {
+    if (empty($_POST["username"]) && empty($_POST["password"])) {
+        echo '<script>alert("Ambos campos son obligatorios")</script>';
+    } else {
+        $username = mysqli_real_escape_string($connect, $_POST["username"]);
+        $password = mysqli_real_escape_string($connect, $_POST["password"]);
+        $password = md5($password);
+        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $result = mysqli_query($connect, $query);
+        if (mysqli_num_rows($result) > 0) {
+            $_SESSION['username'] = $username;
+            header("location:main.php");
+        } else {
+            echo '<script>alert("Compruebe las credenciales")</script>';
+        }
+    }
+}
+\end{lstlisting}
+
+En el caso de que se cierre sesión, se elimina la sesión y se redirige al usuario a esta página, para esto se pasa primero a una página temporal llamada \textit{logout.php} que tiene el siguiente código:
+\begin{lstlisting}
+session_start();
+session_destroy();
+header("location:index.php?action=login");
+\end{lstlisting}
+
+\subsection{Página: Principal}\label{subsec:implPagPrincipal}
+Es la página a la que se accede una vez se inicia sesión, por lo que lo primero que se comprueba es que haya una sesión de usuario iniciada, si no se redirige a la página de inicio de sesión de la siguiente forma:
+\begin{lstlisting}
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("location:index.php?action=login");
+}
+\end{lstlisting}
+
+El contenido que se muestra se genera de manera dinámica de manera que el saludo del título será el nombre de usuario de la sesión iniciada. Esto se hace de la siguiente manera:
+\begin{lstlisting}
+echo '<h1>Bienvenido, ' . $_SESSION["username"] . '</h1>';
+\end{lstlisting}
+
+Por otro lado, para generar la tabla es necesario previamente conectar con la base de datos, una vez se establece la conexión con éxito lo que haremos es consultar la tabla de \textit{devices} para obtener los dispositivos que están registrados en la aplicación y su estado, y por cada uno de los registros se genera una fila de la tabla. La tabla completa se genera con el siguiente fragmento de código:
+\begin{lstlisting}
+$connect = mysqli_connect("localhost", "device_user", "device_pass", "tfg_db");
+
+$query = "SELECT * FROM devices";
+$result = mysqli_query($connect, $query);
+
+echo "<table class='tables'>
+<tr>
+    <th>Nombre del dispositivo</th>
+    <th>Estado</th>
+    <th>Ultimo cambio de estado</th>
+    <th>Control</th>
+</tr>";
+
+while ($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" . $row['status'] . "</td>";
+    echo "<td>" . $row['date'] . "</td>";
+    echo '<td><button class="boton" onclick="location.href=\'device.php?id=' . $row['id'] . '&ip=' . $row['ip'] . '\'">Acceder</button></td>';
+
+    echo "</tr>";
+}
+echo "</table>";
+\end{lstlisting}
+
+Como se puede ver en la última columna de cada fila hay un botón cuya acción es redirigir a la página del propio dispositivo, pasando como parámetro el id del dispositivo y la IP del mismo.
+
+Por último el botón de cerrar sesión nos lleva a la página \textit{logout.php} que se describe al final de la \autoref{subsec:implPagPrincipal}.
+
+\subsection{Página: Dispositivo}
+Como se hace en las demás páginas, en primer lugar se comprueba si la sesión esta iniciada, si no se redirige a la página de inicio de sesión. 
+
+Esta página es similar a la de la \autoref{subsec:implPagPrincipal} en cuanto a que en primer lugar se muestra el nombre del dispositivo como ocurre con el saludo, pero en este caso se extrae de la URL.
+\begin{lstlisting}
+echo '<h1>' . $_GET["id"] . '</h1>';
+\end{lstlisting}
+
+Para mostrar la imagen en tiempo real de dicho dispositivo se utiliza un elemento \textit{img} en el que se vuelca la imagen que está transmitiendo el dispositivo sobre el puerto 8000 de su dirección IP obtenida del URL, que se corresponde con la siguiente línea:
+\begin{lstlisting}
+echo '<img src="http://' . $_GET["ip"] . ':8000/stream.mjpg" id="cam">'
+\end{lstlisting}
+\pagebreak
+
+En cuanto a las gráficas se emplea una librería de Google llamada \textit{Google Charts} que nos permite definir gráficas a partir de datos extraídos mediante una consulta a base de datos. En este caso las medidas que se emplean son las que corresponden al dispositivo de la página. Para emplear esta librería debemos definir una función que nos escriba sobre elementos \textit{div} las gráficas, en este caso se hace mediante la función \textit{drawChart} que se define de la siguiente manera:
+\begin{lstlisting}
+$chartQuery = 'SELECT * FROM (SELECT * FROM sensor_data WHERE device="' . $_GET["id"] . '" ORDER BY date DESC LIMIT 720) sub ORDER BY date ASC';
+$chartQueryRecords = mysqli_query($con, $chartQuery);
+
+function drawCharts() {
+    var data = google.visualization.arrayToDataTable([
+        ['Fecha', 'Temperatura', 'Humedad', 'PM2.5', 'PM10', 'CO', 'CO2'],
+        <?php
+        while ($row = mysqli_fetch_assoc($chartQueryRecords)) {
+            echo "['" . $row['date'] . "'," . $row['temperature'] . "," . $row['humidity'] . "," . $row['pm2_5'] . "," . $row['pm10'] . "," . $row['co'] . "," . $row['co2'] . "],";
+        }
+        ?>
+    ]);
+    var options = {
+        legend: {
+            position: 'top',
+            alignment: 'start'
+        }
+    };
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1, 2]);
+    var view2 = new google.visualization.DataView(data);
+    view2.setColumns([0, 3, 4, 5]);
+    var view3 = new google.visualization.DataView(data);
+    view3.setColumns([0, 6]);
+
+    var chart = new google.visualization.LineChart(document.getElementById('regions_temp_hum'));
+    chart.draw(view, options);
+    var chart = new google.visualization.LineChart(document.getElementById('regions_pm_co'));
+    chart.draw(view2, options);
+    var chart = new google.visualization.LineChart(document.getElementById('regions_co2'));
+    chart.draw(view3, options);
+}
+<div id="regions_temp_hum" class="grafica"></div>
+<div id="regions_pm_co" class="grafica"></div>
+<div id="regions_co2" class="grafica"></div>
+\end{lstlisting}
+
+Se puede ver que se define una única gráfica con todas las medidas en función del tiempo, estas medidas se obtienen mediante una consulta a la tabla \textit{sensor\_data} de la que se obtienen 720 registros ordenados por fecha descendiente. Esta gráfica grande se parte más tarde en 3 gráficas más pequeñas indicando que columnas queremos que aparezcan en cada una de ellas. En último lugar, se indica que sean de tipo gráfico de línea y que se muestre en los elementos con id \textit{regions\_temp\_hum}, \textit{regions\_pm\_co} y \textit{regions\_co2}.
+
+Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón en que pone "Volver" que redirige a la página principal.
+\begin{lstlisting}
+<button class="boton" id="boton_volver" onclick="location.href=' main.php'">Volver</button>
+\end{lstlisting}
+
+Por último, para mostrar la tabla de medidas se hace una consulta a la tabla \textit{sensor\_data} de la que se obtienen los últimos 500 registros ordenados de más reciente a más antiguo del dispositivo correspondiente, estas medidas se introducen de manera dinámica como filas de la siguiente manera:
+\begin{lstlisting}
+$query = 'SELECT * FROM sensor_data WHERE device="' . $_GET["id"] . '" ORDER BY date DESC LIMIT 500';
+$result = mysqli_query($con, $query);
+echo "<table class='tables'>
+<tr>
+    <th>Fecha</th>
+    <th>Temperatura</th>
+    <th>Humedad</th>
+    <th>PM<sub>2.5</sub></th>
+    <th>PM<sub>10</sub></th>
+    <th>CO</th>
+    <th>CO<sub>2</sub></th>
+</tr>";
+while ($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['date'] . "</td>";
+    echo "<td>" . $row['temperature'] . "</td>";
+    echo "<td>" . $row['humidity'] . "</td>";
+    echo "<td>" . $row['pm2_5'] . "</td>";
+    echo "<td>" . $row['pm10'] . "</td>";
+    echo "<td>" . $row['co'] . "</td>";
+    echo "<td>" . $row['co2'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+\end{lstlisting}
+
+\section{Dispositivo}\label{sec:implDispositivo}

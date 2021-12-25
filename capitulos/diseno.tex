@@ -70,11 +70,11 @@ Ahora se procede a explicar los subsistemas y componentes que lo forman:
 	      \end{itemize}
 \end{itemize}
 
-En las siguientes secciones se define la parte de Modelo (\autoref{sec:modelo}) y Controlador (\autoref{sec:interfaz}).
+En las siguientes secciones se define la parte de Modelo (\autoref{sec:modelo}), Vista (\autoref{sec:interfaz}) y Controlador (\autoref{sec:servidor} y \autoref{sec:hardware}).
 \pagebreak
 
 \section{Modelo de datos}\label{sec:modelo}
-En este proyecto la base de datos es uno de los elementos más importantes que lo componen, no solo para permitir el acceso del personal autorizado a la aplicación, sino porque almacenará el histórico de las medidas tomadas en la sala que en un futuro nos permitirá analizar cómo ha sido el estado de la sala.
+En este proyecto la base de datos es uno de los elementos más importantes que componen al sistema, no solo para permitir el acceso del personal autorizado a la aplicación, sino porque almacenará el histórico de las medidas tomadas en la sala que en un futuro nos permitirá analizar cómo ha sido el estado de la sala.
 
 La base de datos estará alojada en el servidor, donde podrá ser accedida por la aplicación más fácilmente para su visualización y consulta, además facilita que se puedan centralizar las medidas en un único lugar, para el caso de que se tuvieran múltiples dispositivos en un edificio y se deseara consultarlos desde un mismo lugar.
 
@@ -206,7 +206,7 @@ En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para qu
 	\ffigbox[\FBwidth]
 	{\caption{Interfaz de inicio de sesión en móvil}
 		\label{fig:iLoginM}}
-	{\includegraphics[scale=0.6]{loginM.png}}
+	{\includegraphics[scale=0.55]{loginM.png}}
 \end{figure}
 
 \subsection{Página: Principal}\label{subsec:iPrincipal}
@@ -275,3 +275,62 @@ Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al
 	{\includegraphics[scale=0.5]{medidas1M.png}
 		\includegraphics[scale=0.5]{medidas3M.png}}
 \end{figure}
+
+\section{Servidor}\label{sec:servidor}
+Como ya se especifica en la \autoref{subsec:servidorDB} el servidor que se emplea para alojar la página web es Apache, que cubre todas las necesidades de la aplicación, dado que nos permite lanzar al público un sitio web desarrollado en el lenguaje PHP. Este lenguaje de desarrollo web nos facilitará la implementación de la lógica y acceso a la base de datos, a la vez que diseñar las pantallas vistas en la \autoref{sec:interfaz}. 
+
+En el mismo servidor se aloja la base de datos tal y como ha quedado descrita en la \autoref{sec:modelo}, eso permite que sea accesible para el dispositivo de medición y videovigilancia, que posee los permisos para acceder a la misma.
+\pagebreak
+
+\section{Hardware}\label{sec:hardware}
+En cuanto a la parte física del proyecto, se detalla en esta sección cuáles son las conexiones entre los diferentes elementos que se describieron en la \autoref{sec:hardwareSoftware}, y que son los elegidos para formar parte de este. La conexión se resume en el esquema de la \autoref{fig:circuito}.
+\begin{figure}[H]
+	\ffigbox[\FBwidth]
+	{\caption{Esquema de conexiones dispositivo}
+		\label{fig:circuito}}
+	{\includegraphics[scale=0.6]{circuito.png}}
+\end{figure}
+
+Se comienza con los sensores con los que cuenta el dispositivo:
+\begin{itemize}
+	\item \textbf{DHT11}: Se trata del sensor de temperatura y humedad elegido.
+	      
+	      Por medio de la conexión de DATA - GPIO 4 indicada con el cable blanco se obtiene la temperatura y la humedad del ambiente. 
+	      
+	      El cable rojo lo conecta con la corriente de 5 V.
+	      
+	      El cable morado lo conecta a un puerto de tierra.
+	\item \textbf{MQ-7}: Es el sensor de dióxido de carbono, al tratarse de un sensor analógico y dado que la Raspberry no posee pines de este tipo se emplea un conversor MCP3008 que nos proporciona 8 canales analógicos de 10 bits.
+	      
+	      Se conecta mediante la protoboard a la corriente de 5 V y a tierra, cable rojo y negro respectivamente.
+	      
+	      En cuanto a los datos se conecta al conversor con el cable amarillo y al GPIO 26 mediante el naranja.
+	      
+	      El conversor se conecta a la corriente y a tierra mediante la protoboard, como el sensor, pero este además se debe conectar a los puertos SPIO\_MOSI, SPIO\_MISO, SPIO\_SCLK y SPIO\_CE0 para ofrecer los puertos analógicos. El conversor sigue el esquema de la \autoref{fig:MCP3008} \cite{noauthor_27v_2008}:
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{Esquema conversor MCP3008}
+			      \label{fig:MCP3008}}
+		      {\includegraphics[scale=0.5]{mcp3008.jpg}}
+	      \end{figure}
+	\item \textbf{MH-Z14}: Es el sensor de CO$_2$ empleado.
+	      
+	      Se alimenta mediante el cable rojo a la corriente de 5 V y a tierra mediante el cable negro, ambos por medio de la protoboard. Se emplea la protoboard por falta de puertos únicos de corriente.
+	      
+	      Por otro lado, para transmitir los datos de las medidas utiliza los cables azul y verde a los puertos UART\_TXD y UART\_RXD respectivamente, además con el cable amarillo se une la salida analógica con el GPIO 24. El esquema de los pines se puede ver en la \autoref{fig:MH-Z14} \cite{noauthor_documentacion_nodate}.
+	      \begin{figure}[H]
+		      \ffigbox[\FBwidth]
+		      {\caption{Esquema del sensor MH-Z14}
+			      \label{fig:MH-Z14}}
+		      {\includegraphics[scale=0.77]{MH-Z14.png}}
+	      \end{figure}
+	\item \textbf{SDS011}: Módulo de medida de materia particulada, que se conecta mediante USB a la placa.
+\end{itemize}
+
+En cuanto a la cámara se usa la Raspberry Pi Camera, más específicamente la \textbf{Ov5647}, que se conecta mediante el puerto CSI directamente a la Raspberry Pi. Esta será la encarga de captar la imagen de la sala CPD en la que se encuentre instalado el dispositivo.
+
+Todas las características técnicas y el porqué de la elección de los sensores y cámara se pueden consultar en la \autoref{subsec:altComponentes}.
+
+Como se puede ver, el elemento central es la \textbf{Raspberry Pi 3B+}, cuyas características se pueden consultar en la \autoref{subsec:altPlacas}. Además, esta se encuentra conectada a la corriente mediante un Micro USB y a la red mediante Ethernet.
+
+Su función es alimentar y acceder a los sensores y cámara, que son los elementos que se encargan de la medición y visualización de la sala, dado que sin la Raspberry estos no serían capaces de funcionar por si solos. Otra de sus funciones clave es la retransmisión de la imagen y el envío de las medidas al servidor, es por esta razón se encuentra conectada a la red vía Ethernet.
