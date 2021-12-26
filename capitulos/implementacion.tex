@@ -1,13 +1,13 @@
 \chapter{Implementación}
 \label{ch:implementacion}
-Una vez se ha definido en detalle cómo debe de ser el sistema se procede a la implementación de este, de manera que se hagan realidad todas las especificaciones. En este capítulo se entrará más en detalle cómo se ha realizado la programación de las distintas partes para que funcionen correctamente y en armonía entre ellas.
+Una vez se ha definido en detalle cómo debe de ser el sistema se procede a la implementación de este, de manera que se hagan realidad todas las especificaciones. 
 
-Se tratarán todas las partes implicadas, desde el servidor en el que se aloja la aplicación y la base de datos, estas mismas y el dispositivo que se utiliza para recoger datos.
+En este capítulo se entrará más en detalle cómo se ha realizado la programación de las distintas partes para que funcionen correctamente y en armonía entre ellas. Se tratarán todas las partes implicadas, desde el servidor en el que se aloja la aplicación y la base de datos, estas mismas y el dispositivo que se utiliza para recoger datos.
 
 \section{Servidor}
 En primer lugar, debemos montar el servidor sobre el que alojaremos la aplicación y la base de datos, para que de esta manera pueda ser accedido por los usuarios. Como se ha dicho en la \autoref{subsec:servidorDB}, se emplea la herramienta XAMPP para este propósito.
 
-Para comenzar a utilizar XAMPP simplemente se instala el programa en la máquina o servidor que se vaya a utilizar como máquina central, el instalable se puede descargar desde la página oficial \href{https://www.apachefriends.org/index.html}{https://www.apachefriends.org}.
+Para comenzar a utilizar XAMPP simplemente se instala el programa en la máquina o servidor que se vaya a utilizar como máquina central, el instalable se puede descargar desde la página oficial \cite{noauthor_xampp_nodate}.
 
 En este caso en la instalación solo será necesario que marquemos las opciones de instalar Apache y MySQL, puesto que es suficiente para el funcionamiento de la aplicación.
 
@@ -16,7 +16,7 @@ Cuanto tenemos esto instalado, se arranca la herramienta y mediante su interfaz 
 En este caso el servidor Apache de lanza sobre el puerto 80 y la base de datos en el puerto 3306, a los que se puede acceder utilizando la IP pública de la máquina o desde la máquina utilizando \textit{localhost}.
 
 \section{Base de datos}
-Cuando tenemos lanzado el servidor y hacemos \textit{Start} de la base de datos MySQL, se puede acceder a la administración con \textit{IP/phpmyadmin}, esto nos lleva a phpMyAdmin mediante esta interfaz web se puede realizar la configuración completa de la base de datos. En este caso no se ha utilizado la interfaz para configurarlo, sino que se ha utilizado el terminal que nos ofrece en la pestaña SQL. 
+Cuando tenemos lanzado el servidor y hacemos \textit{Start} de la base de datos MySQL, se puede acceder a la interfaz web de phpMyAdmin mediante la dirección \textit{direcciónIP/phpmyadmin} que nos permite realizar la configuración completa de la base de datos. En este caso no se ha utilizado la interfaz para configurarlo, sino que se ha utilizado el terminal que nos ofrece desde la pestaña SQL. 
 \pagebreak
 
 El primer paso es crear en sí la base de datos donde tendremos nuestras tablas, para esto se emplea el siguiente comando:
@@ -69,15 +69,16 @@ En esta sección se explica cómo se ha implementado la lógica de las páginas 
 \subsection{Página: Inicio de sesión}
 Esta primera pantalla comprueba primero si la sesión esta iniciada, si es así se redirige a la página principal, por el contrario, si no está iniciada aparece un formulario de HTML en el que se solicita el usuario y contraseña. 
 
-Este formulario al hacer \textit{submit} (botón "Iniciar sesión") activará un script que comprobará si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenados, se pasa a comprobar si el usuario existe en la base de datos, para esto en primer lugar se pasará la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe el usuario y que revise las credenciales.
+Este formulario al hacer \textit{submit} (botón ''Iniciar sesión'') activará un script que comprobará si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenados, se pasa a comprobar si el usuario existe en la base de datos, para esto en primer lugar se pasará la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe el usuario y que revise las credenciales.
 
-La lógica explicada se corresponde al siguiente fragmento de código:
+La lógica explicada se ha extraído de \cite{webslesson_php_nodate} y se ha modificado para adaptarse a la aplicación:
 \begin{lstlisting}
 $connect = mysqli_connect("localhost", "tfg_user", "tfg_pass", "tfg_db");
 session_start();
 if (isset($_SESSION["username"])) {
     header("location:main.php");
 }
+
 if (isset($_POST["login"])) {
     if (empty($_POST["username"]) && empty($_POST["password"])) {
         echo '<script>alert("Ambos campos son obligatorios")</script>';
@@ -120,11 +121,10 @@ echo '<h1>Bienvenido, ' . $_SESSION["username"] . '</h1>';
 
 Por otro lado, para generar la tabla es necesario previamente conectar con la base de datos, una vez se establece la conexión con éxito lo que haremos es consultar la tabla de \textit{devices} para obtener los dispositivos que están registrados en la aplicación y su estado, y por cada uno de los registros se genera una fila de la tabla. La tabla completa se genera con el siguiente fragmento de código:
 \begin{lstlisting}
-$connect = mysqli_connect("localhost", "device_user", "device_pass", "tfg_db");
+$connect = mysqli_connect("localhost", "tfg_user", "tfg_pass", "tfg_db");
 
 $query = "SELECT * FROM devices";
 $result = mysqli_query($connect, $query);
-
 echo "<table class='tables'>
 <tr>
     <th>Nombre del dispositivo</th>
@@ -205,7 +205,7 @@ function drawCharts() {
 
 Se puede ver que se define una única gráfica con todas las medidas en función del tiempo, estas medidas se obtienen mediante una consulta a la tabla \textit{sensor\_data} de la que se obtienen 720 registros ordenados por fecha descendiente. Esta gráfica grande se parte más tarde en 3 gráficas más pequeñas indicando que columnas queremos que aparezcan en cada una de ellas. En último lugar, se indica que sean de tipo gráfico de línea y que se muestre en los elementos con id \textit{regions\_temp\_hum}, \textit{regions\_pm\_co} y \textit{regions\_co2}.
 
-Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón en que pone "Volver" que redirige a la página principal.
+Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón en que pone ''Volver'' que redirige a la página principal.
 \begin{lstlisting}
 <button class="boton" id="boton_volver" onclick="location.href=' main.php'">Volver</button>
 \end{lstlisting}

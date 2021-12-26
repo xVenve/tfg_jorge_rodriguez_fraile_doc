@@ -7,7 +7,7 @@ También se define la manera en la que se almacenan los datos (\autoref{sec:mode
 Además, lo definido a continuación sienta la base para poder comenzar el desarrollo e implementación del sistema que se define en los siguientes capítulos, \autoref{ch:implementacion} y \autoref{ch:pruebas}.
 
 \section{Arquitectura del Sistema}\label{sec:arquitectura}
-El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador \cite{bucanek_model-view-controller_2009}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
+El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador \cite{bucanek_model-view-controller_2009}\cite{noauthor_mvc_nodate}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
 \begin{itemize}
 	\item \textbf{Modelo:} Parte encargada de la representación lógica de la información en el sistema, los mecanismos para acceder y almacenarla. Esta será la parte relacionada con la base de datos.
 	\item \textbf{Vista:} Es la representación visual del sistema que se mostrará al usuario cuando utilice la aplicación.
@@ -29,7 +29,7 @@ En la \autoref{fig:mvc} se puede ver cuál es la relación entre las diferentes 
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption{Diagrama Modelo-Vista-Controlador}
+	{\caption[Diagrama Modelo-Vista-Controlador]{Diagrama Modelo-Vista-Controlador \cite{noauthor_mvc_nodate}}
 		\label{fig:mvc}}
 	{\includegraphics[scale=0.3]{mvc.jpg}}
 \end{figure}
@@ -42,10 +42,10 @@ Esta sección se entra en más detalle cuál serán los componentes que conforma
 
 Esta representación no permite definir de una manera estructurada y clara como se relacionan las diferentes partes del sistema, de manera que hay componentes que ofrecen interfaces a otros componentes y otros que las requieren para funcionar. Además, nos permite ver como fluye la información entre las diferentes partes del sistema y como estos la utilizan.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Diagrama de Subsistemas y Componentes}
 		\label{fig:diagramaComponentes}}
-	{\includegraphics[scale=0.65]{diagramaComponentes.png}}
+	{\includegraphics[width=\textwidth]{diagramaComponentes.png}}
 \end{figure}
 Ahora se procede a explicar los subsistemas y componentes que lo forman:
 \begin{itemize}
@@ -95,7 +95,7 @@ En esta tabla se almacenarán las credenciales de los usuarios que utilicen la a
 A continuación, en la \autoref{tab:tabla_users} se muestra la estructura de la tabla:
 \begin{table}[H]
 	\centering
-	\caption{Estructura tabla users}
+	\caption{Tabla users BBDD}
 	\label{tab:tabla_users}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|p{.2\textwidth}|p{.2\textwidth}|p{.6\textwidth}|}
@@ -179,10 +179,10 @@ En la \autoref{fig:flujo_interfaz} se muestra el flujo de pantallas e interaccio
 \subsection{Página: Inicio de sesión}\label{subsec:iLogin}
 Es la primera pantalla que se encontrara el usuario cuando acceda a la aplicación, en esta, como se puede ver en la \autoref{fig:iLogin} se le solicita introducir su nombre de usuario y contraseña de acceso. Esta pantalla es fundamental para garantizar la seguridad del centro, de manera que no accedan personas no autorizadas y que puedan poner en riesgo su seguridad.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Interfaz de inicio de sesión}
 		\label{fig:iLogin}}
-	{\includegraphics[scale=0.28]{login.png}}
+	{\includegraphics[width=\textwidth]{login.png}}
 \end{figure}
 Se puede ver de primeras que la paleta de colores se adapta a lo solicitado, utilizando colores de la gama de los azules que contrasten entre ellos, de manera que se pueda visualizar sin dificultad todos los elementos, los códigos RGB hexadecimales elegidos son:
 \begin{itemize}
@@ -214,10 +214,10 @@ Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasará a 
 
 La clave de esta pantalla es la lista de los dispositivos en la que se muestran de manera tabular los datos de estos. Se imprimirán para cada dispositivo los datos almacenados en la base de datos.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Interfaz de pantalla principal}
 		\label{fig:iPrincipal}}
-	{\includegraphics[scale=0.28]{devices.png}}
+	{\includegraphics[width=\textwidth]{devices.png}}
 \end{figure}
 En la última posición de cada fila de dispositivos hay un botón en el que pone ''Acceso'' que nos redirigirá a la página de dispositivo, que se describe en la \autoref{subsec:iDispositivo}.
 
@@ -240,10 +240,10 @@ En primer lugar, en la parte superior se muestra el nombre que identifica al dis
 
 Inmediatamente después, se muestra un cuadro con la imagen en tiempo real de la cámara del dispositivo.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Interfaz de dispositivo I}
 		\label{fig:iDispositivoI}}
-	{\includegraphics[scale=0.28]{medidas1.png}}
+	{\includegraphics[width=\textwidth]{medidas1.png}}
 \end{figure}
 A continuación, se mostrarán todas las medidas, primero de manera gráfica y después de manera tabular.
 
@@ -254,17 +254,17 @@ La parte visual de las medidas se divide en 3 gráficas distintas para poder ver
 	\item CO$_2$.
 \end{itemize}
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Interfaz de dispositivo II}
 		\label{fig:iDispositivoII}}
-	{\includegraphics[scale=0.28]{medidas2.png}}
+	{\includegraphics[width=\textwidth]{medidas2.png}}
 \end{figure}
 En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronológica, de más nuevas a más antiguas. Esta tabla está compuesta por los 720 últimos registros que cubren la última hora de mediciones de la sala, puesto que se toma una medida cada 5 segundos.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[\textwidth]
 	{\caption{Interfaz de dispositivo III}
 		\label{fig:iDispositivoIII}}
-	{\includegraphics[scale=0.28]{medidas3.png}}
+	{\includegraphics[width=\textwidth]{medidas3.png}}
 \end{figure}
 
 Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al ancho del dispositivo de manera que se puedan visualizar bien los datos, evitando así tener que hacer zum en la pantalla. Además, las gráficas ofrecen la posibilidad de acceder a un dato en particular si hacemos clic o tocamos una sección específica, indicando los valores y momento específicos.
@@ -327,7 +327,7 @@ Se comienza con los sensores con los que cuenta el dispositivo:
 	\item \textbf{SDS011}: Módulo de medida de materia particulada, que se conecta mediante USB a la placa.
 \end{itemize}
 
-En cuanto a la cámara se usa la Raspberry Pi Camera, más específicamente la \textbf{Ov5647}, que se conecta mediante el puerto CSI directamente a la Raspberry Pi. Esta será la encarga de captar la imagen de la sala CPD en la que se encuentre instalado el dispositivo.
+En cuanto a la cámara se usa la Raspberry Pi Camera, más específicamente la \textbf{Ov5647}, que se conecta mediante el puerto CSI directamente a la Raspberry Pi. Esta es la encargada de captar la imagen del CPD en el que se encuentre instalado el dispositivo.
 
 Todas las características técnicas y el porqué de la elección de los sensores y cámara se pueden consultar en la \autoref{subsec:altComponentes}.
 
