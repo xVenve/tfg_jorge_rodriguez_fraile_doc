@@ -16,24 +16,24 @@ Cuanto tenemos esto instalado, se arranca la herramienta y mediante su interfaz 
 En este caso el servidor Apache de lanza sobre el puerto 80 y la base de datos en el puerto 3306, a los que se puede acceder utilizando la IP pública de la máquina o desde la máquina utilizando \textit{localhost}.
 
 \section{Base de datos}
-Cuando tenemos lanzado el servidor y hacemos \textit{Start} de la base de datos MySQL, se puede acceder a la interfaz web de phpMyAdmin mediante la dirección \textit{direcciónIP/phpmyadmin} que nos permite realizar la configuración completa de la base de datos. En este caso no se ha utilizado la interfaz para configurarlo, sino que se ha utilizado el terminal que nos ofrece desde la pestaña SQL. 
+Cuando tenemos lanzado el servidor y hacemos \textit{Start} de la base de datos MariaDB, se puede acceder a la interfaz web de phpMyAdmin mediante la dirección \textit{direcciónIP/phpmyadmin} que nos permite realizar la configuración completa de la base de datos. En este caso no se ha utilizado la interfaz para configurarlo, sino que se ha utilizado el terminal que nos ofrece desde la pestaña SQL. 
 \pagebreak
 
-El primer paso es crear en sí la base de datos donde tendremos nuestras tablas, para esto se emplea el siguiente comando:
-\begin{lstlisting}
+El primer paso es crear en sí la base de datos donde tendremos nuestras tablas, para esto se emplea el \autoref{lst:creacionBD}.
+\begin{lstlisting}[language=SQL, caption=Creación de la base de datos,label=lst:creacionBD]
 CREATE DATABASE tfg_db;
 \end{lstlisting}
 
-A continuación, se crea un usuario con todos los permisos, que es el que emplea el administrador de la base de datos y que le permite añadir las credenciales de acceso de los usuarios a la aplicación. Por otro lado, tendremos otro usuario con permisos de inserción y actualización de registros que es el utilizado por el dispositivo, dado que este añade medidas y actualiza su estado. Para lograr esto se introducen los siguientes comandos:
-\begin{lstlisting}
+A continuación, se crea un usuario con todos los permisos, que es el que emplea el administrador de la base de datos y que le permite añadir las credenciales de acceso de los usuarios a la aplicación. Por otro lado, tendremos otro usuario con permisos de inserción y actualización de registros que es el utilizado por el dispositivo, dado que este añade medidas y actualiza su estado. Para lograr esto se introduce el \autoref{lst:creacionUsuarios}.
+\begin{lstlisting}[language=SQL, caption=Creación de usuarios de la base de datos, label=lst:creacionUsuarios]
 CREATE USER 'tfg_user'@'%' IDENTIFIED BY 'tfg_pass';
 GRANT ALL PRIVILEGES ON tfg_db.* TO 'tfg_user'@'%';
 CREATE USER 'device_user'@'%' IDENTIFIED BY 'device_pass';
-GRANT INSERT, UPDATE ON *.* TO 'device_user'@'%';
+GRANT SELECT, INSERT, UPDATE ON *.* TO 'device_user'@'%';
 \end{lstlisting}
 
-Una vez tenemos los accesos creados, se procede a crear las tablas que se utilizaran en la aplicación, que son la de medidas (\textit{sensor\_data}), la de dispositivos (\textit{devices}) y la de usuarios (\textit{users}). Están formadas por los campos y relaciones descritas en la \autoref{sec:modelo} y los comandos correspondientes para su creación son:
-\begin{lstlisting}
+Una vez tenemos los accesos creados, se procede a crear las tablas que se utilizaran en la aplicación, que son la de medidas (\textit{sensor\_data}), la de dispositivos (\textit{devices}) y la de usuarios (\textit{users}). Están formadas por los campos y relaciones descritas en la \autoref{sec:modelo} y los comandos correspondientes para su creación son el \autoref{lst:creacionTablas}.
+\begin{lstlisting}[language=SQL, caption=Creación de tablas de la base de datos, label=lst:creacionTablas]
 CREATE TABLE sensor_data (
     date datetime NOT NULL,
     device varchar(50) NOT NULL,
@@ -47,6 +47,7 @@ CREATE TABLE sensor_data (
     CONSTRAINT deviceData FOREIGN KEY (device) 
     REFERENCES devices(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 CREATE TABLE devices (
     id varchar(50) NOT NULL,
     ip varchar(16) NOT NULL,
@@ -54,6 +55,7 @@ CREATE TABLE devices (
     status varchar(7) NOT NULL,
     PRIMARY KEY (id)
 );
+
 CREATE TABLE users (
     username varchar(32) NOT NULL,
     password varchar(32) NOT NULL,
@@ -64,21 +66,20 @@ CREATE TABLE users (
 Por parte de la base de datos este es el proceso que hay que realizar, pero en la \autoref{sec:implAplicacion} se explica cómo se realizan las consultas y en la \autoref{sec:implDispositivo} como se realizan las inserciones y actualizaciones.
 
 \section{Aplicación web}\label{sec:implAplicacion}
-En esta sección se explica cómo se ha implementado la lógica de las páginas vistas en la \autoref{sec:interfaz}, así como la definición de la estructura que las forman.
+En esta sección se explica cómo se ha implementado la lógica de las páginas vistas en la \autoref{sec:interfaz}, así como la definición de la estructura que las forman. Como se especificó en la \autoref{subsec:lenguajes} la página se ha implementado en HTML, CSS y PHP en el entorno de Visual Studio Code.
 
 \subsection{Página: Inicio de sesión}
 Esta primera pantalla comprueba primero si la sesión esta iniciada, si es así se redirige a la página principal, por el contrario, si no está iniciada aparece un formulario de HTML en el que se solicita el usuario y contraseña. 
 
 Este formulario al hacer \textit{submit} (botón ''Iniciar sesión'') activará un script que comprobará si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenados, se pasa a comprobar si el usuario existe en la base de datos, para esto en primer lugar se pasará la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe el usuario y que revise las credenciales.
 
-La lógica explicada se ha extraído de \cite{webslesson_php_nodate} y se ha modificado para adaptarse a la aplicación:
-\begin{lstlisting}
+La lógica explicada se ha extraído de \cite{webslesson_php_nodate} y se ha modificado para adaptarse a la aplicación, quedando el \autoref{lst:comprobacionFormularioInicioSesion}.
+\begin{lstlisting}[language=PHP, caption=Comprobación formulario Inicio de sesión, label=lst:comprobacionFormularioInicioSesion]
 $connect = mysqli_connect("localhost", "tfg_user", "tfg_pass", "tfg_db");
 session_start();
 if (isset($_SESSION["username"])) {
     header("location:main.php");
 }
-
 if (isset($_POST["login"])) {
     if (empty($_POST["username"]) && empty($_POST["password"])) {
         echo '<script>alert("Ambos campos son obligatorios")</script>';
@@ -98,29 +99,31 @@ if (isset($_POST["login"])) {
 }
 \end{lstlisting}
 
-En el caso de que se cierre sesión, se elimina la sesión y se redirige al usuario a esta página, para esto se pasa primero a una página temporal llamada \textit{logout.php} que tiene el siguiente código:
-\begin{lstlisting}
+En el caso de que se cierre sesión, se elimina la sesión y se redirige al usuario a esta página, para esto se pasa primero a una página temporal llamada \textit{logout.php} que tiene el \autoref{lst:borradoSesion}.
+\begin{lstlisting}[language=PHP, caption=Borrado de sesión y redirección a la página de inicio, label=lst:borradoSesion]
 session_start();
 session_destroy();
 header("location:index.php?action=login");
 \end{lstlisting}
 
 \subsection{Página: Principal}\label{subsec:implPagPrincipal}
-Es la página a la que se accede una vez se inicia sesión, por lo que lo primero que se comprueba es que haya una sesión de usuario iniciada, si no se redirige a la página de inicio de sesión de la siguiente forma:
-\begin{lstlisting}
+Es la página a la que se accede una vez se inicia sesión, por lo que lo primero que se comprueba es que haya una sesión de usuario iniciada, si no se redirige a la página de inicio de sesión siguiendo el \autoref{lst:redireccionInicioSesion}.
+\begin{lstlisting}[language=PHP, caption=Redirección a la página de inicio de sesión si sesión no iniciada, label=lst:redireccionInicioSesion]
 session_start();
 if (!isset($_SESSION["username"])) {
     header("location:index.php?action=login");
 }
 \end{lstlisting}
 
-El contenido que se muestra se genera de manera dinámica de manera que el saludo del título será el nombre de usuario de la sesión iniciada. Esto se hace de la siguiente manera:
-\begin{lstlisting}
+El contenido que se muestra se genera de manera dinámica de manera que el saludo del título será el nombre de usuario de la sesión iniciada. Esto se hace con el \autoref{lst:saludoPagPrincipal}.
+\pagebreak
+
+\begin{lstlisting}[language=PHP, caption=Saludo página principal, label=lst:saludoPagPrincipal]
 echo '<h1>Bienvenido, ' . $_SESSION["username"] . '</h1>';
 \end{lstlisting}
 
-Por otro lado, para generar la tabla es necesario previamente conectar con la base de datos, una vez se establece la conexión con éxito lo que haremos es consultar la tabla de \textit{devices} para obtener los dispositivos que están registrados en la aplicación y su estado, y por cada uno de los registros se genera una fila de la tabla. La tabla completa se genera con el siguiente fragmento de código:
-\begin{lstlisting}
+Por otro lado, para generar la tabla es necesario previamente conectar con la base de datos, una vez se establece la conexión con éxito lo que haremos es consultar la tabla de \textit{devices} para obtener los dispositivos que están registrados en la aplicación y su estado, y por cada uno de los registros se genera una fila de la tabla. La tabla completa se genera con el siguiente fragmento de \autoref{lst:tablaDispositivos}.
+\begin{lstlisting}[language=PHP, caption=Visualización de tabla de dispositivos, label=lst:tablaDispositivos]
 $connect = mysqli_connect("localhost", "tfg_user", "tfg_pass", "tfg_db");
 
 $query = "SELECT * FROM devices";
@@ -145,7 +148,7 @@ while ($row = mysqli_fetch_array($result)) {
 echo "</table>";
 \end{lstlisting}
 
-Como se puede ver en la última columna de cada fila hay un botón cuya acción es redirigir a la página del propio dispositivo, pasando como parámetro el id del dispositivo y la IP del mismo.
+Como se puede ver en la última columna de cada fila hay un botón cuya acción es redirigir a la página del propio dispositivo, pasando como parámetro el id del dispositivo y la IP de este.
 
 Por último el botón de cerrar sesión nos lleva a la página \textit{logout.php} que se describe al final de la \autoref{subsec:implPagPrincipal}.
 
@@ -153,18 +156,17 @@ Por último el botón de cerrar sesión nos lleva a la página \textit{logout.ph
 Como se hace en las demás páginas, en primer lugar se comprueba si la sesión esta iniciada, si no se redirige a la página de inicio de sesión. 
 
 Esta página es similar a la de la \autoref{subsec:implPagPrincipal} en cuanto a que en primer lugar se muestra el nombre del dispositivo como ocurre con el saludo, pero en este caso se extrae de la URL.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP, caption=Nombre del dispositivo en la cabecera de la página, label=lst:nombreDispositivo]
 echo '<h1>' . $_GET["id"] . '</h1>';
 \end{lstlisting}
 
-Para mostrar la imagen en tiempo real de dicho dispositivo se utiliza un elemento \textit{img} en el que se vuelca la imagen que está transmitiendo el dispositivo sobre el puerto 8000 de su dirección IP obtenida del URL, que se corresponde con la siguiente línea:
-\begin{lstlisting}
+Para mostrar la imagen en tiempo real de dicho dispositivo se utiliza un elemento \textit{img} en el que se vuelca la imagen que está transmitiendo el dispositivo sobre el puerto 8000 de su dirección IP obtenida del URL, que se corresponde con la línea de \autoref{lst:imgCamara}.
+\begin{lstlisting}[language=PHP, caption=Cuadro de imagen de la cámara, label=lst:imgCamara]
 echo '<img src="http://' . $_GET["ip"] . ':8000/stream.mjpg" id="cam">'
 \end{lstlisting}
-\pagebreak
 
-En cuanto a las gráficas se emplea una librería de Google llamada \textit{Google Charts} que nos permite definir gráficas a partir de datos extraídos mediante una consulta a base de datos. En este caso las medidas que se emplean son las que corresponden al dispositivo de la página. Para emplear esta librería debemos definir una función que nos escriba sobre elementos \textit{div} las gráficas, en este caso se hace mediante la función \textit{drawChart} que se define de la siguiente manera:
-\begin{lstlisting}
+En cuanto a las gráficas se emplea una librería de Google llamada \textit{Google Charts} que nos permite definir gráficas a partir de datos extraídos mediante una consulta a base de datos. En este caso las medidas que se emplean son las que corresponden al dispositivo de la página. Para emplear esta librería debemos definir una función que nos escriba sobre elementos \textit{div} las gráficas, en este caso se hace mediante la función \textit{drawChart} que se define según el \autoref{lst:graficasDispositivo}.
+\begin{lstlisting}[language=PHP, caption=Graficas de las medidas del dispositivo, label=lst:graficasDispositivo]
 $chartQuery = 'SELECT * FROM (SELECT * FROM sensor_data WHERE device="' . $_GET["id"] . '" ORDER BY date DESC LIMIT 720) sub ORDER BY date ASC';
 $chartQueryRecords = mysqli_query($con, $chartQuery);
 
@@ -206,12 +208,12 @@ function drawCharts() {
 Se puede ver que se define una única gráfica con todas las medidas en función del tiempo, estas medidas se obtienen mediante una consulta a la tabla \textit{sensor\_data} de la que se obtienen 720 registros ordenados por fecha descendiente. Esta gráfica grande se parte más tarde en 3 gráficas más pequeñas indicando que columnas queremos que aparezcan en cada una de ellas. En último lugar, se indica que sean de tipo gráfico de línea y que se muestre en los elementos con id \textit{regions\_temp\_hum}, \textit{regions\_pm\_co} y \textit{regions\_co2}.
 
 Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón en que pone ''Volver'' que redirige a la página principal.
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML, caption=Botón de retorno a página principal, label=lst:botonVolver]
 <button class="boton" id="boton_volver" onclick="location.href=' main.php'">Volver</button>
 \end{lstlisting}
 
-Por último, para mostrar la tabla de medidas se hace una consulta a la tabla \textit{sensor\_data} de la que se obtienen los últimos 500 registros ordenados de más reciente a más antiguo del dispositivo correspondiente, estas medidas se introducen de manera dinámica como filas de la siguiente manera:
-\begin{lstlisting}
+Por último, para mostrar la tabla de medidas se hace una consulta a la tabla \textit{sensor\_data} de la que se obtienen los últimos 500 registros ordenados de más reciente a más antiguo del dispositivo correspondiente, estas medidas se introducen de manera dinámica como filas con el \autoref{lst:tablaMedidas}.
+\begin{lstlisting}[language=PHP, caption=Visualización tabular de las medidas del dispositivo, label=lst:tablaMedidas]
 $query = 'SELECT * FROM sensor_data WHERE device="' . $_GET["id"] . '" ORDER BY date DESC LIMIT 500';
 $result = mysqli_query($con, $query);
 echo "<table class='tables'>
@@ -239,3 +241,213 @@ echo "</table>";
 \end{lstlisting}
 
 \section{Dispositivo}\label{sec:implDispositivo}
+La base del dispositivo es una Raspberry Pi 3B+ con las características detalladas en la \autoref{subsec:altPlacas} y con el sistema operativo Raspbian, este proporciona un entorno similar a Linux sobre el que se empieza a trabajar.
+
+En primer lugar, se conectan los sensores y la cámara a los puertos que se han explicado en la \autoref{sec:hardware}, de manera que la disposición del dispositivo es la mostrada en la \autoref{fig:circuito}. Cuando ya está todo conectado correctamente se puede pasar a conectarlo a la red y a la corriente para comenzar con su configuración.
+
+En cuanto a las configuraciones previas, en primer lugar se habilita el puerto CSI para la cámara a través de \textit{raspi-config}, después dado que se utiliza un puerto USB para el sensor de partículas en suspensión se utiliza \textit{dmesg} para identificar cuál es la interfaz utilizada. Cuando el programa ya está completo, se añade como proceso que se ejecuta al iniciar el sistema, de esta manera solo hará falta configurarlo una vez y posteriormente solo conectarlo en el lugar donde se desee.
+\pagebreak
+
+Una vez realizada esta configuración, se pasa a desarrollar el programa en el lenguaje Python utilizando como entorno de desarrollo PyCharm con el que mediante SSH nos conectaremos a la Raspberry Pi, esto se especifica previamente en la \autoref{subsec:lenguajes}.
+
+En las siguientes subsecciones se explican cada una de las clases que componen el programa y en la última el programa principal que las relaciona a todas ellas.
+
+\subsection{Clase de la Cámara}
+El objetivo de esta clase es ofrecer al programa principal, mediante una función, la facilidad de transmitir vía IP la imagen en tiempo real que capta la cámara instalada en el puerto CSI. Para el desarrollo de esta función se ha consultado el artículo \cite{noauthor_how_nodate} en el que se explica de manera detallada como poner a punto la Raspberry y acceder al puerto CSI de esta.
+
+Se ha empleado la librería \textit{picamera} \cite{noauthor_picamera_nodate} para acceder a la imagen de la cámara, en este caso se utiliza una resolución de 640x480 pixeles a una tasa de refresco de 24 fotogramas, suficiente para que ver con claridad el interior de la sala y no consumir mucha energía. 
+
+En cuanto a la retransmisión de la imagen, se lanza un servidor local montado en el puerto 8000 mediante \textit{http.server} sobre el que se vuelca el video, de esta manera se muestra en la web.
+
+El video comienza a transmitirse de manera inmediata y cuando el programa lance una excepción de finalización se cierra.
+
+\subsection{Clase del sensor CO}
+Como se menciona en \autoref{sec:hardware}, el sensor de CO es analógico por lo que en primer lugar tendremos que vincular los puertos de la Raspberry para que manden las señales correspondientes al conversor MCP3008, así como el encargado de recibir los datos. Esta asignación se basa en la utilizada en \cite{osoyoo_osoyoodriver_2021}, pero adaptada a los puertos de nuestro proyecto.
+
+El código de este sensor se encarga fundamentalmente de realizar la lectura de la señal del conversor y convertir el voltaje recibido a porcentaje de monóxido de carbono en el ambiente, esto se calcula con $\frac{\textit{Voltaje}\cdot 100}{1024}$. 
+
+Antes de empezar a realizar mediciones necesita un tiempo de calentamiento de 20 segundos, a partir de este punto es capaz de hacer mediciones de manera continua.
+
+\subsection{Clase del sensor CO$_2$}
+Para obtener las partículas por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14 \cite{noauthor_documentacion_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
+\begin{figure}[H]
+    \ffigbox[\textwidth]
+    {\caption{Lectura de concentración de CO$_2$ MH-Z14}
+        \label{fig:co2PPMcalc}}
+    {\includegraphics[width=\textwidth]{co2ppm.png}}
+\end{figure}
+En primer lugar, hay que identificar en que puerto serial se encuentra el sensor, en este caso es el \textit{ttyS0} que corresponde al puerto UART. Tras esto simplemente se realiza la \textit{request} de lectura que se indica en la \autoref{fig:co2PPMcalc} y del que se obtiene como respuesta el valor de la concentración de CO$_2$ junto con un checksum para verificar que la lectura es correcta.
+
+La función principal de esta clase es el método \textit{get} que nos devuelve el número de partículas por millón, este valor se calcula con el \autoref{cod:co2PPMcalc}, que es una simplificación de esta clase.
+\begin{lstlisting}[language=Python, label=cod:co2PPMcalc, caption=Calculo de la concentración de CO$_2$]
+serial = serial.Serial(port='/dev/ttyS0', timeout=1)
+request = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]
+serial.write(bytearray(request))
+response = serial.read(9)
+return (response[2] << 8) | response[3]
+\end{lstlisting} 
+
+\subsection{Clase del sensor Temperatura y Humedad}
+Esta clase consta de un único método, \textit{tempHumSensor()}, que devuelve la temperatura y la humedad del ambiente en una tupla (temperatura, humedad). Para conseguir esto se utiliza la librería \textit{Adafruit\_DHT} \cite{noauthor_dht_nodate} que es específica de este tipo de sensores de temperatura y humedad.
+
+En primer lugar, se crea un objeto del tipo específico de sensor, es este caso DHT11, y una variable que indica el puerto GPIO al que está conectado el sensor. Con estos dos elementos ahora se podrán hacer lecturas, estas lecturas nos devuelven la tupla (temperatura, humedad) que tras realizar una serie de comprobaciones de valores nulos o atípicos será la salida del método. En el \autoref{cod:tempHumSensor} se puede contemplar esta lógica.
+\begin{lstlisting}[language=Python, label=cod:tempHumSensor, caption=Lectura de la temperatura y humedad]
+def tempHumSensor(self):
+dht_sensor = Adafruit_DHT.DHT11
+dht_pin = 4
+
+new_humidity, new_temperature = Adafruit_DHT.read(dht_sensor, dht_pin)
+if (new_humidity is None and new_temperature is None) or new_temperature not in range(0, 101) or \
+        new_humidity not in range(0, 101):
+    if (self.humidity is None and self.temperature is None) or self.temperature not in range(0, 101) or \
+            self.humidity not in range(0, 101):
+        while (new_humidity is None and new_temperature is None) or new_temperature not in range(0, 101) or \
+                new_humidity not in range(0, 101):
+            new_humidity, new_temperature = Adafruit_DHT.read(dht_sensor, dht_pin)
+            self.humidity, self.temperature = new_humidity, new_temperature
+    return self.temperature, self.humidity
+else:
+    self.humidity, self.temperature = new_humidity, new_temperature
+    return self.temperature, self.humidity  
+\end{lstlisting}
+
+\subsection{Clase de la Base de datos}
+En primer lugar, el constructor de esta clase se encarga de establecer la conexión con la base de datos, en este caso se utiliza la librería \textit{mysql.connector} y el método \textit{connect(host, user, password, database)}, cuyos parámetros se reciben al instanciar el objeto. Se puede ver en el \autoref{cod:cdb} el fragmento correspondiente.
+\begin{lstlisting}[language=Python, label=cod:cdb, caption=Conexión con la base de datos]
+def __init__(self, host, user, password, database):
+    self.mydb = mysql.connector.connect(
+        host=host,
+        user=user,
+        password=password,
+        database=database,
+    )
+\end{lstlisting}
+En cuanto a los métodos que lo componen, tenemos dos, uno para registrar mediciones y otro para registrar el estado del dispositivo. Para la inserción de las mediciones se construye una solicitud de \textit{INSERT} a la tabla sensor\_data con todas las medidas recibidas en forma de JSON, después ejecutaremos la consulta y si tiene éxito continuamos. Este método se puede ver en el \autoref{cod:medidasDB}, al final del cual se imprime por pantalla una confirmación de los datos registrados.
+\begin{lstlisting}[language=Python, label=cod:medidasDB, caption=Inserción de mediciones en la base de datos]
+def insert_sensor_data_DB(self, values):
+    with self.mydb.cursor() as mycursor:
+        sql = "INSERT INTO sensor_data (date, device, temperature, humidity, pm2_5, pm10, co, co2)" \
+                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s); "
+        val = (
+            values["date"],
+            values["device"],
+            values["temperature"],
+            values["humidity"],
+            values["pm2_5"],
+            values["pm10"],
+            values["co"],
+            values["co2"],
+        )
+        mycursor.execute(sql, val)
+        self.mydb.commit()
+        print(val, "inserted.")
+\end{lstlisting}
+En el otro método, se trata de introducir en la tabla devices el estado del dispositivo que se recibe en formato JSON. Si el dispositivo no está registrado se completa con éxito el \textit{INSERT} y termina, pero si no es así, se produce un error de inserción y se pasa a hacer un \textit{UPDATE} del registro del dispositivo correspondiente. Como en el método anterior se imprime por pantalla la consulta ejecutada, en el \autoref{cod:estadoDB} se aprecia cómo se hace.
+\begin{lstlisting}[language=Python, label=cod:estadoDB, caption=Inserción de estado del dispositivo en la base de datos]
+def insert_update_device_DB(self, params):
+    with self.mydb.cursor() as mycursor:
+        sql = "INSERT INTO devices (id, ip, date, status) VALUES (%s, %s, %s, %s)"
+        val = (
+            params["device"],
+            params["ip"],
+            params["date"],
+            params["status"],
+        )
+        try:
+            mycursor.execute(sql, val)
+            self.mydb.commit()
+            print(params["device"], "inserted")
+        except mysql.connector.errors.IntegrityError:
+            sql = "UPDATE devices SET date=%s, ip=%s, status=%s WHERE id=%s"
+            val = (params["date"], params["ip"], params["status"], params["device"])
+            mycursor.execute(sql, val)
+            self.mydb.commit()
+            print(params["device"], "updated to", params["status"])
+\end{lstlisting}
+
+\subsection{Programa Principal}
+En esta última subsección se encuentra el programa que reúne todas las clases descritas anteriormente y cuya función es proporcionar un método sencillo de ejecutar la funcionalidad completa del dispositivo de control ambiental y videovigilancia.
+
+Para empezar se importan de todas las clases descritas y se define el constructor de la clase \textit{cpdDevice}, que es la propia de este programa, en la cual se hace \textit{start()} para iniciar el programa.
+
+El método principal, \textit{start()}, como se ha dicho inicia el programa y esto requiere los siguientes pasos:
+\begin{enumerate}
+    \item Iniciar la conexión con la base de datos e introducir/actualizar el estado del dispositivo.
+    \item Empezar la transmisión de la cámara.
+    \item Instanciar los sensores de temperatura y humedad, partículas en suspensión, CO y CO$_2$. Para el de partículas en suspensión, SDS011, se ha utilizado la librería \cite{rovai_python4ds_2021} que mediante una llamada \textit{query()} devuelve las dos medidas necesarias.
+    \item Se produce en una pausa para el calentamiento de los sensores de 20 segundos.
+    \item En bucle, cada 5 segundos, se realiza la lectura de las medidas de temperatura y humedad, partículas en suspensión, CO y CO$_2$ y se registran en la base de datos, junto con la fecha e id del dispositivo.
+    \item En caso de interrupción, se limpia la asignación de puertas GPIO, se apaga el sensor de partículas en suspensión y se manda la última actualización de estado indicando que se pasa a estado \textit{Offline}.
+\end{enumerate}
+
+El método \textit{start()} es el mostrado en el \autoref{cod:metodoPrincipal}, en el que se recogen todos los pasos descritos.
+\pagebreak
+
+\begin{lstlisting}[language=Python, label=cod:metodoPrincipal, caption=Método start del programa principal]
+try:
+    print("Sensors warming up...")
+    # Start dust sensor
+    dust_sensor.sleep(sleep=False)
+
+    # Start CO sensor
+    co_sensor = COSensor()
+    time.sleep(15)
+
+    while True:
+        time.sleep(5)
+
+        temperature, humidity = temp_hum_sensor.tempHumSensor()
+        co = co_sensor.co_sensor_readadc()
+        co2 = co2_sensor.get()
+        pm2_5, pm10 = dust_sensor.query()
+
+        # Insert measurements
+        data = {
+            "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "device": self.get_device_id(),
+            "temperature": temperature,
+            "humidity": humidity,
+            "pm2_5": pm2_5,
+            "pm10": pm10,
+            "co": str("%.2f" % ((co / 1024.) * 100)),
+            "co2": co2,
+        }
+        db.insert_sensor_data_DB(data)
+
+except KeyboardInterrupt:
+    GPIO.cleanup()
+
+    # Stop dust sensor
+    dust_sensor.sleep(sleep=True)
+
+    # Update device to Offline
+    device_params = {
+        "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "ip": self.get_ip(),
+        "status": "Offline",
+        "device": self.get_device_id(),
+    }
+    db.insert_update_device_DB(device_params)
+\end{lstlisting}
+\pagebreak
+
+Además, se utilizan dos métodos auxiliares, \textit{get\_device\_id()} y \textit{get\_ip()}.  
+
+\textit{get\_device\_id()} se utiliza para obtener el id del dispositivo, que se corresponde con su dirección física (MAC), para esto se hace uso de la librería \textit{uuid}. Se corresponde con el \autoref{cod:getDeviceId}.
+\begin{lstlisting}[language=Python, label=cod:getDeviceId, caption=Metodo get\_device\_id()]
+def get_device_id(self):
+    return ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff) for ele in range(0, 8 * 6, 8)][::-1])
+\end{lstlisting}
+\textit{get\_ip()} devuelve la dirección IP del dispositivo, que se obtiene gracias a una llamada de \textit{connect} de la librería \textit{socket}. Este valor se utiliza para retransmitir el video de la cámara y forma parte del registro de estado de la tabla \textit{device}. En caso de que no se produzca conexión se devuelve una por defecto. En el fragmento de \autoref{cod:getIp} se puede contemplar este proceso.
+\begin{lstlisting}[language=Python, label=cod:getIp, caption=Metodo get\_ip()]
+def get_ip(self):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('10.255.255.255', 1))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
+\end{lstlisting}

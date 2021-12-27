@@ -166,7 +166,7 @@ A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se 
 	}
 \end{table}
 
-Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad de aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir la materia particulada (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes \cite{noauthor_nova_nodate}:
+Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad de aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes \cite{noauthor_nova_nodate}:
 
 \minipage{0.45\textwidth}
 \begin{figure}[H]
@@ -219,7 +219,7 @@ Las cámaras que se presentan a continuación han sido buscadas con la intenció
 \section{Hardware y Software seleccionado}\label{sec:hardwareSoftware}
 En esta sección se escogerá una solución de entre las expuestas en las subsecciones antes descritas.
 
-\subsection{Placa}
+\subsection{Placa}\label{subsec:placa}
 Entre las tres placas que se han valorado, aunque la Zero está más pensada para dispositivos ligeros y compactos, se ha decidido descartarla por sus reducidas capacidades y la falta de wifi o ethernet que requerirían un módulo extra para obtener conexión a internet. Entre las dos restantes se ha optado por la Raspberry Pi 3B+, porque ante la similitud de características de las placas y su coste, esta tenía más disponibilidad en el mercado y el suministro era más rápido. 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -250,7 +250,7 @@ En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se
 	{\includegraphics[scale=0.35]{Raspberry-Pi-Camera-Module-Rev-1.3.jpg}}
 \end{figure}
 
-\subsection{Lenguajes de programación}
+\subsection{Lenguajes de programación}\label{subsec:lenguajes}
 En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo llevara a cabo, estos lenguajes son PHP para la web y Python para el dispositivo.
 
 \paragraph{PHP}\mbox{} \\
