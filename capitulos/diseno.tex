@@ -110,7 +110,7 @@ A continuación, en la \autoref{tab:tabla_users} se muestra la estructura de la 
 La clave primaria será el username, de esta manera no habrá ningún problema de duplicidad de usuarios en la base de datos.
 
 \subsubsection{Tabla de dispositivos}
-En esta tabla se almacenan los dispositivos que se han conectado con el servidor, estos dispositivos son los que se pueden consultar desde la aplicación y que se muestran con la fecha de actualización junto con su estado actual.
+En esta tabla se registran los dispositivos que se han conectado con el servidor, estos dispositivos son los que se pueden consultar desde la aplicación y que se muestran con la fecha de actualización junto con su estado actual.
 
 En la \autoref{tab:tabla_devices} se pueden ver los atributos que la componen:
 
@@ -130,10 +130,10 @@ En la \autoref{tab:tabla_devices} se pueden ver los atributos que la componen:
 		\end{tabular}%
 	}
 \end{table}
-Como en la \autoref{tab:tabla_users} la clave primaria de la tabla es un nombre representativo, en este caso id, que identifica inequívocamente al dispositivo, de esta manera se puede utilizar para consultar los datos de un dispositivo en concreto. Cuando sea necesario se puede variar la IP a la que está conectado, la fecha y el estado, pero el nombre identificador no puede cambiar.
+Como en la \autoref{tab:tabla_users} la clave primaria de esta es un nombre representativo, en este caso el id, que identifica inequívocamente al dispositivo, de esta manera se puede utilizar para consultar los datos de un dispositivo en concreto. Cuando sea necesario, se puede variar la IP a la que está conectado, la fecha y el estado, pero el nombre identificador no se puede cambiar.
 
 \subsubsection{Tabla de medidas}
-Es la tabla más importante como se ha mencionado. En esta tabla se almacenan las mediciones que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación, junto con su imagen en tiempo real. Las medidas que se almacenan son: temperatura, humedad, PM$_{2.5}$, PM$_{10}$, CO y CO$_2$.
+Es la tabla más importante como ya se ha mencionado. En esta tabla se guardan las mediciones que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación, junto con su imagen en tiempo real. Las medidas que se almacenan son: temperatura, humedad, PM$_{2.5}$, PM$_{10}$, CO y CO$_2$.
 
 Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 
@@ -157,16 +157,16 @@ Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 		\end{tabular}%
 	}
 \end{table}
-Las claves primarias son date y device, estas claves identifican de manera única a una medida, por lo que se puede consultar una medida concreta de un dispositivo específico.
+Las claves primarias son date y device, estas claves identifican de manera única a cada una de las medidas, por lo que se puede consultar una medida concreta de un dispositivo específico.
 
-Además, existe una relación con la tabla devices en cuanto a que el campo device es clave ajena del campo id, de esta manera que cuando un dispositivo sea eliminado o actualizado se propague a esta tabla.
+Además, existe una relación directa con la tabla devices en cuanto a que el campo device es una clave ajena del campo id, de esta manera cuando un dispositivo sea eliminado o actualizado se propaga a esta tabla.
 
 \section{Interfaz de Usuario}\label{sec:interfaz}
 En esta sección se trata otro de los elementos clave del sistema, la interfaz de usuario. Esta hace posible el uso del sistema a personas no expertas, de manera que puedan manipularlo y hacer uso de este sin la necesidad de saber cómo se desarrolla un sistema de estas características.
 
-La parte del sistema a la que ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y movernos por las pantallas se emplea PHP.
+La parte del sistema a la que se ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y movernos por las pantallas se emplea PHP.
 
-La web además es responsive por lo que es totalmente funcional tanto en dispositivos de altas resoluciones (televisiones, ordenadores de sobremesa, portátiles, etc.), como en dispositivos de bajas resoluciones (móviles, tablets, etc.).
+La web, además, es \textit{responsive} por lo que es totalmente funcional tanto en dispositivos de altas resoluciones (televisiones, ordenadores de sobremesa, portátiles, etc.), como en dispositivos de bajas resoluciones (móviles, tablets, etc.).
 
 En la \autoref{fig:flujo_interfaz} se muestra el flujo de pantallas e interacciones que se sigue al acceder a la aplicación web, más tarde se explica en detalle cada una de las pantallas de la interfaz y que interacciones nos permite.
 \begin{figure}[H]
@@ -184,24 +184,24 @@ Es la primera pantalla que se encontrara el usuario cuando acceda a la aplicaci�
 		\label{fig:iLogin}}
 	{\includegraphics[width=\textwidth]{login.png}}
 \end{figure}
-Se puede ver de primeras que la paleta de colores se adapta a lo solicitado, utilizando colores de la gama de los azules que contrasten entre ellos, de manera que se pueda visualizar sin dificultad todos los elementos, los códigos RGB hexadecimales elegidos son:
+Como se puede observar, la paleta de colores se adapta a lo solicitado por el cliente, utilizando colores de la gama de los azules que contrasten entre ellos, de manera que se puedan visualizar sin dificultad todos los elementos de esta. Los códigos RGB hexadecimales elegidos son:
 \begin{itemize}
-	\item Primario. \#4169e1
-	\item Secundario. \#4169e1
-	\item Primario claro. \#191970
-	\item Secundario Oscuro. \#ccccff
-	\item Resaltado. \#9e9eff
-	\item Gris. \#dddddd
+	\item Primario: \#4169e1
+	\item Secundario: \#4169e1
+	\item Primario claro: \#191970
+	\item Secundario Oscuro: \#ccccff
+	\item Resaltado: \#9e9eff
+	\item Gris: \#dddddd
 \end{itemize}
-El primer campo, correspondiente al nombre de usuario se muestra el texto escrito, sin embargo, en el de la contraseña se sustituirán visualmente por asteriscos garantizando la privacidad de la contraseña.
+En el primer campo, correspondiente al nombre de usuario, se muestra el texto escrito, sin embargo, en el de la contraseña los caracteres del texto se sustituirán visualmente por asteriscos, garantizando la privacidad de la contraseña.
 
 En el caso de introducir unas credenciales no registradas en el sistema se avisa al usuario de que revise lo que ha escrito, ''Compruebe las credenciales'', dado que si no coinciden no se puede garantizar su identidad.
 
-Por otro lado, también se deben completar ambos campos, si esto no es así se lanza un aviso al usuario informándole que los debe cumplimentar si desea acceder, ''Ambos campos son obligatorios''.
+Por otro lado, también se deben completar ambos campos, si esto no es así se lanza un aviso al usuario informándole de que los debe cumplimentar si desea acceder, ''Ambos campos son obligatorios''.
 
 Una vez el usuario ha completado los campos podrá hacer clic en el botón ''Iniciar sesión'' y si cumple todo lo anterior le llevará a la pantalla principal descrita en la \autoref{subsec:iPrincipal}.
 
-En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para que se ajuste y sea legible incluso en resoluciones pequeñas. Además, el tamaño de letra es suficientemente grande, 14 pixeles para formulario y 10 pixeles para el botón, como para que se pueda leer correctamente tanto en grandes como en pequeñas resoluciones.
+En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para que se adapte y sea legible incluso en resoluciones pequeñas. Además, el tamaño de letra es suficientemente grande, 14 pixeles para formulario y 10 pixeles para el botón, como para que se pueda leer correctamente tanto en grandes como en pequeñas resoluciones.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Interfaz de inicio de sesión en móvil}
@@ -210,20 +210,22 @@ En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para qu
 \end{figure}
 
 \subsection{Página: Principal}\label{subsec:iPrincipal}
-Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasará a la pantalla mostrada en la \autoref{fig:iPrincipal}, en la que de primera podemos ver que nos muestra un mensaje de saludo, indicando el nombre de usuario.
+Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasará a la pantalla mostrada en la \autoref{fig:iPrincipal}, en la que se puede ver que muestra un mensaje de saludo, indicando el nombre de usuario.
 
-La clave de esta pantalla es la lista de los dispositivos en la que se muestran de manera tabular los datos de estos. Se imprimirán para cada dispositivo los datos almacenados en la base de datos.
+La clave de esta pantalla es la lista de los dispositivos, en la que se muestran de manera tabular los datos de estos. Se imprime, para cada dispositivo, los datos almacenados en la base.
+\vspace{.5cm}
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Interfaz de pantalla principal}
 		\label{fig:iPrincipal}}
 	{\includegraphics[width=\textwidth]{devices.png}}
 \end{figure}
-En la última posición de cada fila de dispositivos hay un botón en el que pone ''Acceso'' que nos redirigirá a la página de dispositivo, que se describe en la \autoref{subsec:iDispositivo}.
+En la última posición de cada fila de dispositivos hay un botón en el que pone ''Acceso'' que nos redirige a la página de dispositivo, que se describe en la \autoref{subsec:iDispositivo}.
 
 En la parte inferior aparece un botón con el texto ''Cerrar sesión'' que como su propio nombre indica, cierra la sesión y nos devuelve a la página de inicio de sesión, \autoref{subsec:iLogin}.
 
-Por último, en la versión móvil la tabla pasará a ocupar el ancho completo de la pantalla para que se pueda ver claramente el botón de la última posición y facilitar acceder al dispositivo. En cuanto al texto de saludo se ha decidido mantener, pero ajustándose para que no se salga de la pantalla, evitando el scroll lateral.
+Por último, en la versión móvil la tabla pasará a ocupar el ancho completo de la pantalla para que se pueda ver claramente el botón de la última posición y facilitar acceder al dispositivo. En cuanto al texto de saludo, se ha decidido mantenerlo, pero ajustándose para que no se salga de la pantalla, evitando el \textit{scroll} lateral.
+\vspace{.5cm}
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Interfaz de pantalla principal en móvil}
@@ -234,9 +236,9 @@ Por último, en la versión móvil la tabla pasará a ocupar el ancho completo d
 \subsection{Página: Dispositivo}\label{subsec:iDispositivo}
 Esta pantalla muestra la información clave de este proyecto, la imagen de la cámara del dispositivo y las medidas tomadas. 
 
-A esta página se accede una vez se ha seleccionado un dispositivo en la página principal, \autoref{subsec:iPrincipal}, y tiene la apariencia que se muestra en la \autoref{fig:iDispositivoI}, \autoref{fig:iDispositivoII} y \autoref{fig:iDispositivoIII}.
+A esta pantalla se accede una vez se ha seleccionado un dispositivo en la página principal, \autoref{subsec:iPrincipal}, y tiene la apariencia que se muestra en la \autoref{fig:iDispositivoI}, \autoref{fig:iDispositivoII} y \autoref{fig:iDispositivoIII}.
 
-En primer lugar, en la parte superior se muestra el nombre que identifica al dispositivo de manera que podemos saber en todo momento que datos estamos consultando.
+En primer lugar, en la parte superior se muestra el nombre que identifica al dispositivo, de manera que podemos saber, en todo momento, que datos estamos consultando.
 
 Inmediatamente después, se muestra un cuadro con la imagen en tiempo real de la cámara del dispositivo.
 \begin{figure}[H]
@@ -247,7 +249,7 @@ Inmediatamente después, se muestra un cuadro con la imagen en tiempo real de la
 \end{figure}
 A continuación, se mostrarán todas las medidas, primero de manera gráfica y después de manera tabular.
 
-La parte visual de las medidas se divide en 3 gráficas distintas para poder ver mejor como progresan en el tiempo sin que haya problemas de escalas entre ellas y sin saturar la pantalla. Las gráficas son:
+La parte visual de las medidas se divide en 3 gráficas distintas, para poder ver mejor como progresan en el tiempo sin que haya problemas de escalas entre ellas y sin saturar la pantalla. Las gráficas son:
 \begin{itemize}
 	\item Temperatura y Humedad.
 	\item PM$_{2.5}$, PM$_{10}$ y CO.
@@ -259,7 +261,8 @@ La parte visual de las medidas se divide en 3 gráficas distintas para poder ver
 		\label{fig:iDispositivoII}}
 	{\includegraphics[width=\textwidth]{medidas2.png}}
 \end{figure}
-En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronológica, de más nuevas a más antiguas. Esta tabla está compuesta por los 720 últimos registros que cubren la última hora de mediciones de la sala, puesto que se toma una medida cada 5 segundos.
+En cuanto a la forma tabular, mediante una tabla se muestran las medidas de manera cronológica, de más reciente a más antigua. Esta tabla está compuesta por los 720 últimos registros, que cubren la última hora de mediciones de la sala, puesto que se toma una medida cada 5 segundos.
+\vspace{.5cm}
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Interfaz de dispositivo III}
@@ -267,7 +270,10 @@ En cuanto a la forma tabular, mediante una tabla se muestran las medidas de mane
 	{\includegraphics[width=\textwidth]{medidas3.png}}
 \end{figure}
 
-Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al ancho del dispositivo de manera que se puedan visualizar bien los datos, evitando así tener que hacer zum en la pantalla. Además, las gráficas ofrecen la posibilidad de acceder a un dato en particular si hacemos clic o tocamos una sección específica, indicando los valores y momento específicos.
+Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al ancho del dispositivo, de manera que se puedan visualizar bien todos los datos, evitando así tener que hacer zum en la pantalla.
+\pagebreak
+
+Además, las gráficas ofrecen la posibilidad de acceder a un dato en particular si hacemos clic o tocamos una sección específica, indicando los valores y momento específicos.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Interfaz de dispositivo en móvil}
@@ -277,13 +283,13 @@ Para la versión móvil se ajusta el tamaño de la cámara, gráficas y tabla al
 \end{figure}
 
 \section{Servidor}\label{sec:servidor}
-Como ya se especifica en la \autoref{subsec:servidorDB} el servidor que se emplea para alojar la página web es Apache, que cubre todas las necesidades de la aplicación, dado que nos permite lanzar al público un sitio web desarrollado en el lenguaje PHP. Este lenguaje de desarrollo web nos facilitará la implementación de la lógica y acceso a la base de datos, a la vez que diseñar las pantallas vistas en la \autoref{sec:interfaz}. 
+Como ya se especifica en la \autoref{subsec:servidorDB}, el servidor que se emplea para alojar la página web es Apache, que cubre todas las necesidades de la aplicación, dado que nos permite lanzar al público un sitio web desarrollado en el lenguaje PHP. Este lenguaje de desarrollo web nos facilita la implementación de la lógica y acceso a la base de datos, a la vez que diseñar las pantallas vistas en la \autoref{sec:interfaz}. 
 
 En el mismo servidor se aloja la base de datos tal y como ha quedado descrita en la \autoref{sec:modelo}, eso permite que sea accesible para el dispositivo de medición y videovigilancia, que posee los permisos para acceder a la misma.
 \pagebreak
 
 \section{Hardware}\label{sec:hardware}
-En cuanto a la parte física del proyecto, se detalla en esta sección cuáles son las conexiones entre los diferentes elementos que se describieron en la \autoref{sec:hardwareSoftware}, y que son los elegidos para formar parte de este. La conexión se resume en el esquema de la \autoref{fig:circuito}. Este esquema se ha realizado con Fritzing \cite{noauthor_fritzing_nodate} que nos permite de una manera sencilla importar y conectar los componentes.
+En cuanto a la parte física del proyecto, se detalla en esta sección cuáles son las conexiones entre los diferentes elementos que se describieron en la \autoref{sec:hardwareSoftware} y que son los elegidos para formar parte de este. La conexión se resume en el esquema de la \autoref{fig:circuito}. Este esquema se ha realizado con Fritzing \cite{noauthor_fritzing_nodate} que nos permite de una manera sencilla importar y conectar los componentes.
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Esquema de conexiones dispositivo}
@@ -295,12 +301,12 @@ Se comienza con los sensores con los que cuenta el dispositivo:
 \begin{itemize}
 	\item \textbf{DHT11}: Se trata del sensor de temperatura y humedad elegido.
 	      
-	      Por medio de la conexión de DATA - GPIO 4 indicada con el cable blanco se obtiene la temperatura y la humedad del ambiente. 
+	      Por medio de la conexión de DATA con GPIO 4, indicada con el cable blanco, se obtiene la temperatura y la humedad del ambiente. 
 	      
 	      El cable rojo lo conecta con la corriente de 5 V.
 	      
-	      El cable morado lo conecta a un puerto de tierra.
-	\item \textbf{MQ-7}: Es el sensor de dióxido de carbono, al tratarse de un sensor analógico y dado que la Raspberry no posee pines de este tipo se emplea un conversor MCP3008 que nos proporciona 8 canales analógicos de 10 bits.
+	      El cable morado lo conecta a un puerto de tierra, GND.
+	\item \textbf{MQ-7}: Es el sensor de dióxido de carbono. Al tratarse de un sensor analógico y dado que la Raspberry no posee pines de este tipo se emplea un conversor MCP3008 que nos proporciona 8 canales analógicos de 10 bits.
 	      
 	      Se conecta mediante la protoboard a la corriente de 5 V y a tierra, cable rojo y negro respectivamente.
 	      
@@ -317,7 +323,7 @@ Se comienza con los sensores con los que cuenta el dispositivo:
 	      
 	      Se alimenta mediante el cable rojo a la corriente de 5 V y a tierra mediante el cable negro, ambos por medio de la protoboard. Se emplea la protoboard por falta de puertos únicos de corriente.
 	      
-	      Por otro lado, para transmitir los datos de las medidas utiliza los cables azul y verde a los puertos UART\_TXD y UART\_RXD respectivamente, además con el cable amarillo se une la salida analógica con el GPIO 24. El esquema de los pines se puede ver en la \autoref{fig:MH-Z14} \cite{noauthor_documentacion_nodate}.
+	      Por otro lado, para transmitir los datos de las medidas utiliza los cables azul y verde a los puertos UART\_TXD y UART\_RXD respectivamente. Además, con el cable amarillo se une la salida analógica con el GPIO 24. El esquema de los pines se puede ver en la \autoref{fig:MH-Z14} \cite{noauthor_documentacion_nodate}.
 	      \begin{figure}[H]
 		      \ffigbox[\FBwidth]
 		      {\caption{Esquema del sensor MH-Z14}
@@ -333,4 +339,4 @@ Todas las características técnicas y el porqué de la elección de los sensore
 
 Como se puede ver, el elemento central es la \textbf{Raspberry Pi 3B+}, cuyas características se pueden consultar en la \autoref{subsec:altPlacas}. Además, esta se encuentra conectada a la corriente mediante un Micro USB y a la red mediante Ethernet.
 
-Su función es alimentar y acceder a los sensores y cámara, que son los elementos que se encargan de la medición y visualización de la sala, dado que sin la Raspberry estos no serían capaces de funcionar por si solos. Otra de sus funciones clave es la retransmisión de la imagen y el envío de las medidas al servidor, es por esta razón se encuentra conectada a la red vía Ethernet.
+Su función es alimentar y acceder a los sensores y cámara, que son los elementos que se encargan de la medición y visualización de la sala, dado que sin la Raspberry estos no serían capaces de funcionar por si solos. Otra de sus funciones clave es la retransmisión de la imagen y el envío de las medidas al servidor. Es por esta razón que se encuentra conectada a la red vía Ethernet.
