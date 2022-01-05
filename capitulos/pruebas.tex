@@ -1,8 +1,8 @@
 \chapter{Pruebas}
 \label{ch:pruebas}
-En este capitulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, ademas de verificar que se se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han realizado durante la implementación, otras, sin embargo, se han realizado una vez completada para comprobar que en conjunto todo esta conectado correctamente. 
+En este capítulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, además de verificar que se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han efectuado durante la implementación, otras, sin embargo, se han realizado una vez completada para verificar que en conjunto todo está conectado correctamente. 
 
-Las pruebas se abordan desde dos perspectivas: pruebas de caja blanca y pruebas de caja negra. Esto permite que sean mas exaustivas y completas, dado que se trata de un sistema cuyo buen funcionamiento es crítico. 
+Las pruebas se abordan desde dos perspectivas: pruebas de caja blanca y pruebas de caja negra. Esto permite que sean más exhaustivas y completas, dado que se trata de un sistema cuyo buen funcionamiento es crítico. 
 
 Cada prueba se recoge de manera tabular siguiendo la plantilla de la \autoref{tab:plantilla_p}.
 \begin{table}[H]
@@ -22,18 +22,18 @@ Cada prueba se recoge de manera tabular siguiendo la plantilla de la \autoref{ta
 	\end{tabular}
 \end{table}
 \begin{itemize}
-	\item \textbf{PCX-YY:} Identificador de la prueba. Por un lado la X cambia a B cuando se trata de una prueba de caja blanca y a N cuando es de caja negra. Por otro lado, el YY indica la posición, que aumenta después de cada prueba.
+	\item \textbf{PCX-YY:} Identificador de la prueba. Por un lado, la X cambia a B cuando se trata de una prueba de caja blanca y a N cuando es de caja negra. Por otro lado, el YY indica la posición, que aumenta después de cada prueba.
 	\item \textbf{Nombre:} Nombre representativo del asunto de la prueba.
 	\item \textbf{Descripción:} Exposición más detallada de la prueba.
 	\item \textbf{Versión:} Indica si ha sufrido variaciones a lo largo del tiempo.
 	\item \textbf{Fuente:} Procedencia del requisito.
 	\item \textbf{Proceso:} Acciones a realizar para llevar a cabo la prueba.
-	\item \textbf{Condición de validación:} Condiciones que deben cumplirse para que la prueba se de por superada.
+	\item \textbf{Condición de validación:} Condiciones que deben cumplirse para que la prueba se dé por superada.
 	\item \textbf{Resultado:} Superada, si se da la condición de validación, o Fallida, si no se da.
 \end{itemize}
 
 \section{Pruebas de caja blanca}
-En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vista del código fuente desarrollado, de manera que se revise el correcto flujo del programa. Reciben este nombre, puesto que se conoce como se realiza el proceso interno. Se presentan a continuación estas pruebas utilizando la plantilla de la \autoref{tab:plantilla_p}. 
+En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vista del código fuente desarrollado, de manera que se revise el correcto flujo del programa. Reciben este nombre, puesto que se conoce como se ejecuta el proceso interno. Se presentan a continuación estas pruebas utilizando la plantilla de la \autoref{tab:plantilla_p}. 
 
 \newcount\pcb
 \pcb=1
@@ -42,16 +42,265 @@ En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vi
 	\begin{tabular}{|l|p{.65\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
-		\textbf{Nombre}                  &   \\ \hline
-		\textbf{Descripción}             &   \\ \hline
-		\textbf{Versión}                 & 1.0  \\ \hline
-		\textbf{Fuente}                  & Responsable de pruebas  \\ \hline
-		\textbf{Proceso}                 &   \\ \hline
-		\textbf{Condición de validación} &   \\ \hline
-		\textbf{Resultado}               & Superada  \\ \hline
+		\textbf{Nombre}                  & IP del dispositivo                                                                        \\ \hline
+		\textbf{Descripción}             & Se comprueba el correcto funcionamiento del método \textit{get\_ip()}, que devuelve la IP \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                       \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                    \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Hacer una llamada al método \textit{get\_ip()} desde el dispositivo
+			\item Hacer \textit{ifconfig} desde el terminal
+		\end{enumerate}                                                                 \\ \hline
+		\textbf{Condición de validación} & Ambas IP obtenidas deben ser la misma                                                     \\ \hline
+		\textbf{Resultado}               & Superada                                                                                  \\ \hline
 	\end{tabular}
 \end{table}
 \advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & id del dispositivo                                                                              \\ \hline
+		\textbf{Descripción}             & Se comprueba que el método \textit{get\_device\_id()} devuelve la dirección MAC del dispositivo \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                             \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                          \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear una llamada en Python a \textit{get\_device\_id()}
+			\item Hacer \textit{ifconfig} desde el terminal
+		\end{enumerate}                                                                       \\ \hline
+		\textbf{Condición de validación} & La dirección MAC obtenida mediante el método debe ser la misma que aparece en el comando        \\ \hline
+		\textbf{Resultado}               & Superada                                                                                        \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Almacenamiento de medidas                                                                    \\ \hline
+		\textbf{Descripción}             & Comprobar que las medidas se registran en la tabla \textit{sensor\_data} en la base de datos \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                          \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                       \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
+		\end{enumerate}                                                                    \\ \hline
+		\textbf{Condición de validación} & Se muestran todas las medidas tomadas                                                        \\ \hline
+		\textbf{Resultado}               & Superada                                                                                     \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Almacenamiento de dispositivos                                                               \\ \hline
+		\textbf{Descripción}             & Comprobar que los dispositivos se registran en la tabla \textit{devices} en la base de datos \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                          \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                       \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
+		\end{enumerate}                                                                    \\ \hline
+		\textbf{Condición de validación} & Se muestran todos los dispositivos conectados                                                \\ \hline
+		\textbf{Resultado}               & Superada                                                                                     \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Conexión a la base de datos                                                                                                                                                      \\ \hline
+		\textbf{Descripción}             & Se comprueba que el dispositivo se conecta correctamente a la base de datos con sus credenciales                                                                                 \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                                                                                              \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                           \\ \hline
+		\textbf{Proceso}                 & Crear un objeto de la clase \textit{DB} pasando como parámetros la IP, el usuario ''device\_user'', la contraseña ''device\_pass'', y el nombre de la base de datos ''tfg\_db''. \\ \hline
+		\textbf{Condición de validación} & No debe dar error de conexión a la base de datos                                                                                                                                 \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                                                                                         \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Añadir dispositivo nuevo                                                                                  \\ \hline
+		\textbf{Descripción}             & Se comprueba que se registra correctamente un dispositivo nuevo añadiendo un registro en la base de datos \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                       \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                    \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{DB}
+			\item Hacer una llamada al método \textit{insert\_update\_device\_DB()} del objeto, pasando como parámetros: fecha, dirección IP, estado ''Online'' e id del dispositivo
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
+		\end{enumerate}                                                                                 \\ \hline
+		\textbf{Condición de validación} & El dispositivo pasado como parámetro debe estar registrado                                                \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                  \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Actualizar dispositivo existente                                                                                                                                              \\ \hline
+		\textbf{Descripción}             & Se comprueba que una vez tenemos un dispositivo registrado y se hace llamada al método \textit{insert\_update\_device\_DB()} para el mismo dispositivo su estado se actualiza \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                                                                                           \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                        \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{DB}
+			\item Hacer una llamada al método \textit{insert\_update\_device\_DB()} del objeto, pasando como parámetros: fecha, dirección IP, estado ''Online'' e id del dispositivo
+			\item Llamar al método \textit{insert\_update\_device\_DB()} del objeto, pasando como parámetros: fecha, dirección IP, estado ''Offline'' y el mismo id del dispositivo
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
+		\end{enumerate}                                                                                                                                                     \\ \hline
+		\textbf{Condición de validación} & El registro del dispositivo debe estar actualizado con los parámetros de la segunda llamada                                                                                   \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                                                                                      \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Añadir mediciones                                           \\ \hline
+		\textbf{Descripción}             & Se comprueba que se registra correctamente la medida tomada \\ \hline
+		\textbf{Versión}                 & 1.0                                                         \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                      \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{DB}
+			\item Hacer una llamada al método \textit{insert\_sensor\_data\_DB()} del objeto, pasando como parámetros: fecha, id del dispositivo, temperatura, humedad, partículas en suspensión de 2.5, partículas en suspensión de 10, CO y CO$_2$
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
+		\end{enumerate}                                  \\ \hline
+		\textbf{Condición de validación} & La medida pasada como parámetro debe estar registrada       \\ \hline
+		\textbf{Resultado}               & Superada                                                    \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-0\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Retransmisión de la cámara                                                                       \\ \hline
+		\textbf{Descripción}             & Se comprueba que la imagen de la cámara se muestra en la dirección http://dirIP:8000/stream.mjpg \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                              \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                           \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Hacer una llamada al método \textit{cam\_web()}
+			\item Acceder a http://dirIP:8000/stream.mjpg
+		\end{enumerate}                                                                       \\ \hline
+		\textbf{Condición de validación} & La imagen debe estar mostrándose en la página                                                    \\ \hline
+		\textbf{Resultado}               & Superada                                                                                         \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Sensor de temperatura y humedad                                               \\ \hline
+		\textbf{Descripción}             & Se comprueba que el sensor de temperatura y humedad funciona                  \\ \hline
+		\textbf{Versión}                 & 1.0                                                                           \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                        \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{DHT11}
+			\item Hacer una llamada al método \textit{tempHumSensor()} del objeto
+			\item Imprimir la salida por pantalla
+		\end{enumerate}                                                    \\ \hline
+		\textbf{Condición de validación} & El valor obtenido de la llamada debe concordar con la temperatura del momento \\ \hline
+		\textbf{Resultado}               & Superada                                                                      \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Sensor de partículas en suspensión                                                        \\ \hline
+		\textbf{Descripción}             & Se comprueba que el sensor de partículas en suspensión funciona                           \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                       \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                    \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{SDS011} pasando como parámetro el identificador del puerto USB
+			\item Hacer una llamada al método \textit{query()} del objeto
+			\item Imprimir la salida por pantalla
+		\end{enumerate}                                                                \\ \hline
+		\textbf{Condición de validación} & Se deben mostrar por pantalla la cantidad de partículas en suspensión de 2.5 y 10 $\mu m$ \\ \hline
+		\textbf{Resultado}               & Superada                                                                                  \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Sensor de CO$_2$                                                           \\ \hline
+		\textbf{Descripción}             & Se comprueba que el sensor de CO$_2$ funciona                              \\ \hline
+		\textbf{Versión}                 & 1.0                                                                        \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                     \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{CO2Sensor}
+			\item Hacer una llamada al método \textit{get()} del objeto
+			\item Imprimir la salida por pantalla
+		\end{enumerate}                                                 \\ \hline
+		\textbf{Condición de validación} & Se muestra por pantalla las partículas por millos de CO$_2$ en el ambiente \\ \hline
+		\textbf{Resultado}               & Superada                                                                   \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Sensor de CO                                           \\ \hline
+		\textbf{Descripción}             & Se comprueba que el sensor de CO funciona              \\ \hline
+		\textbf{Versión}                 & 1.0                                                    \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                 \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Crear un objeto de la clase \textit{COSensor}
+			\item Hacer una llamada al método \textit{co\_sensor\_readadc()} del objeto
+			\item Imprimir la salida por pantalla
+		\end{enumerate}                             \\ \hline
+		\textbf{Condición de validación} & Se muestra por pantalla el porcentaje de CO de la sala \\ \hline
+		\textbf{Resultado}               & Superada                                               \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcb by 1
+\begin{table}[H]
+	\caption{PCB-\number\pcb}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
+		\textbf{Nombre}                  & Funcionamiento general                                                                                                                                                            \\ \hline
+		\textbf{Descripción}             & Se comprueba que el programa principal ejecuta correctamente                                                                                                                      \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                                                                                               \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                            \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Llamar al método \textit{cpdDevice()} del programa principal
+			\item Esperar 20 segundos a que se calienten los sensores
+			\item Observar el terminal 1 minuto
+			\item Acceder a la página de \textit{phpMyAdmin}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
+			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
+		\end{enumerate}                                                                                                                                                        \\ \hline
+		\textbf{Condición de validación} & En el terminal se muestra cada 5 segundos las medidas tomadas, que coinciden con las de la tabla \textit{sensor\_data}. Además, el dispositivo debe mostrarse en \textit{devices} \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                                                                                          \\ \hline
+	\end{tabular}
+\end{table}
+\pagebreak
 
 \section{Pruebas de caja negra}
 En esta sección se efectúan las pruebas relativas al correcto funcionamiento del sistema en general, sin entrar en cómo funciona internamente, es por esto por lo que se llaman pruebas de caja negra. Las pruebas hechas se muestran en las siguientes tablas que siguen la plantilla de la \autoref{tab:plantilla_p}.
@@ -63,18 +312,372 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 	\begin{tabular}{|l|p{.65\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
-		\textbf{Nombre}                  &   \\ \hline
-		\textbf{Descripción}             &   \\ \hline
-		\textbf{Versión}                 & 1.0  \\ \hline
-		\textbf{Fuente}                  & Responsable de pruebas  \\ \hline
-		\textbf{Proceso}                 &   \\ \hline
-		\textbf{Condición de validación} &   \\ \hline
-		\textbf{Resultado}               & Superada  \\ \hline
+		\textbf{Nombre}                  & Acceso a la web                                                            \\ \hline
+		\textbf{Descripción}             & Comprobar que se puede acceder a la aplicación                             \\ \hline
+		\textbf{Versión}                 & 1.0                                                                        \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                     \\ \hline
+		\textbf{Proceso}                 & Se introduce el enlace de la aplicación en un navegador                    \\ \hline
+		\textbf{Condición de validación} & Nos muestra el inicio de sesión de la aplicación, con una paleta de azules \\ \hline
+		\textbf{Resultado}               & Superada                                                                   \\ \hline
 	\end{tabular}
 \end{table}
 \advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Registrar usuario                                                                                                 \\ \hline
+		\textbf{Descripción}             & Comprobar el proceso de registro del administrador                                                                \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                               \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                            \\ \hline
+		\textbf{Proceso}                 & Hacer en la base de datos una query de inserción a la tabla \textit{users}, indicando usuario y contraseña en MD5 \\ \hline
+		\textbf{Condición de validación} & Se puede acceder a la aplicación con el usuario recién creado                                                     \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                          \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Acceso a la aplicación                                              \\ \hline
+		\textbf{Descripción}             & Se comprueba que la web es accesible mediante un usuario registrado \\ \hline
+		\textbf{Versión}                 & 1.0                                                                 \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                              \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Introducir las credenciales de usuario de un registro de la tabla \textit{users}
+		\end{enumerate}                                          \\ \hline
+		\textbf{Condición de validación} & Se accede a la aplicación satisfactoriamente                        \\ \hline
+		\textbf{Resultado}               & Superada                                                            \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Cierre de sesión                                                    \\ \hline
+		\textbf{Descripción}             & Se comprueba que se borra la sesión y se vuelve al inicio de sesión \\ \hline
+		\textbf{Versión}                 & 1.0                                                                 \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                              \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+			\item Clic en ''Cerrar sesión''
+		\end{enumerate}                                          \\ \hline
+		\textbf{Condición de validación} & Se vuelve a la página de inicio de sesión                           \\ \hline
+		\textbf{Resultado}               & Superada                                                            \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Bienvenida a la web                     \\ \hline
+		\textbf{Descripción}             & Se muestra el usuario al iniciar sesión \\ \hline
+		\textbf{Versión}                 & 1.0                                     \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                  \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+		\end{enumerate}              \\ \hline
+		\textbf{Condición de validación} & Se muestra el nombre de usuario         \\ \hline
+		\textbf{Resultado}               & Superada                                \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Lista de dispositivos                                          \\ \hline
+		\textbf{Descripción}             & Comprobar que se muestran los dispositivos en la aplicación    \\ \hline
+		\textbf{Versión}                 & 1.0                                                            \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                         \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+		\end{enumerate}                                     \\ \hline
+		\textbf{Condición de validación} & Se deben mostrar los dispositivos de la tabla \textit{devices} \\ \hline
+		\textbf{Resultado}               & Superada                                                       \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Acceso a la página de dispositivo                                            \\ \hline
+		\textbf{Descripción}             & Se comprueba que se muestra la imagen y medidas del dispositivo seleccionado \\ \hline
+		\textbf{Versión}                 & 1.0                                                                          \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                       \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+			\item Hacer clic en Acceder en la lista de dispositivos
+		\end{enumerate}                                                   \\ \hline		
+		\textbf{Condición de validación} & Deben aparecer las medidas e imagen                                          \\ \hline
+		\textbf{Resultado}               & Superada                                                                     \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Acceso a medidas del dispositivo                    \\ \hline
+		\textbf{Descripción}             & Comprobar que las medidas tomadas se muestran       \\ \hline
+		\textbf{Versión}                 & 1.0                                                 \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                              \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+			\item Hacer clic en Acceder en la lista de dispositivos
+		\end{enumerate}                          \\ \hline		
+		\textbf{Condición de validación} & Deben aparecer las medidas tomadas en tabla y lista \\ \hline
+		\textbf{Resultado}               & Superada                                            \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-0\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-0\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Acceso a la imagen del dispositivo              \\ \hline
+		\textbf{Descripción}             & Comprobar que la imagen de la cámara se muestra \\ \hline
+		\textbf{Versión}                 & 1.0                                             \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                          \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+			\item Hacer clic en Acceder en la lista de dispositivos
+		\end{enumerate}                      \\ \hline
+		\textbf{Condición de validación} & Debe aparecer la imagen en tiempo real          \\ \hline
+		\textbf{Resultado}               & Superada                                        \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Volver a la lista de dispositivos                                                              \\ \hline
+		\textbf{Descripción}             & Se comprueba que al hacer clic en ''Volver'' se vuelve a la página de selección de dispositivo \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                            \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                         \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Acceder a la aplicación web
+			\item Iniciar sesión
+			\item Hacer clic en Acceder en la lista de dispositivos
+			\item Hacer clic en ''Volver''
+		\end{enumerate}                                                                     \\ \hline
+		\textbf{Condición de validación} & Se vuelve a la lista de dispositivos                                                           \\ \hline
+		\textbf{Resultado}               & Superada                                                                                       \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Funcionamiento continuado                                                                       \\ \hline
+		\textbf{Descripción}             & Dejar el dispositivo funcionando sin cortes                                                     \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                             \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                          \\ \hline
+		\textbf{Proceso}                 & Dejar funcionando el dispositivo 7 días, revisando periódicamente                               \\ \hline
+		\textbf{Condición de validación} & No se corta la imagen en ningún momento, ni se cae la aplicación y las medias no se interrumpen \\ \hline
+		\textbf{Resultado}               & Superada                                                                                        \\ \hline
+	\end{tabular}
+\end{table}
+\advance\pcn by 1
+\begin{table}[H]
+	\caption{PCN-\number\pcn}
+	\begin{tabular}{|l|p{.65\textwidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCN-\number\pcn}}} \\ \hline
+		\textbf{Nombre}                  & Responsive                                              \\ \hline
+		\textbf{Descripción}             & Navegar por la aplicación en versión escritorio y móvil \\ \hline
+		\textbf{Versión}                 & 1.0                                                     \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                  \\ \hline
+		\textbf{Proceso}                 & \begin{enumerate}
+			\item Activar versión desktop en DevTools
+			\item Iniciar sesión
+			\item Seleccionar dispositivo
+			\item Volver a la lista de dispositivos
+			\item Cerrar sesión
+			\item Activar versión móvil en DevTools
+			\item Iniciar sesión
+			\item Seleccionar dispositivo
+		\end{enumerate}                              \\ \hline
+		\textbf{Condición de validación} & En todo momento debe ser perfectamente navegable        \\ \hline
+		\textbf{Resultado}               & Superada                                                \\ \hline
+	\end{tabular}
+\end{table}
+\pagebreak
 
 \section{Matriz de trazabilidad}
 La intención de esta sección es poder verificar que todos los requisitos que nos ha exigido el cliente quedan cubiertos por las pruebas. 
 
-Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se muestra en la % \autoref{tab:trazabilidadP}.
+Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se encuentra dividida en la \autoref{tab:trazabilidadPI}, \autoref{tab:trazabilidadPII} y \autoref{tab:trazabilidadPIII}.
+
+\begin{table}[H]
+	\centering
+	\caption{Matriz de trazabilidad de pruebas I}
+	\label{tab:trazabilidadPI}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|
+				>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{RF N \textbackslash{}RU} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-01} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-02} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-03} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-04} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-05} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-06} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-07} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-08} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-09} \\ \hline
+			\textbf{RF-01}                   &                                         &                                         & X                                       &                                         & X                                       &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RF-02}                   &                                         &                                         & X                                       &                                         & X                                       &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RF-03}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RF-04}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-05}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-06}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-07}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-08}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-09}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-10}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-11}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-12}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-13}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-01}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-02}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-03}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-04}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-05}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-06}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RN-07}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-08}                   & X                                       & X                                       & X                                       & X                                       & X                                       &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RN-09}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-10}                   &                                         &                                         & X                                       & X                                       & X                                       & X                                       & X                                       & X                                       &                                         \\ \hline
+			\textbf{RN-11}                   &                                         &                                         & X                                       &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-12}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-13}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RN-14}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-15}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RN-16}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-17}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-18}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-19}                   & X                                       & X                                       &                                         & X                                       &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-20}                   &                                         &                                         &                                         &                                         &                                         & X                                       & X                                       &                                         &                                         \\ \hline
+			\textbf{RN-21}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-22}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-23}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-24}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Matriz de trazabilidad de pruebas II}
+	\label{tab:trazabilidadPII}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|
+				>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{RF N \textbackslash{}RU} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-10} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-11} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-12} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-13} & \cellcolor[HTML]{BFBFBF}\textbf{PCB-14} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-01} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-02} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-03} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-04} \\ \hline
+			\textbf{RF-01}                   & X                                       & X                                       & X                                       & X                                       &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-02}                   & X                                       & X                                       & X                                       & X                                       &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-03}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-04}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         \\ \hline
+			\textbf{RF-05}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RF-06}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-07}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RF-08}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-09}                   &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         &                                         \\ \hline
+			\textbf{RF-10}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-11}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-12}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-13}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-01}                   & X                                       &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-02}                   & X                                       &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-03}                   &                                         &                                         &                                         & X                                       &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-04}                   &                                         &                                         & X                                       &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-05}                   &                                         & X                                       &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-06}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-07}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-08}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-09}                   &                                         &                                         &                                         &                                         & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-10}                   &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         &                                         \\ \hline
+			\textbf{RN-11}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-12}                   &                                         &                                         &                                         &                                         & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-13}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-14}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-15}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-16}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       & X                                       &                                         \\ \hline
+			\textbf{RN-17}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         \\ \hline
+			\textbf{RN-18}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         \\ \hline
+			\textbf{RN-19}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-20}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-21}                   &                                         &                                         &                                         &                                         &                                         & X                                       &                                         & X                                       &                                         \\ \hline
+			\textbf{RN-22}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-23}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-24}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Matriz de trazabilidad de pruebas III}
+	\label{tab:trazabilidadPIII}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|
+				>{\columncolor[HTML]{BFBFBF}}l |c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{RF N \textbackslash{}RU} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-05} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-06} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-07} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-08} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-09} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-10} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-11} & \cellcolor[HTML]{BFBFBF}\textbf{PCN-12} \\ \hline
+			\textbf{RF-01}                   &                                         &                                         & X                                       & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-02}                   &                                         &                                         & X                                       & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-03}                   &                                         &                                         &                                         &                                         & X                                       &                                         &                                         &                                         \\ \hline
+			\textbf{RF-04}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-05}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-06}                   &                                         & X                                       &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-07}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-08}                   & X                                       &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-09}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-10}                   &                                         &                                         & X                                       & X                                       & X                                       &                                         &                                         &                                         \\ \hline
+			\textbf{RF-11}                   &                                         &                                         &                                         &                                         &                                         & X                                       &                                         &                                         \\ \hline
+			\textbf{RF-12}                   &                                         &                                         & X                                       & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RF-13}                   &                                         &                                         & X                                       & X                                       &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-01}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-02}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-03}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-04}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-05}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-06}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-07}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RN-08}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-09}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-10}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-11}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-12}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-13}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-14}                   &                                         &                                         & X                                       & X                                       & X                                       &                                         &                                         &                                         \\ \hline
+			\textbf{RN-15}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-16}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-17}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-18}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-19}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-20}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-21}                   &                                         & X                                       & X                                       &                                         &                                         &                                         &                                         &                                         \\ \hline
+			\textbf{RN-22}                   &                                         &                                         &                                         &                                         &                                         &                                         &                                         & X                                       \\ \hline
+			\textbf{RN-23}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         \\ \hline
+			\textbf{RN-24}                   &                                         &                                         &                                         &                                         &                                         &                                         & X                                       &                                         \\ \hline
+		\end{tabular}%
+	}
+\end{table}

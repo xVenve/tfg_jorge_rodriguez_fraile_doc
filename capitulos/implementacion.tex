@@ -271,10 +271,10 @@ Antes de empezar a realizar mediciones necesita un tiempo de calentamiento de 20
 \subsection{Clase del sensor \texorpdfstring{CO$_2$}{CO2}}
 Para obtener las partículas por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14 \cite{noauthor_documentacion_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
 \begin{figure}[H]
-    \ffigbox[\textwidth]
-    {\caption{Lectura de concentración de CO$_2$ MH-Z14}
-        \label{fig:co2PPMcalc}}
-    {\includegraphics[width=\textwidth]{co2ppm.png}}
+	\ffigbox[\textwidth]
+	{\caption{Lectura de concentración de CO$_2$ MH-Z14}
+		\label{fig:co2PPMcalc}}
+	{\includegraphics[width=\textwidth]{co2ppm.png}}
 \end{figure}
 En primer lugar, hay que identificar en que puerto serial se encuentra el sensor, en este caso es el \textit{ttyS0} que corresponde al puerto UART. Tras esto, simplemente se realiza una \textit{request} de lectura que se indica en la \autoref{fig:co2PPMcalc} y de la que se obtiene como respuesta el valor de la concentración de CO$_2$ junto con un \textit{checksum} para verificar que la lectura es correcta.
 
@@ -374,12 +374,12 @@ Para empezar, se importan todas las clases descritas y se define el constructor 
 
 El método principal, \textit{start()}, como se ha dicho inicia el programa y esto requiere los siguientes pasos:
 \begin{enumerate}
-    \item Iniciar la conexión con la base de datos e introducir/actualizar el estado del dispositivo, que lo pasa a estado \textit{Online}.
-    \item Empezar la transmisión de la cámara.
-    \item Instanciar los sensores de temperatura y humedad, partículas en suspensión, CO y CO$_2$. Para el de partículas en suspensión, SDS011, se ha utilizado la librería \textit{RPi\_Air\_Quality\_Sensor} \cite{rovai_python4ds_2021} que mediante una llamada \textit{query()} devuelve las dos medidas necesarias.
-    \item Se produce en una pausa para el calentamiento de los sensores de 20 segundos.
-    \item En bucle, cada 5 segundos, se realiza la lectura de las medidas de temperatura y humedad, partículas en suspensión, CO y CO$_2$ y se registran en la base de datos, junto con la fecha e id del dispositivo.
-    \item En caso de interrupción se limpia la asignación de los puertos GPIO, se apaga el sensor de partículas en suspensión y se manda la última actualización de estado indicando que se pasa a estado \textit{Offline}.
+	\item Iniciar la conexión con la base de datos e introducir/actualizar el estado del dispositivo, que lo pasa a estado \textit{Online}.
+	\item Empezar la transmisión de la cámara.
+	\item Instanciar los sensores de temperatura y humedad, partículas en suspensión, CO y CO$_2$. Para el de partículas en suspensión, SDS011, se ha utilizado la librería \textit{RPi\_Air\_Quality\_Sensor} \cite{rovai_python4ds_2021} que mediante una llamada \textit{query()} devuelve las dos medidas necesarias.
+	\item Se produce en una pausa para el calentamiento de los sensores de 20 segundos.
+	\item En bucle, cada 5 segundos, se realiza la lectura de las medidas de temperatura y humedad, partículas en suspensión, CO y CO$_2$ y se registran en la base de datos, junto con la fecha e id del dispositivo.
+	\item En caso de interrupción se limpia la asignación de los puertos GPIO, se apaga el sensor de partículas en suspensión y se manda la última actualización de estado indicando que se pasa a estado \textit{Offline}.
 \end{enumerate}
 
 El método \textit{start()} es el mostrado en el \autoref{cod:metodoPrincipal}, en el que se recogen todos los pasos descritos.
@@ -441,7 +441,7 @@ def get_device_id(self):
     return ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff) for ele in range(0, 8 * 6, 8)][::-1])
 \end{lstlisting}
 
-El \textit{get\_ip()} devuelve la dirección IP del dispositivo, que se obtiene gracias a una llamada de \textit{connect} de la librería \textit{socket}. Este valor se utiliza para retransmitir el video de la cámara y forma parte del registro de estado de la tabla \textit{device}. En caso de que no se produzca conexión se devuelve una por defecto. En el fragmento de \autoref{cod:getIp} se puede contemplar este proceso.
+El \textit{get\_ip()} devuelve la dirección IP del dispositivo, que se obtiene gracias a una llamada de \textit{connect} de la librería \textit{socket}. Este valor se utiliza para retransmitir el video de la cámara y forma parte del registro de estado de la tabla \textit{devices}. En caso de que no se produzca conexión se devuelve una por defecto. En el fragmento de \autoref{cod:getIp} se puede contemplar este proceso.
 \begin{lstlisting}[language=Python, label=cod:getIp, caption=Metodo get\_ip()]
 def get_ip(self):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
