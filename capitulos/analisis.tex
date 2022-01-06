@@ -4,7 +4,7 @@ En este capítulo se explica de qué es capaz el producto desarrollado. Comienza
 
 Además, este capítulo sirve como base para los siguientes, como son el de Diseño (\autoref{ch:diseno}) y el de Implementación (\autoref{ch:implementacion}), en los que basándose en los requisitos recogidos se empezara a dar forma al sistema.
 
-\section{Definición del Sistema}
+\section{Definición del Sistema}\label{sec:definición-del-sistema}
 El propósito de este proyecto es desarrollar un dispositivo que nos proporcione videovigilancia y medidas de diferentes factores ambientales, para garantizar la seguridad de un CPD. Las diferentes medidas que se tomen se almacenaran para poder ser consultadas junto con la imagen de videovigilancia a través de una plataforma web.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -73,12 +73,12 @@ Como se puede ver en la \autoref{fig:diagrama_sistema} el sistema consistirá en
 	\item \textbf{Base de Datos:} Almacén de la información de los usuarios, la de los dispositivos y las mediciones que recogen.
 	\item \textbf{Servidor:} Lugar accesible para el usuario donde se alojan la web y la base de datos.
 	\item \textbf{Placa:} Dispositivo donde se implantan los distintos sensores y la cámara.
-	\item \textbf{Sensores:} Dispositivos sensibles a los diferentes factores ambientales que se medirán en el CPD.
+	\item \textbf{Sensores:} Dispositivos sensibles a los diferentes factores ambientales que se medirán en el CPD\@.
 	\item \textbf{Cámara:} Dispositivo que captura la imagen que se utilizara para la videovigilancia.
 	\item \textbf{Dispositivo:} Conjunto de la placa, los sensores y la cámara.
 \end{itemize}
 
-\section{Requisitos de usuario}
+\section{Requisitos de usuario}\label{sec:requisitos-de-usuario}
 En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto, en forma de requisitos de usuario, que serán mostrados según la \autoref{tab:plantilla_ru}.
 \begin{table}[H]
 	\centering
@@ -432,7 +432,7 @@ Los requisitos de usuario son los siguientes:
 \advance\ru by 1
 \pagebreak
 
-\section{Casos de uso}
+\section{Casos de uso}\label{sec:casos-de-uso}
 En la \autoref{fig:diagrama_casos_uso} que se muestra a continuación se resumen todos los casos de uso del sistema.
 
 \begin{figure}[H]
@@ -596,7 +596,7 @@ Ahora que entendemos el significado de cada una de las casillas se procede a det
 	\end{tabular}
 \end{table}
 
-\section{Requisitos de software}
+\section{Requisitos de software}\label{sec:requisitos-de-software}
 Los requisitos de software descritos en esta sección se basan en los requisitos de usuario proporcionados por el cliente y los casos de uso asociados al sistema. La plantilla que se sigue es la definida por la \autoref{tab:plantilla_rf_rn}.
 \begin{table}[H]
 	\caption{Plantilla de los Requisitos Funcionales y No funcionales}
@@ -623,7 +623,7 @@ Los requisitos de software descritos en esta sección se basan en los requisitos
 \end{itemize}
 
 Tras esta explicación de la plantilla en las siguientes subsecciones se presentan los requisitos funcionales y no funcionales.
-\subsection{Requisitos Funcionales}
+\subsection{Requisitos Funcionales}\label{subsec:requisitos-funcionales}
 \newcount\rf
 \rf=1
 \begin{table}[H]
@@ -808,7 +808,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 	\end{tabular}
 \end{table}
 
-\subsection{Requisitos No Funcionales}
+\subsection{Requisitos No Funcionales}\label{subsec:requisitos-no-funcionales}
 \newcount\rn
 \rn=1
 \begin{table}[H]
@@ -1134,7 +1134,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RN-\number\rn}}} \\ \hline
 		\textbf{Nombre}      & Responsive                                                                                                                                 \\ \hline
-		\textbf{Descripción} & La web debe estar adaptada para que se pueda acceder a ella desde ordenador, tablet y móvil según el WCAG \cite{initiative_wai_web_nodate} \\ \hline
+		\textbf{Descripción} & La web debe estar adaptada para que se pueda acceder a ella desde ordenador, tablet y móvil según el WCAG~\cite{initiative_wai_web_nodate} \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                                                                       \\ \hline
 		\textbf{Necesidad}   & Deseable                                                                                                                                   \\ \hline
 		\textbf{Fuente}      & Analista                                                                                                                                   \\ \hline

@@ -1,18 +1,18 @@
 \chapter{Introducción}
 \label{ch:introduccion}
-Desde hace décadas, sobre todo con el desarrollo del Big data, la cantidad de información que se mueve por internet y que deben controlar las empresas ha aumentado sobremanera, este crecimiento se estima en un 78 \% anual \cite{monleon-getino_impacto_2015}.
+Desde hace décadas, sobre todo con el desarrollo del Big data, la cantidad de información que se mueve por internet y que deben controlar las empresas ha aumentado sobremanera, este crecimiento se estima en un 78 \% anual~\cite{monleon-getino_impacto_2015}.
 
 Toda la distribución, almacenamiento y procesado de la información se ha ido descentralizando y ha dejado de realizarse las propias oficinas para hacerse en unas salas especializadas, llamadas \textit{Centros de Procesamiento de Datos} o \textit{CPD}. 
 \begin{figure}[H]
 	\ffigbox[\textwidth]
-	{\caption[Ejemplo de Centro de Procesado de Datos]{Ejemplo de Centro de Procesado de Datos \cite{noauthor_data_nodate}}}
-	{\includegraphics[width=\textwidth]{CPDintro.jpg}}
+	{\caption[Ejemplo de Centro de Procesado de Datos]{Ejemplo de Centro de Procesado de Datos~\cite{noauthor_data_nodate}}}
+	{\includegraphics[width=\textwidth]{CPDintro.jpg}}\label{fig:ejemploCPD}
 \end{figure}
 En estas salas se dispone del equipamiento informático necesario para realizar todas las tareas antes mencionadas y para garantizar unas condiciones óptimas de trabajo y facilitar el mantenimiento, además, disponen de diversos sistemas de control y seguridad que permita detectar cualquier tipo de incidente que pueda suponer la ralentización de los procesos o incluso la perdida de la información.
 
 El presente trabajo está dirigido al diseño e implementación de uno de esos sistemas de control y seguridad que poseen los CPD. En este primer capítulo se presentarán las motivaciones para su desarrollo y los objetivos de este TFG, así como la metodología de trabajo y la estructura el proyecto.
 
-\section{Motivación del trabajo}
+\section{Motivación del trabajo}\label{sec:motivación-del-trabajo}
 Contado todo lo anterior, podemos ver que estos centros son de vital importancia hoy en día, en el que toda nuestra vida está en la red, almacenada en un disco duro en alguna parte del mundo. Proteger estos lugares es fundamental para todas las partes implicadas, tanto para los usuarios de los datos como para la empresa que los almacena.
 
 Este proyecto surge a raíz de una propuesta lanzada por mi tutor de TFG, Javier Fernández Muñoz, en la que se propone el desarrollo de un sistema para controlar la temperatura de un CPD y tener una visión directa de su interior. 
@@ -23,12 +23,12 @@ Partiendo de esta premisa y dado mi interés por ampliar mis conocimientos sobre
 
 Además, no solamente cubrirá la idea que tuvimos inicialmente de controlar la temperatura y visión, sino que se desarrollará un sistema completo, dispositivo y aplicación web, para controlar diferentes variables de un CPD, así como para tener visión en tiempo real de su situación. Esta nueva perspectiva, más completa, nos acerca algo más a un sistema que pudiéramos ver en un lugar tan clave como lo son estos.
 
-\section{Objetivos}
+\section{Objetivos}\label{sec:objetivos}
 El objetivo de este proyecto es desarrollar un dispositivo capaz de monitorizar diversas variables ambientales del interior de un CPD, realizando numerosas mediciones de estas, almacenar los datos recogidos y confeccionar los gráficos oportunos para su buen entendimiento, a la vez que transmitirá imágenes del interior, todo ello en tiempo real.
 
 El dispositivo pretende ser de bajo presupuesto, pero que sea perfectamente capaz de detectar los posibles riesgos y proporcionar una visión general y suficiente del ambiente interior de la sala. Por este motivo no podrá contar con la precisión de equipos de altas capacidades. Su bajo coste posibilitará que pueda ser usado en centros de menor escala o con presupuestos más ajustados.
 
-Como se ha dicho anteriormente los datos recogidos se almacenarán en una base de datos al efecto, que también será creada y gestionada correspondientemente para que pueda ser consultada  en cualquier momento y analizarse en busca de posibles problemas o para mejorar el sistema Paralelamente se desarrollará una página web para permitir el acceso a la información anterior desde cualquier dispositivo con acceso a internet.
+Como se ha dicho anteriormente los datos recogidos se almacenarán en una base de datos al efecto, que también será creada y gestionada correspondientemente para que pueda ser consultada en cualquier momento y analizarse en busca de posibles problemas o para mejorar el sistema Paralelamente se desarrollará una página web para permitir el acceso a la información anterior desde cualquier dispositivo con acceso a internet.
 
 Otros objetivos relacionados son:
 \begin{itemize}
@@ -41,21 +41,21 @@ Otros objetivos relacionados son:
 	\item Página web \textit{responsive}, para móvil, tablet y ordenador.
 \end{itemize}
 
-\section{Metodología}
-La metodología que se va a emplear en este proyecto es la conocida Métrica V3 \cite{portal_administracion_electronica_metrica_nodate}, con algunas pequeñas modificaciones para una mejor adaptación al trabajo que vamos a desarrollar.
+\section{Metodología}\label{sec:metodologia}
+La metodología que se va a emplear en este proyecto es la conocida Métrica V3~\cite{portal_administracion_electronica_metrica_nodate}, con algunas pequeñas modificaciones para una mejor adaptación al trabajo que vamos a desarrollar.
 
-Emplear una metodología nos permite seguir el ciclo de vida del proyecto en un orden adecuado. Uno de los aspectos más importantes de Métrica V3 es su capacidad para adaptarse a este tipo de proyectos, así como es capaz de tener presente  las necesidades del cliente durante todo el proceso.
+Emplear una metodología nos permite seguir el ciclo de vida del proyecto en un orden adecuado. Uno de los aspectos más importantes de Métrica V3 es su capacidad para adaptarse a este tipo de proyectos, así como es capaz de tener presente las necesidades del cliente durante todo el proceso.
 
 Se muestra a continuación en la \autoref{fig:metrica_v3} un diagrama de Métrica V3 elaborado por el Ministerio de Administraciones Públicas para que se pueda entender como es este ciclo:
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption[Diagrama Métrica V3]{Diagrama Métrica V3 \cite{portal_administracion_electronica_metrica_nodate}}
+	{\caption[Diagrama Métrica V3]{Diagrama Métrica V3~\cite{portal_administracion_electronica_metrica_nodate}}
 		\label{fig:metrica_v3}}
 	{\includegraphics[scale=0.65]{Metrica3.png}}
 \end{figure}
 
-\section{Estructura del documento}
+\section{Estructura del documento}\label{sec:estructura-del-documento}
 En esta sección se presentan los diferentes capítulos que conforman este documento, para que se puedan entender mejor las diferentes fases de Métrica V3 que completan el ciclo de desarrollo del proyecto. 
 
 Capítulos en los que se divide el documento:

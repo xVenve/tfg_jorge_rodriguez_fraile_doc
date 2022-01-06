@@ -1,6 +1,6 @@
 \chapter{Pruebas}
 \label{ch:pruebas}
-En este capítulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, además de verificar que se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han efectuado durante la implementación, otras, sin embargo, se han realizado una vez completada para verificar que en conjunto todo está conectado correctamente. 
+En este capítulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, además de verificar que se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han efectuado durante la implementación, otras, sin embargo, se han realizado una vez completada para verificar que en conjunto todo está conectado correctamente.
 
 Las pruebas se abordan desde dos perspectivas: pruebas de caja blanca y pruebas de caja negra. Esto permite que sean más exhaustivas y completas, dado que se trata de un sistema cuyo buen funcionamiento es crítico. 
 
@@ -32,7 +32,7 @@ Cada prueba se recoge de manera tabular siguiendo la plantilla de la \autoref{ta
 	\item \textbf{Resultado:} Superada, si se da la condición de validación, o Fallida, si no se da.
 \end{itemize}
 
-\section{Pruebas de caja blanca}
+\section{Pruebas de caja blanca}\label{sec:pruebas-de-caja-blanca}
 En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vista del código fuente desarrollado, de manera que se revise el correcto flujo del programa. Reciben este nombre, puesto que se conoce como se ejecuta el proceso interno. Se presentan a continuación estas pruebas utilizando la plantilla de la \autoref{tab:plantilla_p}. 
 
 \newcount\pcb
@@ -302,7 +302,7 @@ En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vi
 \end{table}
 \pagebreak
 
-\section{Pruebas de caja negra}
+\section{Pruebas de caja negra}\label{sec:pruebas-de-caja-negra}
 En esta sección se efectúan las pruebas relativas al correcto funcionamiento del sistema en general, sin entrar en cómo funciona internamente, es por esto por lo que se llaman pruebas de caja negra. Las pruebas hechas se muestran en las siguientes tablas que siguen la plantilla de la \autoref{tab:plantilla_p}.
 
 \newcount\pcn
@@ -527,7 +527,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 \end{table}
 \pagebreak
 
-\section{Matriz de trazabilidad}
+\section{Matriz de trazabilidad}\label{sec:matriz-de-trazabilidad}
 La intención de esta sección es poder verificar que todos los requisitos que nos ha exigido el cliente quedan cubiertos por las pruebas. 
 
 Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se encuentra dividida en la \autoref{tab:trazabilidadPI}, \autoref{tab:trazabilidadPII} y \autoref{tab:trazabilidadPIII}.

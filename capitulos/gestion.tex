@@ -1,6 +1,6 @@
 \chapter{Gestión del proyecto}
 \label{ch:gestion}
-\section{Planificación}
+\section{Planificación}\label{sec:planificacion}
 Esta sección tiene el propósito de mostrar cómo se ha distribuido la carga de trabajo a largo del tiempo, divida en las actividades y tareas que la componen.
 
 En las siguientes subsecciones se podrá apreciar cuanto tiempo se ha asignado a cada una de ellas, primero mediante una representación tabular y después con un diagrama de Gantt de manera más visual.
@@ -85,7 +85,7 @@ La \autoref{tab:desglose_dias_fases} representa la fecha de inicio y fin de cada
 \end{longtable}
 \pagebreak
 \begin{landscape}
-	\subsection{Diagrama de Gantt}
+	\subsection{Diagrama de Gantt}\label{subsec:diagrama-de-gantt}
 	Las actividades y tareas de la \autoref{subsec:desglose_fases} se han representado mediante un diagrama de Gantt (\autoref{fig:diagrama_ganttI}, \autoref{fig:diagrama_ganttII}, \autoref{fig:diagrama_ganttIII} y \autoref{fig:diagrama_ganttIV}) para facilitar el entendimiento de la duración de los plazos de trabajo.
 	
 	\ganttset{calendar week text= \small {\startday/\startmonth}}
@@ -247,12 +247,12 @@ La \autoref{tab:desglose_dias_fases} representa la fecha de inicio y fin de cada
 \end{landscape}
 \pagebreak
 
-\section{Presupuesto}
+\section{Presupuesto}\label{sec:presupuesto}
 En esta sección se recopilarán y explicarán todos los gastos que se han generado para el desarrollo de este proyecto.
 
 Cada una de las siguientes subsecciones tratará sobre una de las fuentes de costes y la última será un resumen de estos, donde se expondrá el presupuesto total de la realización del trabajo.
 
-\subsection{Personal}
+\subsection{Personal}\label{subsec:personal}
 El coste asociado al sueldo que se abonará al personal encargado en este proyecto se refleja en la \autoref{tab:coste_personal}.
 
 Aunque este trabajo ha sido realizado por una única persona, en un equipo real estaría compuesto por diferentes profesionales con diferentes especialidades, de esta manera se ha distribuido las distintas tareas en los siguientes cargos:
@@ -264,8 +264,8 @@ Aunque este trabajo ha sido realizado por una única persona, en un equipo real 
 	\item \textbf{Responsable de pruebas:} Su trabajo es configurar y realizar las pruebas necesarias para que todos los aspectos del sistema sean fiables.
 \end{itemize}
 
-Todos los salarios para cada uno de los cargos cumplen con lo establecido para Ingenieros y Licenciados por el Ministerio de Inclusión, Seguridad Social y Migraciones \cite{noauthor_seguridad_nodate}, entre 1.466 y 4.070,10 euros/mes.
-
+Todos los salarios para cada uno de los cargos cumplen con lo establecido para Ingenieros y Licenciados por el Ministerio de Inclusión, Seguridad Social y Migraciones~\cite{noauthor_seguridad_nodate}, entre 1.466 y 4.070,10 euros/mes.
+\vspace{-.15cm}
 \begin{table}[H]
 	\centering
 	\caption{Coste del personal desglosado por cargo}
@@ -285,12 +285,12 @@ Todos los salarios para cada uno de los cargos cumplen con lo establecido para I
 	}
 \end{table}
 
-*Seguridad social 23,60 \% \cite{noauthor_seguridad_nodate} e IRPF 30 \% \cite{trecet_irpf_nodate}
+*Seguridad social 23,60 \%~\cite{noauthor_seguridad_nodate} e IRPF 30 \%~\cite{trecet_irpf_nodate}
 
-\subsection{Equipos y Componentes}
+\subsection{Equipos y Componentes}\label{subsec:equipos-y-componentes}
 En esta subsección se han tenido en cuenta todos los equipos utilizados y el material que se ha empleado durante el proyecto, tanto el que formará parte del propio producto desarrollado como el necesario para analizarlo, diseñarlo, programarlo y probarlo.
 
-No se aplica amortización a los componentes que forman parte del producto desarrollado y sí a los equipos propios del desarrollador, según los periodos de depreciación de cada uno de ellos \cite{thiebaud_-muller_service_2018}.
+No se aplica amortización a los componentes que forman parte del producto desarrollado y sí a los equipos propios del desarrollador, según los periodos de depreciación de cada uno de ellos~\cite{thiebaud_-muller_service_2018}.
 
 En los precios utilizados no se ha incluido el IVA correspondiente.
 
@@ -335,8 +335,8 @@ En los precios utilizados no se ha incluido el IVA correspondiente.
 	\end{tabular}
 \end{table}
 
-\subsection{Software}
-Se ha tratado de utilizar en su mayoría software libre, tales como Visual Studio Code, Zotero y Raspbian, pero gracias a las licencias de estudiante que brinda la UC3M se ha podido utilizar de manera gratuita Microsoft Excel \cite{microsoft_microsoft_nodate}, Lucidchart \cite{noauthor_usecase_nodate} y PyCharm \cite{noauthor_free_nodate}. En cuanto a Fritzing \cite{noauthor_fritzing_nodate}, que se ha empleado para los esquemas del circuito, se ha adquirido una licencia en forma de donación al proyecto.
+\subsection{Software}\label{subsec:software}
+Se ha tratado de utilizar en su mayoría software libre, tales como Visual Studio Code, Zotero y Raspbian, pero gracias a las licencias de estudiante que brinda la UC3M se ha podido utilizar de manera gratuita Microsoft Excel~\cite{microsoft_microsoft_nodate}, Lucidchart~\cite{noauthor_usecase_nodate} y PyCharm~\cite{noauthor_free_nodate}. En cuanto a Fritzing~\cite{noauthor_fritzing_nodate}, que se ha empleado para los esquemas del circuito, se ha adquirido una licencia en forma de donación al proyecto.
 
 \begin{table}[H]
 	\centering
@@ -357,7 +357,7 @@ Se ha tratado de utilizar en su mayoría software libre, tales como Visual Studi
 	\end{tabular}
 \end{table}
 
-\subsection{Material fungible}
+\subsection{Material fungible}\label{subsec:material-fungible}
 En esta subsección se recoge el coste de todo aquel material que se consume y no puede ser reutilizado.
 
 \begin{table}[H]
@@ -374,9 +374,10 @@ En esta subsección se recoge el coste de todo aquel material que se consume y n
 		                                                                   & \multicolumn{1}{r|}{\textbf{Total}} & 34.88 €                                                                              \\ \cline{3-3}
 	\end{tabular}
 \end{table}
+\pagebreak
 
-\subsection{Desplazamientos y Dietas}
-Se ha estimado que se adquiera el abono joven de Madrid \cite{madrid_consorcio_nodate} todos los meses durante la duración del proyecto, además de un añadido para otros posibles viajes que haya que costear. En cuanto a dietas se ha considerado una posible reunión por semana.
+\subsection{Desplazamientos y Dietas}\label{subsec:desplazamientos-y-dietas}
+Se ha estimado que se adquiera el abono joven de Madrid~\cite{madrid_consorcio_nodate} todos los meses durante la duración del proyecto, además de un añadido para otros posibles viajes que haya que costear. En cuanto a dietas se ha considerado una posible reunión por semana.
 
 \begin{table}[H]
 	\centering
@@ -392,7 +393,7 @@ Se ha estimado que se adquiera el abono joven de Madrid \cite{madrid_consorcio_n
 	\end{tabular}
 \end{table}
 
-\subsection{Resumen del presupuesto}
+\subsection{Resumen del presupuesto}\label{subsec:resumen-del-presupuesto}
 En esta sección se recogen todos los costes explicados en las subsecciones anteriores y sobre estos se añadirá una serie de porcentajes:
 \begin{itemize}
 	\item \textbf{Gastos generales:} Todos los gastos no contemplados anteriormente se han estimado en un 15 \%, que recogen el alquiler, luz, línea telefónica, internet, limpieza, entre otros.
