@@ -20,6 +20,7 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \%~\cite{noauthor_recommended_nodate}.
 \end{itemize}
 
+\iffalse
 \section{Soluciones actuales}\label{sec:soluciones-actuales}
 En esta sección se presentarán cuáles son las alternativas que existen actualmente y que tienen el mismo propósito que el sistema que se va a desarrollar en este proyecto.
 
@@ -29,6 +30,7 @@ INCOMPLETO, FALTA ENCONTRARLAS
 
 \section{Critica al Estado del arte}\label{sec:critica-al-estado-del-arte}
 PUNTOS FUERTES DE CADA UNA
+\fi
 
 \section{Propuesta}\label{sec:propuesta}
 El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones que dispondrá de una placa y una serie de sensores, que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
@@ -121,14 +123,14 @@ Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos ap
 \end{table}
 
 Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7, cuyas especificaciones son las siguientes.
-
-\minipage{0.45\textwidth}
+\vspace{-2cm}
+\minipage{0.4\textwidth}
 \begin{figure}[H]
 	\caption{Sensor MQ-7}
 	\includegraphics[width=\linewidth]{mq7.jpg}\label{fig:sensorMQ-7}
 \end{figure}
 \endminipage\hfill
-\minipage{0.45\textwidth}
+\minipage{0.5\textwidth}
 \begin{table}[H]
 	\centering
 	\caption{Especificaciones módulo MQ-7}
@@ -148,7 +150,6 @@ Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidad
 \end{table}
 \endminipage
 
-\pagebreak
 A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se han considerado para este proyecto.
 
 \begin{table}[H]
@@ -165,8 +166,10 @@ A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se 
 		\end{tabular}%
 	}
 \end{table}
+\vspace{-.7cm}
 
 Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad de aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes~\cite{noauthor_nova_nodate}:
+\vspace{-1cm}
 
 \minipage{0.45\textwidth}
 \begin{figure}[H]
@@ -196,7 +199,6 @@ Por último, antes de pasar a la parte de videovigilancia, se muestran las espec
 \end{table}
 \endminipage
 
-\pagebreak
 \paragraph{Cámaras}\mbox{} \\
 Las cámaras que se presentan a continuación han sido buscadas con la intención de que sean compatibles con la Raspberry Pi, por lo que su conexión debe ser mediante la CSI de la placa. Se han propuesto una serie de cámaras con diferentes categorías~\cite{cholewiak_raspberry_2017}, algunas cuentan con una mejor resolución, angular o ambos. Aun así las cuatro cámaras tienen los mismos modos de grabación: 1080p30, 720p60 y 640×480p60/90.
 
@@ -252,6 +254,7 @@ En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se
 
 \subsection{Lenguajes de programación}\label{subsec:lenguajes}
 En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo llevara a cabo, estos lenguajes son PHP para la web y Python para el dispositivo.
+\pagebreak
 
 \paragraph{PHP}\mbox{} \\
 \begin{figure}[H]

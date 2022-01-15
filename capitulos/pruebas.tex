@@ -1,6 +1,6 @@
 \chapter{Pruebas}
 \label{ch:pruebas}
-En este capítulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, además de verificar que se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han efectuado durante la implementación, otras, sin embargo, se han realizado una vez completada para verificar que en conjunto todo está conectado correctamente.
+En este capítulo se describen las pruebas que se han realizado en el sistema para comprobar que funciona tal y como se espera, además de verificar que se cumplen satisfactoriamente todas las exigencias del cliente. Muchas de estas pruebas se han efectuado durante la implementación, otras, sin embargo, se han realizado una vez completada, para verificar que en conjunto todo está conectado correctamente.
 
 Las pruebas se abordan desde dos perspectivas: pruebas de caja blanca y pruebas de caja negra. Esto permite que sean más exhaustivas y completas, dado que se trata de un sistema cuyo buen funcionamiento es crítico. 
 
@@ -33,7 +33,7 @@ Cada prueba se recoge de manera tabular siguiendo la plantilla de la \autoref{ta
 \end{itemize}
 
 \section{Pruebas de caja blanca}\label{sec:pruebas-de-caja-blanca}
-En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vista del código fuente desarrollado, de manera que se revise el correcto flujo del programa. Reciben este nombre, puesto que se conoce como se ejecuta el proceso interno. Se presentan a continuación estas pruebas utilizando la plantilla de la \autoref{tab:plantilla_p}. 
+En estas pruebas se verifica el funcionamiento del sistema desde el punto de vista del código fuente desarrollado, de manera que se revise el correcto flujo del programa. Reciben este nombre porque se conoce como se ejecuta el proceso interno. Se presentan a continuación estas pruebas, utilizando la plantilla de la \autoref{tab:plantilla_p}.
 
 \newcount\pcb
 \pcb=1
@@ -150,7 +150,7 @@ En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vi
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
 		\textbf{Nombre}                  & Actualizar dispositivo existente                                                                                                                                              \\ \hline
-		\textbf{Descripción}             & Se comprueba que una vez tenemos un dispositivo registrado y se hace llamada al método \textit{insert\_update\_device\_DB()} para el mismo dispositivo su estado se actualiza \\ \hline
+		\textbf{Descripción}             & Se comprueba que una vez tenemos un dispositivo registrado y se hace una llamada al método \textit{insert\_update\_device\_DB()} para el mismo dispositivo, su estado se actualiza \\ \hline
 		\textbf{Versión}                 & 1.0                                                                                                                                                                           \\ \hline
 		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                        \\ \hline
 		\textbf{Proceso}                 & \begin{enumerate}
@@ -180,7 +180,7 @@ En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vi
 			\item Acceder a la página de \textit{phpMyAdmin}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
 		\end{enumerate}                                  \\ \hline
-		\textbf{Condición de validación} & La medida pasada como parámetro debe estar registrada       \\ \hline
+		\textbf{Condición de validación} & Las medidas pasadas como parámetro debe estar registrada       \\ \hline
 		\textbf{Resultado}               & Superada                                                    \\ \hline
 	\end{tabular}
 \end{table}
@@ -285,26 +285,25 @@ En estas pruebas se comprueba el funcionamiento del sistema desde el punto de vi
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
 		\textbf{Nombre}                  & Funcionamiento general                                                                                                                                                            \\ \hline
-		\textbf{Descripción}             & Se comprueba que el programa principal ejecuta correctamente                                                                                                                      \\ \hline
+		\textbf{Descripción}             & Se comprueba que el programa principal se ejecuta correctamente                                                                                                                      \\ \hline
 		\textbf{Versión}                 & 1.0                                                                                                                                                                               \\ \hline
 		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                            \\ \hline
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Llamar al método \textit{cpdDevice()} del programa principal
 			\item Esperar 20 segundos a que se calienten los sensores
-			\item Observar el terminal 1 minuto
+			\item Observar el terminal durante 1 minuto
 			\item Acceder a la página de \textit{phpMyAdmin}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
 		\end{enumerate}                                                                                                                                                        \\ \hline
-		\textbf{Condición de validación} & En el terminal se muestra cada 5 segundos las medidas tomadas, que coinciden con las de la tabla \textit{sensor\_data}. Además, el dispositivo debe mostrarse en \textit{devices} \\ \hline
+		\textbf{Condición de validación} & En el terminal se muestran cada 5 segundos las medidas tomadas, que coinciden con las de la tabla \textit{sensor\_data}. Además, el dispositivo debe mostrarse en \textit{devices} \\ \hline
 		\textbf{Resultado}               & Superada                                                                                                                                                                          \\ \hline
 	\end{tabular}
 \end{table}
-\pagebreak
+\vspace{-1cm}
 
 \section{Pruebas de caja negra}\label{sec:pruebas-de-caja-negra}
-En esta sección se efectúan las pruebas relativas al correcto funcionamiento del sistema en general, sin entrar en cómo funciona internamente, es por esto por lo que se llaman pruebas de caja negra. Las pruebas hechas se muestran en las siguientes tablas que siguen la plantilla de la \autoref{tab:plantilla_p}.
-
+En esta sección se efectúan las pruebas relativas al correcto funcionamiento del sistema en general, sin entrar en cómo funciona internamente, es por esto por lo que se llaman pruebas de caja negra. Las pruebas hechas se muestran en las siguientes tablas, que siguen la plantilla de la \autoref{tab:plantilla_p}.
 \newcount\pcn
 \pcn=1
 \begin{table}[H]
@@ -422,7 +421,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
-			\item Hacer clic en Acceder en la lista de dispositivos
+			\item Hacer clic en ''Acceder'' en la lista de dispositivos
 		\end{enumerate}                                                   \\ \hline		
 		\textbf{Condición de validación} & Deben aparecer las medidas e imagen                                          \\ \hline
 		\textbf{Resultado}               & Superada                                                                     \\ \hline
@@ -441,7 +440,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
-			\item Hacer clic en Acceder en la lista de dispositivos
+			\item Hacer clic en ''Acceder'' en la lista de dispositivos
 		\end{enumerate}                          \\ \hline		
 		\textbf{Condición de validación} & Deben aparecer las medidas tomadas en tabla y lista \\ \hline
 		\textbf{Resultado}               & Superada                                            \\ \hline
@@ -460,7 +459,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
-			\item Hacer clic en Acceder en la lista de dispositivos
+			\item Hacer clic en ''Acceder'' en la lista de dispositivos
 		\end{enumerate}                      \\ \hline
 		\textbf{Condición de validación} & Debe aparecer la imagen en tiempo real          \\ \hline
 		\textbf{Resultado}               & Superada                                        \\ \hline
@@ -479,7 +478,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
-			\item Hacer clic en Acceder en la lista de dispositivos
+			\item Hacer clic en ''Acceder'' en la lista de dispositivos
 			\item Hacer clic en ''Volver''
 		\end{enumerate}                                                                     \\ \hline
 		\textbf{Condición de validación} & Se vuelve a la lista de dispositivos                                                           \\ \hline
@@ -530,7 +529,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 \section{Matriz de trazabilidad}\label{sec:matriz-de-trazabilidad}
 La intención de esta sección es poder verificar que todos los requisitos que nos ha exigido el cliente quedan cubiertos por las pruebas. 
 
-Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se encuentra dividida en la \autoref{tab:trazabilidadPI}, \autoref{tab:trazabilidadPII} y \autoref{tab:trazabilidadPIII}.
+Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, pero en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se encuentra dividida en la \autoref{tab:trazabilidadPI}, \autoref{tab:trazabilidadPII} y \autoref{tab:trazabilidadPIII}.
 
 \begin{table}[H]
 	\centering

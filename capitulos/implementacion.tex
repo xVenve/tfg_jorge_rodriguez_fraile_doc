@@ -279,7 +279,7 @@ Para obtener las partículas por millón de dióxido de carbono del ambiente se 
 En primer lugar, hay que identificar en que puerto serial se encuentra el sensor, en este caso es el \textit{ttyS0} que corresponde al puerto UART. Tras esto, simplemente se realiza una \textit{request} de lectura que se indica en la \autoref{fig:co2PPMcalc} y de la que se obtiene como respuesta el valor de la concentración de CO$_2$ junto con un \textit{checksum} para verificar que la lectura es correcta.
 
 La función principal de esta clase es el método \textit{get()} que nos devuelve el número de partículas por millón, este valor se calcula con el \autoref{lst:co2PPMcalc}, que es una simplificación de esta clase.
-\begin{lstlisting}[language=Python, label=lst:co2PPMcalc, caption=Calculo de la concentración de CO$_2$]
+\begin{lstlisting}[language=Python, label=lst:co2PPMcalc, caption=Cálculo de la concentración de CO$_2$]
 serial = serial.Serial(port='/dev/ttyS0', timeout=1)
 request = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]
 serial.write(bytearray(request))
