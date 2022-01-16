@@ -16,7 +16,7 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 	\item \textbf{Medidas contra problemas de suministro eléctrico:} Es otro de los sistemas fundamentales en los CPD, que permite mantener el suministro eléctrico necesario para garantizar la disponibilidad del servicio y evitar la pérdida o dañado de los datos y de los propios equipos. Las medidas que se toman a este respecto son la implantación de mecanismos de redundancia eléctrica para que los servidores no pierdan la alimentación eléctrica en caso de un corte de la empresa suministradora, como son los Sistemas de Alimentación Ininterrumpida (SAI) o grupos electrógenos.
 	\item \textbf{Suelo y techo técnico:} Este tipo de suelos nos permiten, a la vez que elevar los equipos respecto al nivel original de la sala, distribuir todo el cableado necesario por debajo de él, siendo más fácil el mantenimiento, quedando la sala más limpia y despejada y garantizando una ventilación que evite sobrecalentamientos. El techo técnico permite lo mismo que el suelo, pero con las instalaciones por encima de un falso techo registrable permitiendo a la vez instalar el propio sistema de climatización de la sala. Ambos sistemas son muy importantes para el reducir el consumo de energía empleado para climatizar, hasta en un 45 \%~\cite{noauthor_suelo_2020}, además de permitir un constante movimiento del flujo de aire por la sala. Otra función que ofrecen es evitar los daños por inundación.
 	\item \textbf{Sistema de climatización:} Se encarga de controlar la temperatura y humedad de la sala regulando el enfriamiento, ventilación, humidificación y flujo de aire. También existen sistemas que mantienen la temperatura idónea de los equipos mediante refrigeración líquida e incluso inmersos en fluidos dieléctricos.
-	
+
 	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \%~\cite{noauthor_recommended_nodate}.
 \end{itemize}
 
@@ -47,7 +47,7 @@ Este dispositivo constará de las siguientes funcionalidades:
 En esta sección se presentarán las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la \autoref{sec:propuesta}.
 
 \subsection{Alternativas: Placa}\label{subsec:altPlacas}
-Para comenzar debemos analizar cuáles son las posibles placas sobre las que podemos desarrollar nuestro dispositivo. Las placas que se buscan deben ser programables y permitirnos instalar una serie de sensores que podamos monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation. 
+Para comenzar debemos analizar cuáles son las posibles placas sobre las que podemos desarrollar nuestro dispositivo. Las placas que se buscan deben ser programables y permitirnos instalar una serie de sensores que podamos monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation.
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
@@ -112,10 +112,10 @@ Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos ap
 			\cellcolor[HTML]{BFBFBF}Temperatura                & Si                                                     & Si                                     & Si                                    & Si                                                              & Si                                                             & Si                                                             \\ \hline
 			\cellcolor[HTML]{BFBFBF}Humedad                    & Si                                                     & Si                                     & No                                    & No                                                              & Si                                                             & No                                                             \\ \hline
 			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Protocolo de\\ comunicación\end{tabular} & 1 cable                                                & 1 cable                                & Analógico                             & 1 cable                                                         & I2C                                                            & I2C                                                            \\ \hline
-			\cellcolor[HTML]{BFBFBF}Voltaje                    & 3 -- 5.5 V                                              & 3 -- 6 V                                & 4 -- 30 V                              & 3 -- 5.5 V                                                       & \begin{tabular}[c]{@{}c@{}}1.7 -- 3.6 V chip\\ 3.3 -- 5 V placa\end{tabular}                                     & \begin{tabular}[c]{@{}c@{}}1.8 -- 3.6 V chip\\ 3.3 -- 5 V placa\end{tabular}                                     \\ \hline
-			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Rango de\\ temperatura\end{tabular} & 0 -- 50ºC                                               & -40 -- 80ºC                             & -55 -- 150ºC                           & -55 -- 125ºC                                                     & -40 -- 85ºC                                                     & 0 -- 65ºC                                                       \\ \hline
+			\cellcolor[HTML]{BFBFBF}Voltaje                    & 3 -- 5.5 V                                             & 3 -- 6 V                               & 4 -- 30 V                             & 3 -- 5.5 V                                                      & \begin{tabular}[c]{@{}c@{}}1.7 -- 3.6 V chip\\ 3.3 -- 5 V placa\end{tabular}                                     & \begin{tabular}[c]{@{}c@{}}1.8 -- 3.6 V chip\\ 3.3 -- 5 V placa\end{tabular}                                     \\ \hline
+			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Rango de\\ temperatura\end{tabular} & 0 -- 50ºC                                              & -40 -- 80ºC                            & -55 -- 150ºC                          & -55 -- 125ºC                                                    & -40 -- 85ºC                                                    & 0 -- 65ºC                                                      \\ \hline
 			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Precisión de\\ temperatura\end{tabular} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{3A3A3A} +/- 2ºC} & +/- 0.5ºC                              & +/-0.5ºC                              & +/-0.5ºC                                                        & +/-0.5ºC                                                       & +/-0.5ºC                                                       \\ \hline
-			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Rango de\\ humedad\end{tabular} & 20 -- 80\%                                                & 0 -- 100\%                                & -                                     & --                                                               & 0 -- 100\%                                                        & -                                                              \\ \hline
+			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Rango de\\ humedad\end{tabular} & 20 -- 80\%                                             & 0 -- 100\%                             & -                                     & --                                                              & 0 -- 100\%                                                     & -                                                              \\ \hline
 			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Precisión de\\ humedad\end{tabular} & +/- 5\%                                                & +/- 2-5\%                              & -                                     & -                                                               & +/- 4\%                                                        & -                                                              \\ \hline
 			\cellcolor[HTML]{BFBFBF}Precio                     & 6,99 euros                                             & 10,99 euros                            & 6,07 euros                            & 0.82 euros                                                      & 7,23 euros                                                     & 2,02 euros                                                     \\ \hline
 		\end{tabular}%
@@ -144,7 +144,7 @@ Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidad
 		\textbf{Precalentamiento}           & 20 s                       \\ \hline
 		\textbf{\begin{tabular}[c]{@{}l@{}}Tiempo de\\ respuesta\end{tabular}} & 1 ms                       \\ \hline
 		\textbf{Pines}                      & \begin{tabular}[c]{@{}l@{}}GND\\ DOUT\\ AOUT\\ VCC\end{tabular} \\ \hline
-		\textbf{Rango}                      & 10 -- 10.000 ppm             \\ \hline
+		\textbf{Rango}                      & 10 -- 10.000 ppm           \\ \hline
 		\textbf{Tamaño}                     & 40x20 mm                   \\ \hline
 	\end{tabular}
 \end{table}
@@ -160,8 +160,8 @@ A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se 
 		\begin{tabular}{|l|c|c|c|c|}
 			\hline
 			                                                   & \cellcolor[HTML]{BFBFBF}\textbf{MH-Z14A} & \cellcolor[HTML]{BFBFBF}\textbf{CCS811} & \cellcolor[HTML]{BFBFBF}\textbf{S8 LP} & \cellcolor[HTML]{BFBFBF}\textbf{MG-811} \\ \hline
-			\cellcolor[HTML]{BFBFBF}Voltaje                    & 4.5 -- 5,5 V                              & 3,3 -- 5 V                               & 4.5 -- 5,25 V                           & 5 V                                     \\ \hline
-			\cellcolor[HTML]{BFBFBF}Rango                      & 0 -- 10.000 ppm                           & 400 -- 29.206 ppm                        & 400 -- 2.000 ppm                        & 0 -- 10.000 ppm                          \\ \hline
+			\cellcolor[HTML]{BFBFBF}Voltaje                    & 4.5 -- 5,5 V                             & 3,3 -- 5 V                              & 4.5 -- 5,25 V                          & 5 V                                     \\ \hline
+			\cellcolor[HTML]{BFBFBF}Rango                      & 0 -- 10.000 ppm                          & 400 -- 29.206 ppm                       & 400 -- 2.000 ppm                       & 0 -- 10.000 ppm                         \\ \hline
 			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Protocolo de\\ comunicación\end{tabular} & UART                                     & I2C                                     & UART                                   & Analógico                               \\ \hline
 		\end{tabular}%
 	}
@@ -186,14 +186,14 @@ Por último, antes de pasar a la parte de videovigilancia, se muestran las espec
 		\begin{tabular}{|
 			>{\columncolor[HTML]{BFBFBF}}l |l|}
 			\hline
-			\textbf{Voltaje}             & 5 V                                                        \\ \hline
-			\textbf{Corriente máxima}    & 100 mA                                                     \\ \hline
-			\textbf{Rango}               & 0 -- 999.9 ug/m3                                            \\ \hline
-			\textbf{Resolución}          & 0,3 ug/m3                                                  \\ \hline
-			\textbf{Error relativo}      & 10 \%                                                      \\ \hline
-			\textbf{Tiempo de respuesta} & 1 s                                                        \\ \hline
-			\textbf{Salida}              & UART (USB)                                                 \\ \hline
-			\textbf{Tamaño}              & 71x70x23 mm \\ \hline
+			\textbf{Voltaje}             & 5 V              \\ \hline
+			\textbf{Corriente máxima}    & 100 mA           \\ \hline
+			\textbf{Rango}               & 0 -- 999.9 ug/m3 \\ \hline
+			\textbf{Resolución}          & 0,3 ug/m3        \\ \hline
+			\textbf{Error relativo}      & 10 \%            \\ \hline
+			\textbf{Tiempo de respuesta} & 1 s              \\ \hline
+			\textbf{Salida}              & UART (USB)       \\ \hline
+			\textbf{Tamaño}              & 71x70x23 mm      \\ \hline
 		\end{tabular}%
 	}
 \end{table}

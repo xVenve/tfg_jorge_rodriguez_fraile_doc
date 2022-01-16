@@ -149,19 +149,19 @@ En estas pruebas se verifica el funcionamiento del sistema desde el punto de vis
 	\begin{tabular}{|l|p{.65\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-0\number\pcb}}} \\ \hline
-		\textbf{Nombre}                  & Actualizar dispositivo existente                                                                                                                                              \\ \hline
+		\textbf{Nombre}                  & Actualizar dispositivo existente                                                                                                                                                   \\ \hline
 		\textbf{Descripción}             & Se comprueba que una vez tenemos un dispositivo registrado y se hace una llamada al método \textit{insert\_update\_device\_DB()} para el mismo dispositivo, su estado se actualiza \\ \hline
-		\textbf{Versión}                 & 1.0                                                                                                                                                                           \\ \hline
-		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                        \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                                                                                                \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                             \\ \hline
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Crear un objeto de la clase \textit{DB}
 			\item Hacer una llamada al método \textit{insert\_update\_device\_DB()} del objeto, pasando como parámetros: fecha, dirección IP, estado ''Online'' e id del dispositivo
 			\item Llamar al método \textit{insert\_update\_device\_DB()} del objeto, pasando como parámetros: fecha, dirección IP, estado ''Offline'' y el mismo id del dispositivo
 			\item Acceder a la página de \textit{phpMyAdmin}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
-		\end{enumerate}                                                                                                                                                     \\ \hline
-		\textbf{Condición de validación} & El registro del dispositivo debe estar actualizado con los parámetros de la segunda llamada                                                                                   \\ \hline
-		\textbf{Resultado}               & Superada                                                                                                                                                                      \\ \hline
+		\end{enumerate}                                                                                                                                                          \\ \hline
+		\textbf{Condición de validación} & El registro del dispositivo debe estar actualizado con los parámetros de la segunda llamada                                                                                        \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                                                                                           \\ \hline
 	\end{tabular}
 \end{table}
 \advance\pcb by 1
@@ -180,7 +180,7 @@ En estas pruebas se verifica el funcionamiento del sistema desde el punto de vis
 			\item Acceder a la página de \textit{phpMyAdmin}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
 		\end{enumerate}                                  \\ \hline
-		\textbf{Condición de validación} & Las medidas pasadas como parámetro debe estar registrada       \\ \hline
+		\textbf{Condición de validación} & Las medidas pasadas como parámetro debe estar registrada    \\ \hline
 		\textbf{Resultado}               & Superada                                                    \\ \hline
 	\end{tabular}
 \end{table}
@@ -284,10 +284,10 @@ En estas pruebas se verifica el funcionamiento del sistema desde el punto de vis
 	\begin{tabular}{|l|p{.65\textwidth}|}
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{PCB-\number\pcb}}} \\ \hline
-		\textbf{Nombre}                  & Funcionamiento general                                                                                                                                                            \\ \hline
-		\textbf{Descripción}             & Se comprueba que el programa principal se ejecuta correctamente                                                                                                                      \\ \hline
-		\textbf{Versión}                 & 1.0                                                                                                                                                                               \\ \hline
-		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                            \\ \hline
+		\textbf{Nombre}                  & Funcionamiento general                                                                                                                                                             \\ \hline
+		\textbf{Descripción}             & Se comprueba que el programa principal se ejecuta correctamente                                                                                                                    \\ \hline
+		\textbf{Versión}                 & 1.0                                                                                                                                                                                \\ \hline
+		\textbf{Fuente}                  & Responsable de pruebas                                                                                                                                                             \\ \hline
 		\textbf{Proceso}                 & \begin{enumerate}
 			\item Llamar al método \textit{cpdDevice()} del programa principal
 			\item Esperar 20 segundos a que se calienten los sensores
@@ -295,9 +295,9 @@ En estas pruebas se verifica el funcionamiento del sistema desde el punto de vis
 			\item Acceder a la página de \textit{phpMyAdmin}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{sensor\_data}
 			\item Entrar en la base de datos \textit{tfg\_db} y tabla \textit{devices}
-		\end{enumerate}                                                                                                                                                        \\ \hline
+		\end{enumerate}                                                                                                                                                         \\ \hline
 		\textbf{Condición de validación} & En el terminal se muestran cada 5 segundos las medidas tomadas, que coinciden con las de la tabla \textit{sensor\_data}. Además, el dispositivo debe mostrarse en \textit{devices} \\ \hline
-		\textbf{Resultado}               & Superada                                                                                                                                                                          \\ \hline
+		\textbf{Resultado}               & Superada                                                                                                                                                                           \\ \hline
 	\end{tabular}
 \end{table}
 \vspace{-1cm}
@@ -422,7 +422,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
 			\item Hacer clic en ''Acceder'' en la lista de dispositivos
-		\end{enumerate}                                                   \\ \hline		
+		\end{enumerate}                                                   \\ \hline
 		\textbf{Condición de validación} & Deben aparecer las medidas e imagen                                          \\ \hline
 		\textbf{Resultado}               & Superada                                                                     \\ \hline
 	\end{tabular}
@@ -441,7 +441,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 			\item Acceder a la aplicación web
 			\item Iniciar sesión
 			\item Hacer clic en ''Acceder'' en la lista de dispositivos
-		\end{enumerate}                          \\ \hline		
+		\end{enumerate}                          \\ \hline
 		\textbf{Condición de validación} & Deben aparecer las medidas tomadas en tabla y lista \\ \hline
 		\textbf{Resultado}               & Superada                                            \\ \hline
 	\end{tabular}
@@ -527,7 +527,7 @@ En esta sección se efectúan las pruebas relativas al correcto funcionamiento d
 \pagebreak
 
 \section{Matriz de trazabilidad}\label{sec:matriz-de-trazabilidad}
-La intención de esta sección es poder verificar que todos los requisitos que nos ha exigido el cliente quedan cubiertos por las pruebas. 
+La intención de esta sección es poder verificar que todos los requisitos que nos ha exigido el cliente quedan cubiertos por las pruebas.
 
 Se emplea la misma representación que se explica en la \autoref{sec:matrizAnalisis}, una matriz de trazabilidad, pero en este caso se relacionan los requisitos de usuario (filas) con las pruebas (columnas). Esta matriz se encuentra dividida en la \autoref{tab:trazabilidadPI}, \autoref{tab:trazabilidadPII} y \autoref{tab:trazabilidadPIII}.
 
