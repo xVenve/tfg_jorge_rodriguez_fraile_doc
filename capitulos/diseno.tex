@@ -1,6 +1,6 @@
 \chapter{Diseño del sistema}
 \label{ch:diseno}
-Tras haber realizado el análisis del sistema previamente, en este capítulo se desarrollan más en detalle las parte internas del sistema, como son las relacionadas con la arquitectura del sistema (\autoref{sec:arquitectura}), donde se define la manera en la que se relacionan y comunican las distintas partes que componen el sistema. 
+Tras haber realizado el análisis del sistema previamente, en este capítulo se desarrollan más en detalle las parte internas del mismo, como son las relacionadas con la arquitectura del sistema (\autoref{sec:arquitectura}), donde se define la manera en la que se relacionan y comunican las distintas partes que lo componen.
 
 También se define la manera en la que se almacenan los datos (\autoref{sec:modelo}) y como son las interfaces que componen el sistema (\autoref{sec:interfaz}) con las que interactúa el usuario. 
 
@@ -76,7 +76,7 @@ En las siguientes secciones se define la parte de Modelo (\autoref{sec:modelo}),
 \section{Modelo de datos}\label{sec:modelo}
 En este proyecto la base de datos es uno de los elementos más importantes que componen el sistema, no solo para permitir el acceso del personal autorizado a la aplicación, sino porque almacenará el histórico de las medidas tomadas en la sala, lo que en un futuro permitirá analizar cuál ha sido el estado de esta.
 
-La base de datos estará alojada en el servidor, donde la aplicación podrá acceder a ella más fácilmente para su visualización y consulta, además, facilita que se puedan centralizar las medidas en un único lugar, para el caso en el que se tuvieran múltiples dispositivos en un edificio y se deseara consultarlos desde un mismo lugar.
+La base de datos estará alojada en el servidor, donde la aplicación podrá acceder a ella más fácilmente para su visualización y consulta. Además, facilita que se puedan centralizar las medidas en un único lugar, para el caso en el que se tuvieran múltiples dispositivos en un edificio y se deseara consultarlos desde un mismo punto.
 
 Como se comentó en la \autoref{subsec:servidorDB} se utiliza una base de datos MariaDB, que se administra mediante phpMyAdmin~\cite{noauthor_phpmyadmin_nodate}, que es un administrador de base de datos para realizar la mayoría de las tareas de una manera más sencilla y eficiente.
 
@@ -164,7 +164,7 @@ Además, existe una relación directa con la tabla devices en cuanto a que el ca
 \section{Interfaz de Usuario}\label{sec:interfaz}
 En esta sección se trata otro de los elementos clave del sistema, la interfaz de usuario. Esta hace posible el uso del sistema a personas no expertas, de manera que puedan manipularlo y hacer uso de este sin la necesidad de saber cómo se desarrolla un sistema de estas características.
 
-La parte del sistema a la que se ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y movernos por las pantallas se emplea PHP\@.
+La parte del sistema a la que se ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y movernos por las pantallas, se emplea PHP\@.
 
 La web, además, es \textit{responsive} por lo que es totalmente funcional tanto en dispositivos de altas resoluciones (televisiones, ordenadores de sobremesa, portátiles, etc.), como en dispositivos de bajas resoluciones (móviles, tablets, etc.).
 

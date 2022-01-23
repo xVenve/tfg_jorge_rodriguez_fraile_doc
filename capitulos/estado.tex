@@ -1,15 +1,16 @@
 \chapter{Estado del arte}
 \label{ch:estado}
-En este capítulo se presentan de una manera más detallada cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. Después se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
+En este capítulo se presentan, de una manera más detallada, cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. %Después, se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. Por último,
+A continuación, se expone la propuesta que se considera más adecuada para resolver las necesidades del proyecto. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
 
 \section{Seguridad física en los CPD}\label{sec:seguridad_fisica_CPD}
 Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE) para construir un CPD seguro es necesario tener en cuenta las siguientes áreas~\cite{noauthor_pon_2015}:
 \begin{itemize}
-	\item \textbf{Control de acceso:} Es uno de los aspectos de seguridad más importantes a tener en cuenta, porque nos permite evitar que personas ajenas puedan acceder a estos recintos y hagan un uso indebido de las instalaciones o provoque daños intencionadamente, del mismo modo, se tiene controlado al personal autorizado que pueda entrar en el recinto con intención de perjudicar a la empresa, manteniendo un registro de todos los accesos. Pueden instalarse sistema de acceso por huella digital, verificación de voz, lectores de tarjetas, etc.
+	\item \textbf{Control de acceso:} Es uno de los aspectos de seguridad más importantes a tener en cuenta, porque nos permite evitar que personas ajenas puedan acceder a estos recintos y hagan un uso indebido de las instalaciones o provoque daños intencionadamente. Del mismo modo, se tiene controlado al personal autorizado que pueda entrar en el recinto con intención de perjudicar a la empresa, manteniendo un registro de todos los accesos. Pueden instalarse sistema de acceso por huella digital, verificación de voz, lectores de tarjetas, etc.
 
 	También se debe asegurar que no se pueda acceder a la sala mediante el empleo de la fuerza, con la instalación de puertas blindadas o acorazadas, o sistemas que eviten que las puertas puedan quedar abiertas accidentalmente, mediante el uso de sistemas de alarma si esto ocurre.
 	\item \textbf{Seguimiento dentro de la sala:} Como complemento a lo anterior, es conveniente tener conocimiento de todo lo que haga el personal autorizado en el interior de estos recintos en cada momento. Esto se consigue con la instalación de equipos de videovigilancia o un circuito cerrado de televisión (CCTV).
-	\item \textbf{Dificultar la identificación del CPD:} Dentro de lo posible es conveniente que el menor número de personas posible tenga conocimiento de la ubicación exacta del CPD, para evitar cualquier manipulación.
+	\item \textbf{Dificultar la identificación del CPD:} Dentro de lo posible es conveniente que el menor número de personas tenga conocimiento de la ubicación exacta del CPD, para evitar cualquier manipulación.
 	\item \textbf{Medidas contra incendios:} Aparte de estar construidos con materiales resistentes a altas temperaturas o ignífugos, existirán sensores de humo y calor que permiten detectar si se está produciendo un incendio. En cuanto se detecte un incendio, se activará el sistema de extinción por gas, para evitar dañar los equipos. Estos sistemas pasarán revisiones periódicamente para su correcto funcionamiento.
 	      \pagebreak
 	\item \textbf{Seguridad del cableado:} Se emplea cableado apantallado para evitar acoplamientos o interferencias, además de estar claramente diferenciados según su función, como los de alimentación y de comunicaciones, para facilitar el mantenimiento del CPD\@.
@@ -33,7 +34,7 @@ PUNTOS FUERTES DE CADA UNA
 \fi
 
 \section{Propuesta}\label{sec:propuesta}
-El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones que dispondrá de una placa y una serie de sensores, que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
+El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones, que dispondrá de una placa y una serie de sensores que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
 
 Este dispositivo constará de las siguientes funcionalidades:
 \begin{itemize}
@@ -56,7 +57,7 @@ Para comenzar debemos analizar cuáles son las posibles placas sobre las que pod
 		\input{./imagenes/Raspberry_Pi_Logo.eps_tex}}\label{fig:logoRaspberry}
 \end{figure}
 
-Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste, que comenzaron a venderse en 2012 y son las ideales para proyectos de electrónica que requieran de una máquina potente de reducidas de dimensiones. Cuenta con su propio sistema operativo y es capaz de funcionar como un ordenador completo. Todas las versiones incluyen un procesador Broadcom, RAM, GPU, conexión de cámara y 40 pines GPIO (Entrada/Salida de Propósito General), pero no cuentan con memoria interna y debe ser añadida por MicroSD~\cite{noauthor_raspberry_2021}.
+Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste, que comenzaron a venderse en 2012 y son las ideales para proyectos de electrónica que requieran de una máquina potente de reducidas dimensiones. Cuenta con su propio sistema operativo y es capaz de funcionar como un ordenador completo. Todas las versiones incluyen un procesador Broadcom, RAM, GPU, conexión de cámara y 40 pines GPIO (Entrada/Salida de Propósito General), pero no cuentan con memoria interna y debe ser añadida por MicroSD~\cite{noauthor_raspberry_2021}.
 
 A continuación se presentan las valoradas para este proyecto, que son el modelo reducido para domótica y los dos modelos más recientes~\cite{noauthor_raspberry_nodate}:
 \begin{figure}[!htb]
@@ -122,7 +123,7 @@ Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos ap
 	}
 \end{table}
 
-Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7, cuyas especificaciones son las siguientes.
+Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7, cuyas especificaciones son las siguientes:
 \vspace{-2cm}
 \minipage{0.4\textwidth}
 \begin{figure}[H]
@@ -168,7 +169,7 @@ A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se 
 \end{table}
 \vspace{-.7cm}
 
-Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad de aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes~\cite{noauthor_nova_nodate}:
+Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad del aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes~\cite{noauthor_nova_nodate}:
 \vspace{-1cm}
 
 \minipage{0.45\textwidth}
@@ -231,21 +232,21 @@ Entre las tres placas que se han valorado, aunque la Zero está más pensada par
 En cuanto al sistema operativo que se emplea en esta placa, se ha decidido utilizar Raspbian que es una distribución de Linux basado en Debian que está altamente optimizada para estas placas, además por tratarse de un sistema operativo que es conocido por el programador que llevara a cabo el desarrollo.
 
 \subsection{Componentes}\label{subsec:componentes}
-El sensor de temperatura y humedad que se ha elegido como la mejor opción ha sido el DHT11. Por un precio reducido es capaz de medir tanto temperatura como humedad, ambas en el rango en el que se mueven las medidas en un CPD (18 °C -- 27 °C y  40 \% -- 60 \%) con una precisión aceptable. La decisión por el DHT11 y no el DHT22 ha sido que tiene un mayor coste y supera, con mucho, las temperaturas que se medirían, desaprovechando sus capacidades.
+El sensor de temperatura y humedad que se ha elegido como la mejor opción ha sido el DHT11. Por un precio reducido es capaz de medir tanto temperatura como humedad, ambas en el rango en el que se mueven las medidas en un CPD (18 °C -- 27 °C y  40 \% -- 60 \%) con una precisión aceptable. La decisión por el DHT11 y no el DHT22 ha sido que este último tiene un mayor coste y supera, con mucho, las temperaturas que se medirían, desaprovechando sus capacidades.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Sensor DHT11}}
 	{\includegraphics[scale=0.35]{dht11.jpg}}\label{fig:dht11}
 \end{figure}
-El sensor de CO$_2$ por el que nos hemos decantado ha sido el MH-Z14A, que ante unas capacidades similares al MG-811 se ha preferido el protocolo de comunicación UART. Por otro lado el CCS811 a pesar de tener muy buenas características su rango comienza demasiado arriba para captar la concentración atmosférica común, cosa que el MH-Z14A si capta y su cota más alta es suficiente para este proyecto.
+El sensor de CO$_2$ seleccionado ha sido el MH-Z14A, que ante unas capacidades similares al MG-811 se ha preferido por disponer de un protocolo de comunicación UART. Por otro lado, el CCS811 a pesar de tener muy buenas características, su rango comienza demasiado arriba para captar la concentración atmosférica común, cosa que el MH-Z14A si capta y su cota más alta es suficiente para este proyecto.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Sensor MH-Z14A}}
 	{\includegraphics[scale=0.4]{MH-Z14A.jpg}}\label{fig:mh-z14a}
 \end{figure}
-Con respecto al sensor de CO y al de calidad el aire, se ha escogido el MQ-7 y SDS011 por la falta de variedad y disponibilidad en esta clase de sensores, pero esto no ha hecho que se hayan escogido componentes de peor calidad o que no vayan a desempeñar su función adecuadamente.
+Con respecto al sensor de CO y al de calidad del aire, se ha escogido el MQ-7 y SDS011 por la falta de variedad y disponibilidad en esta clase de sensores, pero esto no ha hecho que se hayan escogido componentes de peor calidad o que no vayan a desempeñar su función adecuadamente.
 
-En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se ha decidido que la que mejor se adapta al proyecto es la Raspberry Pi Camera. Se ha seleccionado esta cámara dado que todas ellas graban con las mismas resoluciones y frecuencias de cuadros, y como se trata de un dispositivo orientado a videovigilancia no buscamos que la resolución de las fotos sea la mejor, sino que pueda proporcionar una buena imagen a tiempo real por un bajo coste. Además el angular de la Raspberry Pi Camera es suficiente para captar lo que se encuentra dentro de la sala.
+En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se ha decidido que la que mejor se adapta al proyecto es la Raspberry Pi Camera. Se ha seleccionado esta cámara dado que todas ellas graban con las mismas resoluciones y frecuencias de cuadros, y como se trata de un dispositivo orientado a videovigilancia no buscamos que la resolución de las fotos sea la mejor, sino que pueda proporcionar una buena imagen a tiempo real por un bajo coste. Además, el angular de la Raspberry Pi Camera es suficiente para captar lo que se encuentra dentro de la sala.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Modulo Raspberry Pi Camera}}
@@ -253,7 +254,7 @@ En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se
 \end{figure}
 
 \subsection{Lenguajes de programación}\label{subsec:lenguajes}
-En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo llevara a cabo, estos lenguajes son PHP para la web y Python para el dispositivo.
+En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo lleva a cabo. Estos lenguajes son PHP para la web y Python para el dispositivo.
 \pagebreak
 
 \paragraph{PHP}\mbox{} \\
@@ -262,11 +263,11 @@ En esta subsección se expondrán los lenguajes que se emplearán tanto para el 
 	{\caption{Logo PHP}}
 	{\includegraphics[scale=0.08]{phplogo.jpg}}\label{fig:phpLogo}
 \end{figure}
-PHP (Hypertext Preprocessor)~\cite{welling_php_2003} es un lenguaje de programación para desarrollo web de código abierto desde el lado del servidor, creado originalmente en 1994 por Rasmus Lerdorf, aunque hoy en día es producido por The PHP Group. Este lenguaje puede ser embebido en una página HTML para que se ejecute cada vez que sea visualizado, el código en este lenguaje es interpretado por el servidor para convertirlo en otro lenguaje de salida.
+PHP (Hypertext Preprocessor)~\cite{welling_php_2003} es un lenguaje de programación para el desarrollo web de código abierto desde el lado del servidor, creado originalmente en 1994 por Rasmus Lerdorf, aunque hoy en día es producido por The PHP Group. Este lenguaje puede ser embebido en una página HTML para que se ejecute cada vez que sea visualizado, el código en este lenguaje es interpretado por el servidor para convertirlo en otro lenguaje de salida.
 
-Es el más utilizado en toda la red en abril de 2021~\cite{noauthor_usage_nodate} con un 79 \% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor en 2021.
+Es el más utilizado en toda la red en abril de 2021~\cite{noauthor_usage_nodate}, con un 79 \% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor.
 
-Para desarrollar la web se utilizará el editor de código fuente Visual Studio Code, editor multiplataforma de código abierto creado por Microsoft en 2015~\cite{noauthor_visual_2021} que dispone de infinidad de extensiones para facilitar el desarrollo en cualquier lenguaje de programación.
+Para desarrollar la web se utilizará el editor de código fuente Visual Studio Code, editor multiplataforma de código abierto creado por Microsoft en 2015~\cite{noauthor_visual_2021}, que dispone de infinidad de extensiones para facilitar el desarrollo en cualquier lenguaje de programación.
 
 \paragraph{Python}\mbox{} \\
 \begin{figure}[H]
@@ -274,9 +275,9 @@ Para desarrollar la web se utilizará el editor de código fuente Visual Studio 
 	{\caption{Logo Python}}
 	{\includegraphics[scale=0.1]{Python-logo.jpg}}\label{fig:logoPython}
 \end{figure}
-Python es un lenguaje de programación de alto nivel interpretado desarrollado por la Python Software Foundation en 1991~\cite{montoro_python_2012}, cuya intención es facilitar la legibilidad del código haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década llegando a ser uno de los lenguajes de propósito general más extendidos, puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
+Python es un lenguaje de programación de alto nivel interpretado desarrollado por la Python Software Foundation en 1991~\cite{montoro_python_2012}, cuya intención es facilitar la legibilidad del código haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década, llegando a ser uno de los lenguajes de propósito general más extendidos, que puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
 
-Para programar todo el comportamiento del dispositivo se empleará este lenguaje por su sencillez y utilidad, el IDE que empleara el programador será PyCharm Professional edition creado por JetBrains en 2010~\cite{noauthor_pycharm_2021} al que se tiene acceso gracias a la licencia de estudiante, aunque también hay una edición gratuita llamada Community edition.
+Para programar todo el comportamiento del dispositivo se empleará este lenguaje por su sencillez y utilidad. El IDE que empleara el programador será PyCharm Professional edition creado por JetBrains en 2010~\cite{noauthor_pycharm_2021}, al que se tiene acceso gracias a la licencia de estudiante, aunque también hay una edición gratuita llamada Community edition.
 
 Se ha decidido el uso de este, en vez de emplear también Visual Studio Code, al estar orientado al desarrollo de programas en Python y por la posibilidad de conectarse vía SSH con la Raspberry Pi para sincronizar los programas y facilitar el proceso.
 
@@ -288,6 +289,6 @@ Se ha decidido el uso de este, en vez de emplear también Visual Studio Code, al
 \end{figure}
 El servidor que se va a emplear para este proyecto será Apache~\cite{noauthor_apache_nodate}, uno de los servidores de código abierto más utilizados que nos permite alojar y ser propietarios de nuestra propia web.
 
-En cuanto a la base de datos utilizaremos MariaDB~\cite{noauthor_mariadb_nodate} que es un software de código abierto derivado y compatible con MySQL, que actualmente es de Oracle y de pago, pero mantiene la esencia de este gestor de base de datos.
+En cuanto a la base de datos utilizaremos MariaDB~\cite{noauthor_mariadb_nodate}, que es un software de código abierto derivado y compatible con MySQL, que actualmente es de Oracle y de pago, pero mantiene la esencia de este gestor de base de datos.
 
-Todo esto se orquestará mediante XAMPP una herramienta de software libre multiplataforma~\cite{noauthor_xampp_nodate} que nos permite crear el servidor y base de datos alojada por nosotros mismos. Este software nos ofrece desde un mismo sitio lanzar nuestra base de datos MariaDB, el servidor web Apache y los intérpretes de PHP y Perl.
+Todo esto se orquestará mediante XAMPP, una herramienta de software libre multiplataforma~\cite{noauthor_xampp_nodate} que nos permite crear el servidor y base de datos alojada por nosotros mismos. Este software nos ofrece desde un mismo sitio lanzar nuestra base de datos MariaDB, el servidor web Apache y los intérpretes de PHP y Perl.
