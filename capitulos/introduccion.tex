@@ -5,7 +5,7 @@ Desde hace décadas, sobre todo con el desarrollo del Big data, la cantidad de i
 Toda la distribución, almacenamiento y procesado de la información se ha ido descentralizando y ha dejado de realizarse en las propias oficinas para hacerse en unas salas especializadas, llamadas \textit{Centros de Procesamiento de Datos} o \textit{CPD}.
 \begin{figure}[H]
 	\ffigbox[\textwidth]
-	{\caption[Ejemplo de Centro de Procesado de Datos]{Ejemplo de Centro de Procesado de Datos~\cite{noauthor_data_nodate}}}
+	{\caption[Ejemplo de Centro de Procesado de Datos]{Ejemplo de Centro de Procesado de Datos~\cite{genesal_energy_data_nodate}}}
 	{\includegraphics[width=\textwidth]{CPDintro.jpg}}\label{fig:ejemploCPD}
 \end{figure}
 En estas salas se dispone del equipamiento informático necesario para realizar todas las tareas antes mencionadas y para garantizar unas condiciones óptimas de trabajo y facilitar el mantenimiento. Además, disponen de diversos sistemas de control y seguridad que permiten detectar cualquier tipo de incidente que pueda suponer la ralentización de los procesos o, incluso, la perdida de la información.
@@ -42,7 +42,7 @@ Otros objetivos relacionados son:
 \end{itemize}
 
 \section{Metodología}\label{sec:metodologia}
-La metodología que se va a emplear en este proyecto es la conocida Métrica V3~\cite{portal_administracion_electronica_metrica_nodate}, con algunas pequeñas modificaciones para una mejor adaptación al trabajo que vamos a desarrollar.
+La metodología que se va a emplear en este proyecto es la conocida Métrica V3~\cite{secretaria_general_de_administracion_digital_metrica_nodate}, con algunas pequeñas modificaciones para una mejor adaptación al trabajo que vamos a desarrollar.
 
 Emplear una metodología nos permite seguir el ciclo de vida del proyecto en un orden adecuado. Uno de los aspectos más importantes de Métrica V3 es su capacidad para adaptarse a este tipo de proyectos, así como es capaz de tener presente las necesidades del cliente durante todo el proceso.
 
@@ -50,7 +50,7 @@ Se muestra a continuación, en la \autoref{fig:metrica_v3}, un diagrama de Métr
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption[Diagrama Métrica V3]{Diagrama Métrica V3~\cite{portal_administracion_electronica_metrica_nodate}}
+	{\caption[Diagrama Métrica V3]{Diagrama Métrica V3~\cite{secretaria_general_de_administracion_digital_metrica_nodate}}
 		\label{fig:metrica_v3}}
 	{\includegraphics[scale=0.65]{Metrica3.png}}
 \end{figure}
@@ -62,16 +62,14 @@ Capítulos en los que se divide el documento:
 
 \begin{itemize}
 	\item \textbf{Introducción (\autoref{ch:introduccion}):} Este capítulo tiene como propósito presentar al lector el tema que se tratará antes de profundizar en él. También se presentan las motivaciones que se han tenido en cuenta para la elección de este tema y los objetivos de este TFG. Por último, se explica la estructura y metodología que sigue el contenido.
-	\item \textbf{Estado del arte (\autoref{ch:estado}):} Consiste en un análisis de la situación actual del producto que se planea desarrollar. %, buscando soluciones existentes al problema que se intenta solucionar o que sean similares. Después de conocer esas soluciones se buscan los puntos fuertes para intentar mejorarlos y los débiles para solucionarlos, para sacar el mejor producto posible al mercado.
-	Tras completar esto se hace una propuesta de valor del sistema que se va a desarrollar y que trata los distintos aspectos de dicha situación. Después, se pasa a investigar las diferentes alternativas de hardware que se pueden emplear y su selección para el proyecto.
+	\item \textbf{Estado del arte (\autoref{ch:estado}):} Consiste en un análisis de la situación actual del producto que se planea desarrollar, buscando soluciones existentes al problema que se intenta solucionar o que sean similares. Tras completar esto se hace una propuesta de valor del sistema que se va a desarrollar y que trata los distintos aspectos de dicha situación. Después, se pasa a investigar las diferentes alternativas de hardware que se pueden emplear y su selección para el proyecto.
 	\item \textbf{Análisis del sistema - ASI (\autoref{ch:analisis}):} Presenta las especificaciones del sistema que el cliente ha solicitado, los casos de uso y las diferentes situaciones en las que se podrá interactuar con el mismo. Las especificaciones se recogerán como requisitos de usuario, que tras haber sido estudiadas por el analista se completaran y especificaran mejor en forma de requisitos funcionales y no funcionales. Para comprobar que todo ha sido recogido correctamente se verificará con matrices de trazabilidad.
 	\item \textbf{Diseño del sistema - DSI (\autoref{ch:diseno}):} Concreta los elementos que conforman el sistema siguiendo las especificaciones detalladas en los componentes. Estos elementos son: la arquitectura del sistema, el diagrama de subsistemas y componentes con sus correspondientes definiciones, el modelo de datos que se emplea para almacenar los datos, las interfaces de la aplicación web que visualiza el usuario y el esquema que sigue el hardware del dispositivo. 
 	\item \textbf{Implementación - CSI (\autoref{ch:implementacion}):} Detalla cómo se han conectado los distintos elementos del dispositivo para realizar las diferentes tareas, así como la conexión que se realiza con el servidor para mostrar la información en la aplicación web.
 	\item \textbf{Pruebas (\autoref{ch:pruebas}):} Especifican cuáles serán las pruebas que se realizarán para comprobar que el sistema funciona correctamente, además de garantizar que se cumplen todas las especificaciones marcadas por el cliente en los requisitos del análisis.
-	\pagebreak
-	
 	\item \textbf{Gestión del proyecto - PSI (\autoref{ch:gestion}):} Expone la planificación temporal del proyecto, indicando el tiempo dedicado a cada una de las partes del documento, acompañado del diagrama de Gantt correspondiente. \\ Este capítulo también comprende el presupuesto, en el que se presentan de manera desglosada todos los gastos asociados al proyecto, y finaliza con un resumen en el que se indica el coste final del proyecto para el cliente.
 	\item \textbf{Marco regulador (\autoref{ch:marco}):} Recoge los aspectos legales relacionados con el proyecto, con las tecnologías que se han empleado y el impacto de nuestro sistema.
+	\item \textbf{Entorno socioeconómico (\autoref{ch:entornoSocioEconomico}):} Se muestra el impacto del proyecto sobre diferentes ámbitos, que son: económico, social, ético y medioambiental.
 	\item \textbf{Conclusiones (\autoref{ch:conclusiones}):} Es el último capítulo del desarrollo del proyecto, en el que se recoge, tras todo el proceso de diseño e implementación, cuáles son las virtudes de este sistema, así como mi valoración personal sobre el conjunto de este trabajo. \\ Se concluye con una mirada al futuro, con posibles aplicaciones que se le podrán dar y analizando posibles mejoras y funcionalidades para el producto.
 	\item \textbf{Abstract (\autoref{ch:abstract}):} En este capítulo se hace un pequeño resumen en inglés del proyecto.
 	\item \textbf{Bibliografía:} Recoge las referencias a todos los recursos que han sido consultados durante la realización de este documento, con el propósito de dar validez a la información que se ha presentado y si fuera necesario profundizar más en algún punto.

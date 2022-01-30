@@ -7,7 +7,7 @@ En este capítulo se entra más en detalle en cómo se ha realizado la programac
 \section{Servidor}\label{sec:servidorImpl}
 En primer lugar, debemos montar el servidor sobre el que alojaremos la aplicación y la base de datos, para que de esta manera pueda ser accedido por los usuarios. Como se ha dicho en la \autoref{subsec:servidorDB}, se emplea la herramienta XAMPP para este propósito.
 
-Para comenzar a utilizar XAMPP simplemente se instala el programa en la máquina o servidor que se vaya a utilizar como equipo central. El instalable se puede descargar desde la página oficial~\cite{noauthor_xampp_nodate}.
+Para comenzar a utilizar XAMPP simplemente se instala el programa en la máquina o servidor que se vaya a utilizar como equipo central. El instalable se puede descargar desde la página oficial~\cite{vmware_xampp_nodate}.
 
 En este caso, en la instalación solo será necesario que marquemos las opciones de instalar Apache y MySQL, puesto que es suficiente para el funcionamiento de la aplicación.
 
@@ -253,9 +253,9 @@ Una vez realizada esta configuración se pasa a desarrollar el programa en el le
 En las siguientes subsecciones se explican cada una de las clases que componen el programa y en la última el programa principal que las relaciona a todas ellas.
 
 \subsection{Clase de la Cámara}\label{subsec:clase-de-la-cámara}
-El objetivo de esta clase es ofrecer al programa principal, mediante una función, la facilidad de transmitir vía IP la imagen en tiempo real que capta la cámara instalada en el puerto CSI. Para el desarrollo de esta función se ha consultado el artículo \textit{How to Set Up Real-Time Video Using OpenCV on Raspberry Pi 4}~\cite{noauthor_how_nodate} en el que se explica de manera detallada como poner a punto la Raspberry y acceder al puerto CSI de esta.
+El objetivo de esta clase es ofrecer al programa principal, mediante una función, la facilidad de transmitir vía IP la imagen en tiempo real que capta la cámara instalada en el puerto CSI. Para el desarrollo de esta función se ha consultado el artículo \textit{How to Set Up Real-Time Video Using OpenCV on Raspberry Pi 4}~\cite{addison_how_nodate} en el que se explica de manera detallada como poner a punto la Raspberry y acceder al puerto CSI de esta.
 
-Se ha empleado la librería \textit{picamera}~\cite{noauthor_picamera_nodate} para acceder a la imagen de la cámara, para lo que se utiliza una resolución de 640x480 pixeles a una tasa de refresco de 24 fotogramas, suficiente para que ver con claridad el interior de la sala y no consumir mucha energía.
+Se ha empleado la librería \textit{picamera}~\cite{jones_picamera_nodate} para acceder a la imagen de la cámara, para lo que se utiliza una resolución de 640x480 pixeles a una tasa de refresco de 24 fotogramas, suficiente para que ver con claridad el interior de la sala y no consumir mucha energía.
 
 En cuanto a la retransmisión de la imagen se lanza un servidor local montado en el puerto 8000 mediante \textit{http.server}, sobre el que se vuelca el video y de esta manera se muestra en la web.
 
@@ -269,7 +269,7 @@ El código de este sensor se encarga fundamentalmente de realizar la lectura de 
 Antes de empezar a realizar mediciones necesita un tiempo de calentamiento de 20 segundos, a partir de este punto es capaz de hacer mediciones de manera continua.
 
 \subsection{Clase del sensor \texorpdfstring{CO$_2$}{CO2}}\label{subsec:clase-del-sensor-co2}
-Para obtener las partículas por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14~\cite{noauthor_documentacion_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
+Para obtener las partículas por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14~\cite{zhengzhou_winsen_electronics_technology_users_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Lectura de concentración de CO$_2$ MH-Z14}
@@ -288,7 +288,7 @@ return (response[2] << 8) | response[3]
 \end{lstlisting} 
 
 \subsection{Clase del sensor Temperatura y Humedad}\label{subsec:clase-del-sensor-temperatura-y-humedad}
-Esta clase consta de un único método, \textit{tempHumSensor()}, que devuelve la temperatura y la humedad del ambiente en una dupla (temperatura, humedad). Para conseguir esto se utiliza la librería \textit{Adafruit\_DHT}~\cite{noauthor_dht_nodate} que es específica de este tipo de sensores de temperatura y humedad.
+Esta clase consta de un único método, \textit{tempHumSensor()}, que devuelve la temperatura y la humedad del ambiente en una dupla (temperatura, humedad). Para conseguir esto se utiliza la librería \textit{Adafruit\_DHT}~\cite{adafruit_dht_nodate} que es específica de este tipo de sensores de temperatura y humedad.
 
 En primer lugar, se crea un objeto del tipo específico del sensor, en este caso DHT11, y una variable que indica el puerto GPIO al que está conectado el sensor. Con estos dos elementos ahora se pueden hacer lecturas. Estas nos devuelven la dupla (temperatura, humedad) que tras realizar una serie de comprobaciones de valores nulos o atípicos es la salida del método. En el \autoref{lst:tempHumSensor} se puede contemplar esta lógica.
 \begin{lstlisting}[language=Python, label=lst:tempHumSensor, caption=Lectura de la temperatura y humedad]
@@ -377,7 +377,7 @@ El método principal, \textit{start()}, como se ha dicho inicia el programa y es
 	\item Iniciar la conexión con la base de datos e introducir/actualizar el estado del dispositivo, que lo pasa a estado \textit{Online}.
 	\item Empezar la transmisión de la cámara.
 	\item Instanciar los sensores de temperatura y humedad, partículas en suspensión, CO y CO$_2$. Para el de partículas en suspensión, SDS011, se ha utilizado la librería \textit{RPi\_Air\_Quality\_Sensor}~\cite{rovai_python4ds_2021} que mediante una llamada \textit{query()} devuelve las dos medidas necesarias.
-	\item Se produce en una pausa para el calentamiento de los sensores de 20 segundos.
+	\item Se produce una pausa para el calentamiento de los sensores de 20 segundos.
 	\item En bucle, cada 5 segundos, se realiza la lectura de las medidas de temperatura y humedad, partículas en suspensión, CO y CO$_2$ y se registran en la base de datos, junto con la fecha e id del dispositivo.
 	\item En caso de interrupción se limpia la asignación de los puertos GPIO, se apaga el sensor de partículas en suspensión y se manda la última actualización de estado indicando que se pasa a estado \textit{Offline}.
 \end{enumerate}

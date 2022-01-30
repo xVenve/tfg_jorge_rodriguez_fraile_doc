@@ -7,7 +7,7 @@ También se define la manera en la que se almacenan los datos (\autoref{sec:mode
 Además, lo definido a continuación sienta la base para poder comenzar el desarrollo e implementación del sistema (\autoref{ch:implementacion}) y las pruebas que se realizan sobre el mismo (\autoref{ch:pruebas}).
 
 \section{Arquitectura del Sistema}\label{sec:arquitectura}
-El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador~\cite{bucanek_model-view-controller_2009,noauthor_mvc_nodate}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
+El sistema que se desarrolla en este proyecto sigue un patrón de desarrollo bien definido, Modelo-Vista-Controlador~\cite{bucanek_model-view-controller_2009,hernandez_mvc_nodate}, que nos permite separar de una manera clara las diferentes partes del sistema que hay que desarrollar. Esta arquitectura se compone de las siguientes partes:
 \begin{itemize}
 	\item \textbf{Modelo:} Parte encargada de la representación lógica de la información en el sistema, los mecanismos para acceder a ella y almacenarla. Esta será la parte relacionada con la base de datos.
 	\item \textbf{Vista:} Es la representación visual del sistema (interfaz web) que se mostrará al usuario cuando utilice la aplicación.
@@ -29,7 +29,7 @@ En la \autoref{fig:mvc} se puede ver cuál es la relación entre las diferentes 
 
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
-	{\caption[Diagrama Modelo-Vista-Controlador]{Diagrama Modelo-Vista-Controlador~\cite{noauthor_mvc_nodate}}
+	{\caption[Diagrama Modelo-Vista-Controlador]{Diagrama Modelo-Vista-Controlador~\cite{hernandez_mvc_nodate}}
 		\label{fig:mvc}}
 	{\includegraphics[scale=0.3]{mvc.jpg}}
 \end{figure}
@@ -78,7 +78,7 @@ En este proyecto la base de datos es uno de los elementos más importantes que c
 
 La base de datos estará alojada en el servidor, donde la aplicación podrá acceder a ella más fácilmente para su visualización y consulta. Además, facilita que se puedan centralizar las medidas en un único lugar, para el caso en el que se tuvieran múltiples dispositivos en un edificio y se deseara consultarlos desde un mismo punto.
 
-Como se comentó en la \autoref{subsec:servidorDB} se utiliza una base de datos MariaDB, que se administra mediante phpMyAdmin~\cite{noauthor_phpmyadmin_nodate}, que es un administrador de base de datos para realizar la mayoría de las tareas de una manera más sencilla y eficiente.
+Como se comentó en la \autoref{subsec:servidorDB} se utiliza una base de datos MariaDB, que se administra mediante phpMyAdmin~\cite{phpmyadmin_phpmyadmin_nodate}, que es un administrador de base de datos para realizar la mayoría de las tareas de una manera más sencilla y eficiente.
 
 \subsection{Estructura de tablas de la base de datos}\label{subsec:estructura-de-tablas-de-la-base-de-datos}
 Se presentan en esta subsección las tablas que componen la base de datos, indicando la utilidad de cada una de ellas y los datos, con sus tipos, que se almacenan en ellas. Antes de pasar a explicarlas en más detalle en la \autoref{fig:distDB} se puede ver un resumen de estas.
@@ -289,7 +289,7 @@ En el mismo servidor se aloja la base de datos tal y como ha quedado descrita en
 \pagebreak
 
 \section{Hardware}\label{sec:hardware}
-En cuanto a la parte física del proyecto, se detalla en esta sección cuáles son las conexiones entre los diferentes elementos que se describieron en la \autoref{sec:hardwareSoftware} y que son los elegidos para formar parte de este. La conexión se resume en el esquema de la \autoref{fig:circuito}. Este esquema se ha realizado con Fritzing~\cite{noauthor_fritzing_nodate} que nos permite de una manera sencilla importar y conectar los componentes.
+En cuanto a la parte física del proyecto, se detalla en esta sección cuáles son las conexiones entre los diferentes elementos que se describieron en la \autoref{sec:hardwareSoftware} y que son los elegidos para formar parte de este. La conexión se resume en el esquema de la \autoref{fig:circuito}. Este esquema se ha realizado con Fritzing~\cite{fritzing_fritzing_nodate} que nos permite de una manera sencilla importar y conectar los componentes.
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Esquema de conexiones dispositivo}
@@ -312,7 +312,7 @@ Se comienza con los sensores con los que cuenta el dispositivo:
 	      
 	      En cuanto a los datos se conecta al conversor con el cable amarillo y al GPIO 26 mediante el naranja.
 	      
-	      El conversor se conecta a la corriente y a tierra mediante la protoboard, como el sensor, pero este además se debe conectar a los puertos SPIO\_MOSI, SPIO\_MISO, SPIO\_SCLK y SPIO\_CE0 para ofrecer los puertos analógicos. El conversor sigue el esquema de la \autoref{fig:MCP3008}~\cite{noauthor_27v_2008} y para su uso se consulta la guía~\cite{noauthor_raspberry_nodate-1}.
+	      El conversor se conecta a la corriente y a tierra mediante la protoboard, como el sensor, pero este además se debe conectar a los puertos SPIO\_MOSI, SPIO\_MISO, SPIO\_SCLK y SPIO\_CE0 para ofrecer los puertos analógicos. El conversor sigue el esquema de la \autoref{fig:MCP3008}~\cite{microchip_technology_inc_27v_2008} y para su uso se consulta la guía~\cite{dicola_raspberry_nodate}.
 	      \begin{figure}[H]
 		      \ffigbox[\FBwidth]
 		      {\caption{Esquema conversor MCP3008}
