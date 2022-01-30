@@ -1,7 +1,6 @@
 \chapter{Estado del arte}
 \label{ch:estado}
-En este capítulo se presentan, de una manera más detallada, cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. %Después, se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. Por último,
-A continuación, se expone la propuesta que se considera más adecuada para resolver las necesidades del proyecto. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
+En este capítulo se presentan, de una manera más detallada, cuáles son los factores físicos que afectan a la seguridad de los CPD en la actualidad. Después, se estudiarán y expondrán cuáles son las alternativas que existen actualmente que hacen algo parecido a lo que pretendemos desarrollar, lo que nos dará una visión general de la situación para desarrollar nuestro sistema. A continuación, se expone la propuesta que se considera más adecuada para resolver las necesidades del proyecto. Por último, se analizarán las distintas alternativas de software y hardware para el sistema, escogiendo las que mejor se adapten al mismo.
 
 \section{Seguridad física en los CPD}\label{sec:seguridad_fisica_CPD}
 Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE) para construir un CPD seguro es necesario tener en cuenta las siguientes áreas~\cite{noauthor_pon_2015}:
@@ -12,26 +11,51 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 	\item \textbf{Seguimiento dentro de la sala:} Como complemento a lo anterior, es conveniente tener conocimiento de todo lo que haga el personal autorizado en el interior de estos recintos en cada momento. Esto se consigue con la instalación de equipos de videovigilancia o un circuito cerrado de televisión (CCTV).
 	\item \textbf{Dificultar la identificación del CPD:} Dentro de lo posible es conveniente que el menor número de personas tenga conocimiento de la ubicación exacta del CPD, para evitar cualquier manipulación.
 	\item \textbf{Medidas contra incendios:} Aparte de estar construidos con materiales resistentes a altas temperaturas o ignífugos, existirán sensores de humo y calor que permiten detectar si se está produciendo un incendio. En cuanto se detecte un incendio, se activará el sistema de extinción por gas, para evitar dañar los equipos. Estos sistemas pasarán revisiones periódicamente para su correcto funcionamiento.
-	      \pagebreak
 	\item \textbf{Seguridad del cableado:} Se emplea cableado apantallado para evitar acoplamientos o interferencias, además de estar claramente diferenciados según su función, como los de alimentación y de comunicaciones, para facilitar el mantenimiento del CPD\@.
 	\item \textbf{Medidas contra problemas de suministro eléctrico:} Es otro de los sistemas fundamentales en los CPD, que permite mantener el suministro eléctrico necesario para garantizar la disponibilidad del servicio y evitar la pérdida o dañado de los datos y de los propios equipos. Las medidas que se toman a este respecto son la implantación de mecanismos de redundancia eléctrica para que los servidores no pierdan la alimentación eléctrica en caso de un corte de la empresa suministradora, como son los Sistemas de Alimentación Ininterrumpida (SAI) o grupos electrógenos.
 	\item \textbf{Suelo y techo técnico:} Este tipo de suelos nos permiten, a la vez que elevar los equipos respecto al nivel original de la sala, distribuir todo el cableado necesario por debajo de él, siendo más fácil el mantenimiento, quedando la sala más limpia y despejada y garantizando una ventilación que evite sobrecalentamientos. El techo técnico permite lo mismo que el suelo, pero con las instalaciones por encima de un falso techo registrable permitiendo a la vez instalar el propio sistema de climatización de la sala. Ambos sistemas son muy importantes para el reducir el consumo de energía empleado para climatizar, hasta en un 45 \%~\cite{noauthor_suelo_2020}, además de permitir un constante movimiento del flujo de aire por la sala. Otra función que ofrecen es evitar los daños por inundación.
 	\item \textbf{Sistema de climatización:} Se encarga de controlar la temperatura y humedad de la sala regulando el enfriamiento, ventilación, humidificación y flujo de aire. También existen sistemas que mantienen la temperatura idónea de los equipos mediante refrigeración líquida e incluso inmersos en fluidos dieléctricos.
 
-	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \%~\cite{noauthor_recommended_nodate}.
+	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \%~\cite{serverscheck_recommended_nodate}.
 \end{itemize}
 
-\iffalse
 \section{Soluciones actuales}\label{sec:soluciones-actuales}
-En esta sección se presentarán cuáles son las alternativas que existen actualmente y que tienen el mismo propósito que el sistema que se va a desarrollar en este proyecto.
+En esta sección se trata de presentar algunas de las alternativas que existen actualmente y que tendrían el mismo propósito que el sistema que se va a desarrollar en este proyecto. Como no se ha encontrado un sistema equivalente en cuanto a prestaciones conjuntas como el que se pretende desarrollar, se van a relacionar instrumentos que realizan sus mismas funciones, pero de forma independiente cada uno.
 
-Como se trata de un sistema de control ambiental y videovigilancia no cubriremos todos los aspectos de seguridad que se han presentado en la \autoref{sec:seguridad_fisica_CPD}, pero sí se desarrollaran: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
+Como se trata de un sistema de control ambiental y videovigilancia no cubriremos todos los aspectos de seguridad presentados en la \autoref{sec:seguridad_fisica_CPD}. Se desarrollarán los siguientes: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
 
-INCOMPLETO, FALTA ENCONTRARLAS
+\subsection{Seguimiento dentro de la sala}\label{subsec:seguimiento-dentro-de-la-sala}
+Respecto a la videovigilancia de una empresa, o una vivienda en su caso, se han encontrado distintas compañías que ofrecen este servicio con la instalación de cámaras analógicas conectadas a un grabador o, incluso, visualización en remoto (móvil, ordenador portátil, tablet, etc.)~\cite{alarmadoo_videovigilancia_nodate}.
 
-\section{Critica al Estado del arte}\label{sec:critica-al-estado-del-arte}
-PUNTOS FUERTES DE CADA UNA
-\fi
+Estas empresas están más especializadas en la detección de intrusos, uniendo las videocámaras con la instalación conjunta de sistemas de alarma. Algunas de estas empresas son: Prosegur, Imsel Seguridad S.A. o Covert Security.
+
+Para estas tareas se utilizan diferentes tipos de cámara. Las más comunes son:
+\begin{itemize}
+	\item \textbf{Cámaras fijas de lente oscura:} Con estas no se sabe hacia donde están enfocadas, siendo un buen sistema disuasorio. Estas son capaces de grabar de manera continua durante el día y la noche, puesto que cuentan con LED de rayos infrarrojos, haciendo que sean buenas tanto para interior como para exterior.
+	\item \textbf{Cámaras motorizadas:} A diferencia de las anteriores, estas pueden rotar hasta 360° y cuentan con zum óptico. Además, van equipadas con sensor de movimiento y se pueden programar máscaras de privacidad, evitando la visualización de determinadas áreas no deseadas.
+	\item \textbf{Cámaras IP:} Estas permiten ver las imágenes captadas mediante la utilización de un dispositivo móvil a través de internet, son menos seguras en lo que a intrusión digital se refiere, pero son baratas.
+\end{itemize}
+
+\subsection{Medidas contra incendios}\label{subsec:medidas-contra-incendios}
+En lo que respecta a la detección de incendios existen mecanismos que permiten detectar el humo, el calor o la existencia de llamas~\cite{microsegur_que_2021}.
+
+Estos sistemas pueden ser, según el fenómeno detectado:
+\begin{itemize}
+	\item \textbf{Termostáticos:} Cuando se alcanza un determinado valor de temperatura salta una alarma.
+	\item \textbf{Termovelocímetros:} Salta cuando el incremento de temperatura / velocidad es superior un valor concreto.
+	\item \textbf{Combinados:} La unión de los anteriores en un único detector.
+	\item \textbf{Detectores de humos:} Detectan las partículas en el aire derivadas de la combustión.
+	\item \textbf{Detectores de gases:} Detectan los gases de la combustión.
+	\item \textbf{Detectores de llamas:} Detectan la radiación de las llamas.
+	\item \textbf{Detectores multisensores:} Se activan ante, por ejemplo, por el calor y humo.
+\end{itemize}
+
+\subsection{Sistema de climatización}\label{subsec:sistema-de-climatización}
+Los sistemas de climatización existentes en el mercado se encargan de mantener una temperatura previamente fijada y eliminan la humedad del ambiente al tratar el aire interior para refrigerarlo~\cite{ruiz_sistemas_nodate}. También existen sistemas de extracción de la humedad interior de una estancia cuando se produce un elevado grado de humedad en ella, lo que es perjudicial para los equipos electrónicos y para la salud por la aparición de moho en su interior~\cite{murprotec_calidad_nodate}.
+
+En nuestro caso no se trata de instalar un equipo de climatización, sino un sistema de medición de temperatura y humedad en el interior de un recinto cerrado. En el mercado se han encontrado medidores de temperatura y de humedad, juntos o por separados, pero no unidos al resto de parámetros, como se plantean en nuestro caso.
+
+Existen aparatos de medición, tanto de temperatura como de humedad, de uso corriente, como los que puede utilizar cualquier persona para conocer las condiciones de su vivienda. También existen equipos profesiones empleados por distintos técnicos en el desarrollo de su trabajo, que cuentan con una mayor precisión y eficacia. Otro tipo de estos sensores, son utilizados en el interior de conductos y de cámaras frigoríficas en diferentes industrias. Por último, hay módulos de medida destinados a ser instalados en las placas de dispositivos, montados expresamente para cada caso, como puede ser el que se plantea.
 
 \section{Propuesta}\label{sec:propuesta}
 El sistema que se va a desarrollar consistirá en un dispositivo de reducidas dimensiones, que dispondrá de una placa y una serie de sensores que tomaran los datos periódicamente y los enviaran a una base de datos que podrá ser consultada mediante una web.
@@ -51,15 +75,16 @@ En esta sección se presentarán las distintas alternativas que se pueden utiliz
 Para comenzar debemos analizar cuáles son las posibles placas sobre las que podemos desarrollar nuestro dispositivo. Las placas que se buscan deben ser programables y permitirnos instalar una serie de sensores que podamos monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation.
 
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[4.5cm]
 	{\caption{Logo Raspberry Pi}}
 	{\def\svgwidth{.21\textwidth}
 		\input{./imagenes/Raspberry_Pi_Logo.eps_tex}}\label{fig:logoRaspberry}
 \end{figure}
-
 Raspberry Pi es una computadora de una sola placa (SBC) de bajo coste, que comenzaron a venderse en 2012 y son las ideales para proyectos de electrónica que requieran de una máquina potente de reducidas dimensiones. Cuenta con su propio sistema operativo y es capaz de funcionar como un ordenador completo. Todas las versiones incluyen un procesador Broadcom, RAM, GPU, conexión de cámara y 40 pines GPIO (Entrada/Salida de Propósito General), pero no cuentan con memoria interna y debe ser añadida por MicroSD~\cite{noauthor_raspberry_2021}.
+\pagebreak
 
-A continuación se presentan las valoradas para este proyecto, que son el modelo reducido para domótica y los dos modelos más recientes~\cite{noauthor_raspberry_nodate}:
+A continuación se presentan las valoradas para este proyecto, que son el modelo reducido para domótica y los dos modelos más recientes~\cite{the_pi_hut_raspberry_nodate}:
+
 \begin{figure}[!htb]
 	\minipage{0.32\textwidth}
 	\includegraphics[width=\linewidth]{raspberry-pi-zero.jpg}
@@ -70,7 +95,9 @@ A continuación se presentan las valoradas para este proyecto, que son el modelo
 	\endminipage\hfill
 	\minipage{0.32\textwidth}%
 	\includegraphics[width=\linewidth]{raspberry-pi-4-b.jpg}
-	\endminipage\label{fig:fotosRaspberry}
+	\endminipage
+	\vspace{-.5cm}
+	\label{fig:fotosRaspberry}
 \end{figure}
 \begin{table}[H]
 	\centering
@@ -81,7 +108,7 @@ A continuación se presentan las valoradas para este proyecto, que son el modelo
 			\hline
 			                                     & \cellcolor[HTML]{BFBFBF}\textbf{Raspberry Pi Zero} & \cellcolor[HTML]{BFBFBF}\textbf{Raspberry Pi 3 B+} & \cellcolor[HTML]{BFBFBF}\textbf{Raspberry Pi 4 B} \\ \hline
 			\cellcolor[HTML]{BFBFBF}CPU          & \begin{tabular}[c]{@{}c@{}}1-GHz, 1-core\\ Broadcom BCM2835\\ (ARM1176JZF-S)\end{tabular}                          & \begin{tabular}[c]{@{}c@{}}1.4-GHz, 4-core\\ Broadcom BCM2837B0\\ (Cortex-A53)\end{tabular}                          & \begin{tabular}[c]{@{}c@{}}1.5-GHz, 4-core\\ Broadcom BCM2711\\ (Cortex-A72)\end{tabular}                         \\ \hline
-			\cellcolor[HTML]{BFBFBF}RAM          & \begin{tabular}[c]{@{}c@{}}LPDDR2\\ 512 MB\end{tabular}                          & \begin{tabular}[c]{@{}c@{}}LPDDR2\\ 1 GB\end{tabular}                          & \begin{tabular}[c]{@{}c@{}}LPDDR4\\ 1, 2, 4 GB\end{tabular}                        \\ \hline
+			\cellcolor[HTML]{BFBFBF}RAM          & \begin{tabular}[c]{@{}c@{}}LPDDR2\\ 512 MB\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}LPDDR2\\ 1 GB\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}LPDDR4\\ 1, 2, 4 GB\end{tabular}                        \\ \hline
 			\cellcolor[HTML]{BFBFBF}USB          & 1 Micro                                            & 4 (2.0)                                            & \begin{tabular}[c]{@{}c@{}}2 (2.0)\\ 4 (3.0)\end{tabular}                        \\ \hline
 			\cellcolor[HTML]{BFBFBF}Alimentación & microUSB                                           & microUSB                                           & USB Tipo-C                                        \\ \hline
 			\cellcolor[HTML]{BFBFBF}HDMI         & MiniHDMI                                           & HDMI                                               & 2 Micro HDMI                                      \\ \hline
@@ -100,7 +127,24 @@ Se estudiarán los diferentes sensores y cámaras que se podrán integrar en el 
 \paragraph{Sensores}\mbox{} \\
 Como se explicó en la propuesta se han buscado sensores capaces de captar temperatura, humedad, CO, CO$_2$ y la calidad del aire. A continuación se exponen los sensores que se han encontrado y que cubren estas necesidades. Más adelante decidiremos si se adaptan al proyecto.
 
-Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos aparezcan juntos en el mismo sensor~\cite{noauthor_comparing_2019}:
+Comencemos con los sensores de dióxido de carbono (CO$_2$) que se han considerado para este proyecto.
+
+\begin{table}[H]
+	\centering
+	\caption{Comparación sensores CO$_2$}
+	\label{tab:comp_co2}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline
+			                                                   & \cellcolor[HTML]{BFBFBF}\textbf{MH-Z14A} & \cellcolor[HTML]{BFBFBF}\textbf{CCS811} & \cellcolor[HTML]{BFBFBF}\textbf{S8 LP} & \cellcolor[HTML]{BFBFBF}\textbf{MG-811} \\ \hline
+			\cellcolor[HTML]{BFBFBF}Voltaje                    & 4.5 -- 5,5 V                             & 3,3 -- 5 V                              & 4.5 -- 5,25 V                          & 5 V                                     \\ \hline
+			\cellcolor[HTML]{BFBFBF}Rango                      & 0 -- 10.000 ppm                          & 400 -- 29.206 ppm                       & 400 -- 2.000 ppm                       & 0 -- 10.000 ppm                         \\ \hline
+			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Protocolo de\\ comunicación\end{tabular} & UART                                     & I2C                                     & UART                                   & Analógico                               \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+A continuación se muestran los sensores de temperatura y humedad, que es frecuente que ambos aparezcan juntos en el mismo sensor~\cite{randomnerdtutorials_comparing_2019}:
 
 \begin{table}[H]
 	\centering
@@ -124,7 +168,7 @@ Comencemos con el sensor de temperatura y humedad, que es frecuente que ambos ap
 \end{table}
 
 Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidades, por lo que se ha optado por el MQ7, cuyas especificaciones son las siguientes:
-\vspace{-2cm}
+
 \minipage{0.4\textwidth}
 \begin{figure}[H]
 	\caption{Sensor MQ-7}
@@ -151,26 +195,7 @@ Para el sensor de monóxido de carbono (CO) no se encontraron muchas posibilidad
 \end{table}
 \endminipage
 
-A continuación se muestran los sensores de dióxido de carbono (CO$_2$) que se han considerado para este proyecto.
-
-\begin{table}[H]
-	\centering
-	\caption{Comparación sensores CO$_2$}
-	\label{tab:comp_co2}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{|l|c|c|c|c|}
-			\hline
-			                                                   & \cellcolor[HTML]{BFBFBF}\textbf{MH-Z14A} & \cellcolor[HTML]{BFBFBF}\textbf{CCS811} & \cellcolor[HTML]{BFBFBF}\textbf{S8 LP} & \cellcolor[HTML]{BFBFBF}\textbf{MG-811} \\ \hline
-			\cellcolor[HTML]{BFBFBF}Voltaje                    & 4.5 -- 5,5 V                             & 3,3 -- 5 V                              & 4.5 -- 5,25 V                          & 5 V                                     \\ \hline
-			\cellcolor[HTML]{BFBFBF}Rango                      & 0 -- 10.000 ppm                          & 400 -- 29.206 ppm                       & 400 -- 2.000 ppm                       & 0 -- 10.000 ppm                         \\ \hline
-			\cellcolor[HTML]{BFBFBF}\begin{tabular}[c]{@{}l@{}}Protocolo de\\ comunicación\end{tabular} & UART                                     & I2C                                     & UART                                   & Analógico                               \\ \hline
-		\end{tabular}%
-	}
-\end{table}
-\vspace{-.7cm}
-
-Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad del aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes~\cite{noauthor_nova_nodate}:
-\vspace{-1cm}
+Por último, antes de pasar a la parte de videovigilancia, se muestran las especificaciones del módulo de calidad del aire que se ha considerado más adecuado. En este caso no se muestran varias posibilidades dada la escasa variedad de módulos que solo incorporen este tipo de sensor. Todos los encontrados eran parte de sistemas mucho más complejos que eran capaces de funcionar de manera independiente. Se ha escogido el módulo SDS011 que es capaz de medir las partículas en suspensión (PM) de 2,5 y 10 micrómetros, cuyas características son las siguientes~\cite{components101_nova_nodate}:
 
 \minipage{0.45\textwidth}
 \begin{figure}[H]
@@ -223,26 +248,26 @@ Las cámaras que se presentan a continuación han sido buscadas con la intenció
 En esta sección se escogerá una solución de entre las expuestas en las subsecciones antes descritas.
 
 \subsection{Placa}\label{subsec:placa}
-Entre las tres placas que se han valorado, aunque la Zero está más pensada para dispositivos ligeros y compactos, se ha decidido descartarla por sus reducidas capacidades y la falta de wifi o ethernet que requerirían un módulo extra para obtener conexión a internet. Entre las dos restantes se ha optado por la Raspberry Pi 3B+, porque ante la similitud de características de las placas y su coste, esta tenía más disponibilidad en el mercado y el suministro era más rápido. 
+Entre las tres placas que se han valorado, aunque la Zero está más pensada para dispositivos ligeros y compactos, se ha decidido descartarla por sus reducidas capacidades y la falta de wifi o ethernet que requerirían un módulo extra para obtener conexión a internet. Entre las dos restantes se ha optado por la Raspberry Pi 3B+, porque ante la similitud de características de las placas y su coste, esta tenía más disponibilidad en el mercado y el suministro era más rápido.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Esquema de Raspberry Pi 3 B+}}
-	{\includegraphics[scale=0.35]{esquema-raspberry-pi-3b-plus.jpg}}\label{fig:esquemaRaspberry3B}
+	{\includegraphics[scale=0.3]{esquema-raspberry-pi-3b-plus.jpg}}\label{fig:esquemaRaspberry3B}
 \end{figure}
 En cuanto al sistema operativo que se emplea en esta placa, se ha decidido utilizar Raspbian que es una distribución de Linux basado en Debian que está altamente optimizada para estas placas, además por tratarse de un sistema operativo que es conocido por el programador que llevara a cabo el desarrollo.
 
 \subsection{Componentes}\label{subsec:componentes}
 El sensor de temperatura y humedad que se ha elegido como la mejor opción ha sido el DHT11. Por un precio reducido es capaz de medir tanto temperatura como humedad, ambas en el rango en el que se mueven las medidas en un CPD (18 °C -- 27 °C y  40 \% -- 60 \%) con una precisión aceptable. La decisión por el DHT11 y no el DHT22 ha sido que este último tiene un mayor coste y supera, con mucho, las temperaturas que se medirían, desaprovechando sus capacidades.
 \begin{figure}[H]
-	\ffigbox[\FBwidth]
+	\ffigbox[5cm]
 	{\caption{Sensor DHT11}}
-	{\includegraphics[scale=0.35]{dht11.jpg}}\label{fig:dht11}
+	{\includegraphics[scale=0.3]{dht11.jpg}}\label{fig:dht11}
 \end{figure}
 El sensor de CO$_2$ seleccionado ha sido el MH-Z14A, que ante unas capacidades similares al MG-811 se ha preferido por disponer de un protocolo de comunicación UART. Por otro lado, el CCS811 a pesar de tener muy buenas características, su rango comienza demasiado arriba para captar la concentración atmosférica común, cosa que el MH-Z14A si capta y su cota más alta es suficiente para este proyecto.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Sensor MH-Z14A}}
-	{\includegraphics[scale=0.4]{MH-Z14A.jpg}}\label{fig:mh-z14a}
+	{\includegraphics[scale=0.3]{MH-Z14A.jpg}}\label{fig:mh-z14a}
 \end{figure}
 Con respecto al sensor de CO y al de calidad del aire, se ha escogido el MQ-7 y SDS011 por la falta de variedad y disponibilidad en esta clase de sensores, pero esto no ha hecho que se hayan escogido componentes de peor calidad o que no vayan a desempeñar su función adecuadamente.
 
@@ -252,10 +277,9 @@ En cuanto a la cámara, tras analizar las especificaciones de las candidatas, se
 	{\caption{Modulo Raspberry Pi Camera}}
 	{\includegraphics[scale=0.35]{Raspberry-Pi-Camera-Module-Rev-1.3.jpg}}\label{fig:moduloCamara}
 \end{figure}
-
+\pagebreak
 \subsection{Lenguajes de programación}\label{subsec:lenguajes}
 En esta subsección se expondrán los lenguajes que se emplearán tanto para el desarrollo del dispositivo como para la parte web del proyecto. Los lenguajes han sido escogidos en función del conocimiento del programador que lo lleva a cabo. Estos lenguajes son PHP para la web y Python para el dispositivo.
-\pagebreak
 
 \paragraph{PHP}\mbox{} \\
 \begin{figure}[H]
@@ -265,7 +289,7 @@ En esta subsección se expondrán los lenguajes que se emplearán tanto para el 
 \end{figure}
 PHP (Hypertext Preprocessor)~\cite{welling_php_2003} es un lenguaje de programación para el desarrollo web de código abierto desde el lado del servidor, creado originalmente en 1994 por Rasmus Lerdorf, aunque hoy en día es producido por The PHP Group. Este lenguaje puede ser embebido en una página HTML para que se ejecute cada vez que sea visualizado, el código en este lenguaje es interpretado por el servidor para convertirlo en otro lenguaje de salida.
 
-Es el más utilizado en toda la red en abril de 2021~\cite{noauthor_usage_nodate}, con un 79 \% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor.
+Es el más utilizado en toda la red en abril de 2021~\cite{q-success_usage_nodate}, con un 79 \% de uso en los sitios web de los que se conoce el lenguaje del lado del servidor.
 
 Para desarrollar la web se utilizará el editor de código fuente Visual Studio Code, editor multiplataforma de código abierto creado por Microsoft en 2015~\cite{noauthor_visual_2021}, que dispone de infinidad de extensiones para facilitar el desarrollo en cualquier lenguaje de programación.
 
@@ -287,8 +311,8 @@ Se ha decidido el uso de este, en vez de emplear también Visual Studio Code, al
 	{\caption{Logo XAMPP}}
 	{\includegraphics[scale=0.13]{xampp.png}}\label{fig:logoXAMPP}
 \end{figure}
-El servidor que se va a emplear para este proyecto será Apache~\cite{noauthor_apache_nodate}, uno de los servidores de código abierto más utilizados que nos permite alojar y ser propietarios de nuestra propia web.
+El servidor que se va a emplear para este proyecto será Apache~\cite{the_apache_software_foundation_apache_nodate}, uno de los servidores de código abierto más utilizados que nos permite alojar y ser propietarios de nuestra propia web.
 
-En cuanto a la base de datos utilizaremos MariaDB~\cite{noauthor_mariadb_nodate}, que es un software de código abierto derivado y compatible con MySQL, que actualmente es de Oracle y de pago, pero mantiene la esencia de este gestor de base de datos.
+En cuanto a la base de datos utilizaremos MariaDB~\cite{mariadb_foundation_mariadb_nodate}, que es un software de código abierto derivado y compatible con MySQL, que actualmente es de Oracle y de pago, pero mantiene la esencia de este gestor de base de datos.
 
-Todo esto se orquestará mediante XAMPP, una herramienta de software libre multiplataforma~\cite{noauthor_xampp_nodate} que nos permite crear el servidor y base de datos alojada por nosotros mismos. Este software nos ofrece desde un mismo sitio lanzar nuestra base de datos MariaDB, el servidor web Apache y los intérpretes de PHP y Perl.
+Todo esto se orquestará mediante XAMPP, una herramienta de software libre multiplataforma~\cite{vmware_xampp_nodate} que nos permite crear el servidor y base de datos alojada por nosotros mismos. Este software nos ofrece desde un mismo sitio lanzar nuestra base de datos MariaDB, el servidor web Apache y los intérpretes de PHP y Perl.
