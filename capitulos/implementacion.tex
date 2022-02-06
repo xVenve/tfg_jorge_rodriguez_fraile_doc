@@ -71,7 +71,7 @@ En esta sección se explica cómo se ha implementado la lógica de las páginas 
 \subsection{Página: Inicio de sesión}\label{subsec:página-inicio-de-sesión}
 Esta primera pantalla comprueba primero si la sesión esta iniciada, si es así se redirige a la página principal. Por el contrario, si no está iniciada aparece un formulario de HTML en el que se solicita el usuario y contraseña. 
 
-En este formulario, al hacer \textit{submit} (botón ''Iniciar sesión'') se activa un script que comprueba si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenos, se pasa a comprobar si el usuario existe en la base de datos, para lo que, en primer lugar, se pasa la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe con tal y que revise las credenciales.
+En este formulario, al hacer \textit{submit} (botón "<Iniciar sesión">) se activa un script que comprueba si los campos han sido rellenados o no, de manera que salte un \textit{alert} avisando al usuario. Si los campos están rellenos, se pasa a comprobar si el usuario existe en la base de datos, para lo que, en primer lugar, se pasa la contraseña a MD5 por seguridad y después se realiza una consulta a la tabla de \textit{users} de la base de datos. Si la consulta tiene éxito se crea una sesión y se redirige a la página principal, de lo contrario se muestra un \textit{alert} avisando al usuario de que no existe con tal y que revise las credenciales.
 
 La lógica explicada se ha extraído de \textit{Webslesson}~\cite{webslesson_php_nodate} y se ha modificado para adaptarla a la aplicación, quedando el \autoref{lst:comprobacionFormularioInicioSesion}.
 \begin{lstlisting}[language=PHP, caption=Comprobación formulario Inicio de sesión, label=lst:comprobacionFormularioInicioSesion]
@@ -153,7 +153,7 @@ Como se puede ver en la última columna de cada fila, hay un botón cuya acción
 Por último, el botón de cerrar sesión nos lleva a la página \textit{logout.php} que se describe al final de la \autoref{subsec:implPagPrincipal}.
 
 \subsection{Página: Dispositivo}\label{subsec:página-dispositivo}
-Como se hace en las demás páginas, en primer lugar se comprueba si la sesión esta iniciada, si no lo está, se redirige a la página de inicio de sesión. 
+Como se hace en las demás páginas, en primer lugar se comprueba si la sesión esta iniciada, si no lo está, se redirige a la página de inicio de sesión.
 
 Esta página es similar a la de la \autoref{subsec:implPagPrincipal} en cuanto a que, lo primero que hace, es mostrar el nombre del dispositivo como ocurre con el saludo, pero en este caso se extrae de la URL\@.
 \begin{lstlisting}[language=PHP, caption=Nombre del dispositivo en la cabecera de la página, label=lst:nombreDispositivo]
@@ -207,7 +207,7 @@ function drawCharts() {
 
 Se puede ver que se define una única gráfica con todas las medidas en función del tiempo. Estas medidas se obtienen mediante una consulta a la tabla \textit{sensor\_data} de la que se obtienen 720 registros ordenados por fecha descendente. Esta gráfica grande se parte más tarde en 3 gráficas más pequeñas, indicando que columnas se quiere que aparezcan en cada una de ellas. En último lugar, se indica que sean de tipo gráfico de línea y que se muestre en los elementos con el id \textit{regions\_temp\_hum}, \textit{regions\_pm\_co} y \textit{regions\_co2}.
 
-Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón ''Volver'' que redirige a la página principal.
+Dado que la página con todos los elementos se vuelve muy larga, se ha añadido en varios puntos un botón "<Volver"> que redirige a la página principal.
 \begin{lstlisting}[language=HTML, caption=Botón de retorno a página principal, label=lst:botonVolver]
 <button class="boton" id="boton_volver" onclick="location.href=' main.php'">Volver</button>
 \end{lstlisting}
@@ -255,7 +255,7 @@ En las siguientes subsecciones se explican cada una de las clases que componen e
 \subsection{Clase de la Cámara}\label{subsec:clase-de-la-cámara}
 El objetivo de esta clase es ofrecer al programa principal, mediante una función, la facilidad de transmitir vía IP la imagen en tiempo real que capta la cámara instalada en el puerto CSI. Para el desarrollo de esta función se ha consultado el artículo \textit{How to Set Up Real-Time Video Using OpenCV on Raspberry Pi 4}~\cite{addison_how_nodate} en el que se explica de manera detallada como poner a punto la Raspberry y acceder al puerto CSI de esta.
 
-Se ha empleado la librería \textit{picamera}~\cite{jones_picamera_nodate} para acceder a la imagen de la cámara, para lo que se utiliza una resolución de 640x480 pixeles a una tasa de refresco de 24 fotogramas, suficiente para que ver con claridad el interior de la sala y no consumir mucha energía.
+Se ha empleado la librería \textit{picamera}~\cite{jones_picamera_nodate} para acceder a la imagen de la cámara, para lo que se utiliza una resolución de 640x480 píxeles a una tasa de refresco de 24 fotogramas, suficiente para que ver con claridad el interior de la sala y no consumir mucha energía.
 
 En cuanto a la retransmisión de la imagen se lanza un servidor local montado en el puerto 8000 mediante \textit{http.server}, sobre el que se vuelca el video y de esta manera se muestra en la web.
 
@@ -264,7 +264,7 @@ El video comienza a transmitirse de manera inmediata y cuando el programa lance 
 \subsection{Clase del sensor CO}\label{subsec:clase-del-sensor-co}
 Como se menciona en la \autoref{sec:hardware} el sensor de CO es analógico, por lo que en primer lugar tendremos que vincular los puertos de la Raspberry para que mande las señales correspondientes al conversor MCP3008, y una vez interpretadas las devuelva a la Raspberry. Esta asignación se basa en los \textit{drivers} de osoyoo~\cite{osoyoo_osoyoodriver_2021}, pero adaptada a los puertos de nuestro proyecto.
 
-El código de este sensor se encarga fundamentalmente de realizar la lectura de la señal del conversor y convertir el voltaje recibido a porcentaje de monóxido de carbono en el ambiente, esto se calcula con $\frac{\textit{Voltaje}\cdot 100}{1024}$. 
+El código de este sensor se encarga fundamentalmente de realizar la lectura de la señal del conversor y convertir el voltaje recibido a porcentaje de monóxido de carbono en el ambiente, esto se calcula con $\frac{\textit{Voltaje}\cdot 100}{1024}$.
 
 Antes de empezar a realizar mediciones necesita un tiempo de calentamiento de 20 segundos, a partir de este punto es capaz de hacer mediciones de manera continua.
 
@@ -285,7 +285,7 @@ request = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]
 serial.write(bytearray(request))
 response = serial.read(9)
 return (response[2] << 8) | response[3]
-\end{lstlisting} 
+\end{lstlisting}
 
 \subsection{Clase del sensor Temperatura y Humedad}\label{subsec:clase-del-sensor-temperatura-y-humedad}
 Esta clase consta de un único método, \textit{tempHumSensor()}, que devuelve la temperatura y la humedad del ambiente en una dupla (temperatura, humedad). Para conseguir esto se utiliza la librería \textit{Adafruit\_DHT}~\cite{adafruit_dht_nodate} que es específica de este tipo de sensores de temperatura y humedad.
@@ -312,7 +312,7 @@ def tempHumSensor(self):
 \end{lstlisting}
 
 \subsection{Clase de la Base de datos}\label{subsec:clase-de-la-base-de-datos}
-En primer lugar el constructor de esta clase se encarga de establecer la conexión con la base de datos, en este caso se utiliza la librería \textit{mysql.connector} y el método \textit{connect(host, user, password, database)}, cuyos parámetros se reciben al instanciar el objeto. Se puede ver en el \autoref{lst:cdb} el fragmento correspondiente.
+En primer lugar, el constructor de esta clase se encarga de establecer la conexión con la base de datos, en este caso se utiliza la librería \textit{mysql.connector} y el método \textit{connect(host, user, password, database)}, cuyos parámetros se reciben al instanciar el objeto. Se puede ver en el \autoref{lst:cdb} el fragmento correspondiente.
 \begin{lstlisting}[language=Python, label=lst:cdb, caption=Conexión con la base de datos]
 def __init__(self, host, user, password, database):
     self.mydb = mysql.connector.connect(
