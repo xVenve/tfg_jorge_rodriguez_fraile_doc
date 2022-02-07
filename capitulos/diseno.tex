@@ -133,7 +133,7 @@ En la \autoref{tab:tabla_devices} se pueden ver los atributos que la componen:
 Como en la \autoref{tab:tabla_users} la clave primaria de esta es un nombre representativo, en este caso el id, que identifica inequívocamente al dispositivo, de esta manera se puede utilizar para consultar los datos de un dispositivo en concreto. Cuando sea necesario, se puede variar la IP a la que está conectado, la fecha y el estado, pero el nombre identificador no se puede cambiar.
 
 \subsubsection{Tabla de medidas}
-Es la tabla más importante como ya se ha mencionado. En esta tabla se guardan las mediciones que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación, junto con su imagen en tiempo real. Las medidas que se almacenan son: temperatura, humedad, PM$_{2.5}$, PM$_{10}$, CO y CO$_2$.
+Es la tabla más importante como ya se ha mencionado. En esta tabla se guardan las mediciones que han tomado todos los dispositivos conectados. Estos datos son los que se muestran en la página del dispositivo dentro de la aplicación, junto con su imagen en tiempo real. Las medidas que se almacenan son: temperatura, humedad, PM$_{2,5}$, PM$_{10}$, CO y CO$_2$.
 
 Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 
@@ -150,7 +150,7 @@ Los datos que la componen se exponen en la \autoref{tab:tabla_sensor_data}:
 			device                                                                               & varchar(50)                                                                       & Identificador del dispositivo que captó la medida                                        \\ \hline
 			temperature                                                                          & float                                                                             & Temperatura de la sala                                                                   \\ \hline
 			humidity                                                                             & float                                                                             & Humedad de la sala                                                                       \\ \hline
-			pm2\_5                                                                               & float                                                                             & Cantidad de partículas de 2.5 $\mu m$ en la sala                                         \\ \hline
+			pm2\_5                                                                               & float                                                                             & Cantidad de partículas de 2,5 $\mu m$ en la sala                                         \\ \hline
 			pm10                                                                                 & float                                                                             & Cantidad de partículas de 10 $\mu m$ en la sala                                          \\ \hline
 			co                                                                                   & float                                                                             & Porcentaje de CO en el aire de la sala                                                   \\ \hline
 			co2                                                                                  & mediumint(9)                                                                      & Partículas por millón de CO$_2$ en la sala                                               \\ \hline
@@ -252,7 +252,7 @@ A continuación, se mostrarán todas las medidas, primero de manera gráfica y d
 La parte visual de las medidas se divide en 3 gráficas distintas, para poder ver mejor como progresan en el tiempo sin que haya problemas de escalas entre ellas y sin saturar la pantalla. Las gráficas son:
 \begin{itemize}
 	\item Temperatura y Humedad.
-	\item PM$_{2.5}$, PM$_{10}$ y CO\@.
+	\item PM$_{2,5}$, PM$_{10}$ y CO\@.
 	\item CO$_2$.
 \end{itemize}
 \begin{figure}[H]

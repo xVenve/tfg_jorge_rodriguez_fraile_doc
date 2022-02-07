@@ -166,7 +166,7 @@ echo '<img src="http://' . $_GET["ip"] . ':8000/stream.mjpg" id="cam">'
 \end{lstlisting}
 
 En cuanto a las gráficas, se emplea una librería de Google llamada \textit{Google Charts} que nos permite definir gráficas a partir de los datos extraídos mediante una consulta a base de datos. En este caso, las medidas que se emplean son las que corresponden al dispositivo de la página. Para emplear esta librería debemos definir una función que nos escriba sobre elementos \textit{div} las gráficas, en este caso se hace mediante la función \textit{drawChart()} que se define según el \autoref{lst:graficasDispositivo}.
-\begin{lstlisting}[language=PHP, caption=Graficas de las medidas del dispositivo, label=lst:graficasDispositivo]
+\begin{lstlisting}[language=PHP, caption=Gráficas de las medidas del dispositivo, label=lst:graficasDispositivo]
 $chartQuery = 'SELECT * FROM (SELECT * FROM sensor_data WHERE device="' . $_GET["id"] . '" ORDER BY date DESC LIMIT 720) sub ORDER BY date ASC';
 $chartQueryRecords = mysqli_query($con, $chartQuery);
 
