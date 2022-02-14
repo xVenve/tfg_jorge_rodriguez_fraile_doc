@@ -1,11 +1,11 @@
 \chapter{Análisis del sistema}
 \label{ch:analisis}
-En este capítulo se explica de qué es capaz el producto desarrollado. Comienza con una descripción del sistema de una manera detallada, a continuación se extraerán los requisitos de usuario y casos de uso, lo que nos permite hacernos una idea clara de lo que necesita el sistema y así poder conceptualizarlo en forma de requisitos de software. En último lugar, se establece la relación entre los requisitos de usuario y los de software en una matriz de trazabilidad, pudiendo así comprobar que todas las peticiones del usuario han sido tenidas en cuenta.
+En este capítulo se explica de qué es capaz el producto desarrollado. Se comienza con una descripción del sistema de una manera detallada, a continuación se extraen los requisitos de usuario y casos de uso, lo que permite hacerse una idea clara de lo que necesita el sistema y así poder conceptualizarlo en forma de requisitos de software. En último lugar, se establece la relación entre los requisitos de usuario y los de software en una matriz de trazabilidad, pudiendo así comprobar que todas las peticiones del usuario han sido tenidas en cuenta.
 
 Además, este capítulo sirve como base para los siguientes, como son el de Diseño (\autoref{ch:diseno}) y el de Implementación (\autoref{ch:implementacion}), en los que basándose en los requisitos recogidos se empezara a dar forma al sistema.
 
 \section{Definición del Sistema}\label{sec:definición-del-sistema}
-El propósito de este proyecto es desarrollar un dispositivo que nos proporcione videovigilancia y medidas de diferentes factores ambientales, para garantizar la seguridad de un CPD. Las diferentes medidas que se tomen se almacenaran para poder ser consultadas junto con la imagen de videovigilancia a través de una plataforma web.
+El propósito de este proyecto es desarrollar un dispositivo que proporcione videovigilancia y medidas de diferentes factores ambientales, para garantizar la seguridad de un CPD. Las diferentes medidas que se toman se almacenan para poder ser consultadas junto con la imagen de videovigilancia a través de una plataforma web.
 \begin{figure}[H]
 	\ffigbox[\FBwidth]
 	{\caption{Diagrama del sistema}
@@ -65,21 +65,21 @@ El propósito de este proyecto es desarrollar un dispositivo que nos proporcione
 	\end{tikzpicture}}
 \end{figure}
 
-Como se puede ver en la \autoref{fig:diagrama_sistema} el sistema consistirá en:
+Como se puede ver en la \autoref{fig:diagrama_sistema} el sistema consiste en:
 \begin{itemize}
-	\item \textbf{Usuario:} Será el personal autorizado encargado de controlar las imágenes que proporcione la cámara y revisar las mediciones que transmitan los sensores del dispositivo.
+	\item \textbf{Usuario:} Es el personal autorizado encargado de controlar las imágenes que proporciona la cámara y revisar las mediciones que transmiten los sensores del dispositivo.
 	\item \textbf{Administrador:} Persona encargada del mantenimiento de la Base de Datos y de la web, así como de la buena recepción de las mediciones y de las imágenes. Ante cualquier incidencia es el responsable de resolverla.
 	\item \textbf{Web:} Página donde se puede acceder a los diferentes dispositivos, sus medidas e imagen de video.
 	\item \textbf{Base de Datos:} Almacén de la información de los usuarios, la de los dispositivos y las mediciones que recogen.
 	\item \textbf{Servidor:} Lugar accesible para el usuario donde se alojan la web y la base de datos.
 	\item \textbf{Placa:} Dispositivo donde se implantan los distintos sensores y la cámara.
-	\item \textbf{Sensores:} Dispositivos sensibles a los diferentes factores ambientales que se medirán en el CPD\@.
-	\item \textbf{Cámara:} Dispositivo que captura la imagen que se utilizara para la videovigilancia.
+	\item \textbf{Sensores:} Dispositivos sensibles a los diferentes factores ambientales que se miden en el CPD\@.
+	\item \textbf{Cámara:} Dispositivo que captura la imagen que se utiliza para la videovigilancia.
 	\item \textbf{Dispositivo:} Conjunto de la placa, los sensores y la cámara.
 \end{itemize}
 
 \section{Requisitos de usuario}\label{sec:requisitos-de-usuario}
-En esta sección se recogen todas exigencias que el cliente nos solicita para este proyecto, en forma de requisitos de usuario, que serán mostrados según la \autoref{tab:plantilla_ru}.
+En esta sección se recogen todas exigencias que el cliente solicita para este proyecto, en forma de requisitos de usuario, que son mostrados según la \autoref{tab:plantilla_ru}.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Requisitos de Usuario}
@@ -96,7 +96,7 @@ En esta sección se recogen todas exigencias que el cliente nos solicita para es
 	\end{tabular}
 \end{table}
 \begin{itemize}
-	\item \textbf{RU-XX:} Identificador del Requisito de Usuario, el XX tomará un valor en función de la posición.
+	\item \textbf{RU-XX:} Identificador del Requisito de Usuario, el XX toma un valor en función de la posición.
 	\item \textbf{Nombre:} Nombre representativo del asunto del requisito.
 	\item \textbf{Descripción:} Exposición más detallada del requisito.
 	\item \textbf{Prioridad:} Indica si debe ser considerado desde el principio o si, por el contrario, puede retrasarse. Puede ser: Alta, Mediana o Baja.
@@ -310,7 +310,7 @@ Los requisitos de usuario son los siguientes:
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
 		\textbf{Nombre}      & Lista de dispositivos                                                                                   \\ \hline
-		\textbf{Descripción} & Cuando el usuario este dentro de su cuenta podrá ver los diferentes dispositivos a los que tiene acceso \\ \hline
+		\textbf{Descripción} & Cuando el usuario está dentro de su cuenta puede ver los diferentes dispositivos a los que tiene acceso \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                                    \\ \hline
 		\textbf{Necesidad}   & Opcional                                                                                                \\ \hline
 		\textbf{Fuente}      & Cliente                                                                                                 \\ \hline
@@ -324,7 +324,7 @@ Los requisitos de usuario son los siguientes:
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
 		\textbf{Nombre}      & Cerrar sesión                        \\ \hline
-		\textbf{Descripción} & El usuario podrá salir de su cuenta. \\ \hline
+		\textbf{Descripción} & El usuario puede salir de su cuenta. \\ \hline
 		\textbf{Prioridad}   & Alta                                 \\ \hline
 		\textbf{Necesidad}   & Esencial                             \\ \hline
 		\textbf{Fuente}      & Cliente                              \\ \hline
@@ -338,7 +338,7 @@ Los requisitos de usuario son los siguientes:
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
 		\textbf{Nombre}      & Verificar nombre de usuario                                                          \\ \hline
-		\textbf{Descripción} & Al acceder el usuario podrá ver su nombre de usuario para comprobar que es su cuenta \\ \hline
+		\textbf{Descripción} & Al acceder el usuario puede ver su nombre de usuario para comprobar que es su cuenta \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                 \\ \hline
 		\textbf{Necesidad}   & Opcional                                                                             \\ \hline
 		\textbf{Fuente}      & Cliente                                                                              \\ \hline
@@ -408,7 +408,7 @@ Los requisitos de usuario son los siguientes:
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RU-\number\ru}}} \\ \hline
 		\textbf{Nombre}      & Navegar entre las medidas                                                                                                   \\ \hline
-		\textbf{Descripción} & Cuando se está en una página de dispositivo, el usuario, debe poder moverse con facilidad entre todos los datos registrados \\ \hline
+		\textbf{Descripción} & Cuando se está en una página de dispositivo, el usuario, puede moverse con facilidad entre todos los datos registrados \\ \hline
 		\textbf{Prioridad}   & Media                                                                                                                       \\ \hline
 		\textbf{Necesidad}   & Deseable                                                                                                                    \\ \hline
 		\textbf{Fuente}      & Cliente                                                                                                                     \\ \hline
@@ -442,7 +442,7 @@ En la \autoref{fig:diagrama_casos_uso} que se muestra a continuación se resumen
 	{\includegraphics[width=\textwidth]{casos-de-uso.jpeg}}
 \end{figure}
 
-Para realizar una descripción más detallada de los casos de uso, empleamos la representación tabular que se muestra en la \autoref{tab:plantilla_cu}.
+Para realizar una descripción más detallada de los casos de uso, se emplea la representación tabular que se muestra en la \autoref{tab:plantilla_cu}.
 \begin{table}[H]
 	\centering
 	\caption{Plantilla de los Casos de Uso}
@@ -459,7 +459,7 @@ Para realizar una descripción más detallada de los casos de uso, empleamos la 
 \end{table}
 
 \begin{itemize}
-	\item \textbf{CU-XX:} Identificador del caso de uso, el XX tomará un valor en función del orden de este.
+	\item \textbf{CU-XX:} Identificador del caso de uso, el XX toma un valor en función del orden de este.
 	\item \textbf{Caso de uso:} Nombre que identifica el caso de uso.
 	\item \textbf{Actores:} Partes implicadas en el caso de uso.
 	\item \textbf{Descripción:} Breve exposición de la situación.
@@ -467,7 +467,7 @@ Para realizar una descripción más detallada de los casos de uso, empleamos la 
 	\item \textbf{Postcondiciones:} Que ocurre si se cumple el caso de uso.
 \end{itemize}
 
-Ahora que entendemos el significado de cada una de las casillas se procede a detallar los casos de uso.
+Ahora que se entiende el significado de cada una de las casillas se procede a detallar los casos de uso.
 \newcount\cu
 \cu=1
 \begin{table}[H]
@@ -613,7 +613,7 @@ Los requisitos de software descritos en esta sección se basan en los requisitos
 	\end{tabular}
 \end{table}
 \begin{itemize}
-	\item \textbf{ID-XX:} Identifica los requisitos mediante la siguiente codificación: ID será RF si es un requisito funcional o RN si es un requisito no funcional y XX tomará un valor en función de la posición.
+	\item \textbf{ID-XX:} Identifica los requisitos mediante la siguiente codificación: ID es RF si es un requisito funcional o RN si es un requisito no funcional y XX toma un valor en función de la posición.
 	\item \textbf{Nombre:} Nombre representativo del asunto del requisito.
 	\item \textbf{Descripción:} Exposición más detallada del requisito.
 	\item \textbf{Prioridad:} Indica si debe ser considerado desde el principio o si, por el contrario, puede retrasarse. Puede ser: Alta, Mediana o Baja.
@@ -688,7 +688,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
 		\textbf{Nombre}      & Inicio de sesión                                                                                                       \\ \hline
-		\textbf{Descripción} & Si el usuario está registrado, se podrá identificar mediante su nombre de usuario y contraseña para acceder al sistema \\ \hline
+		\textbf{Descripción} & Si el usuario está registrado, se puede identificar mediante su nombre de usuario y contraseña para acceder al sistema \\ \hline
 		\textbf{Prioridad}   & Alta                                                                                                                   \\ \hline
 		\textbf{Necesidad}   & Esencial                                                                                                               \\ \hline
 		\textbf{Fuente}      & Cliente                                                                                                                \\ \hline
@@ -702,7 +702,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
 		\textbf{Nombre}      & Lista de dispositivos                                                                                                                   \\ \hline
-		\textbf{Descripción} & Al acceder el usuario podrá ver un listado de dispositivo con su nombre, estado, último cambio de estado y un botón para acceder a este \\ \hline
+		\textbf{Descripción} & Al acceder el usuario puede ver un listado de dispositivo con su nombre, estado, último cambio de estado y un botón para acceder a este \\ \hline
 		\textbf{Prioridad}   & Alta                                                                                                                                    \\ \hline
 		\textbf{Necesidad}   & Esencial                                                                                                                                \\ \hline
 		\textbf{Fuente}      & Cliente                                                                                                                                 \\ \hline
@@ -730,7 +730,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
 		\textbf{Nombre}      & Bienvenida a la web                                                                                   \\ \hline
-		\textbf{Descripción} & Al acceder a la web el usuario podrá ver su nombre para comprobar que ha iniciado con éxito la sesión \\ \hline
+		\textbf{Descripción} & Al acceder a la web el usuario puede ver su nombre para comprobar que ha iniciado con éxito la sesión \\ \hline
 		\textbf{Prioridad}   & Baja                                                                                                  \\ \hline
 		\textbf{Necesidad}   & Opcional                                                                                              \\ \hline
 		\textbf{Fuente}      & Cliente                                                                                               \\ \hline
@@ -744,7 +744,7 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 		\hline
 		\multicolumn{2}{|c|}{\cellcolor[HTML]{BFBFBF}{\color[HTML]{000000} \textbf{RF-0\number\rf}}} \\ \hline
 		\textbf{Nombre}      & Acceso a la web                                                               \\ \hline
-		\textbf{Descripción} & Con el correspondiente enlace se debe poder acceder a la web dentro de la red \\ \hline
+		\textbf{Descripción} & Con el correspondiente enlace se puede acceder a la web dentro de la red \\ \hline
 		\textbf{Prioridad}   & Alta                                                                          \\ \hline
 		\textbf{Necesidad}   & Esencial                                                                      \\ \hline
 		\textbf{Fuente}      & Cliente                                                                       \\ \hline
@@ -1175,9 +1175,9 @@ Tras esta explicación de la plantilla en las siguientes subsecciones se present
 \pagebreak
 
 \section{Matriz de trazabilidad}\label{sec:matrizAnalisis}
-La intención de esta sección es poder comprobar que todos los requisitos que nos ha exigido el cliente quedan cubiertos y se tendrán en cuenta en el desarrollo del proyecto, así como ver de qué manera se materializa cada uno de esos conceptos pedidos. 
+La intención de esta sección es poder comprobar que todos los requisitos que ha exigido el cliente quedan cubiertos y se tienen en cuenta en el desarrollo del proyecto, así como ver de qué manera se materializa cada uno de esos conceptos pedidos. 
 
-Para mostrar estas relaciones de manera clara se hará mediante una matriz de trazabilidad, que consiste en una tabla que relaciona los requisitos de usuario (columnas) con los requisitos funcionales y no funcionales (filas). Se ha partido en 2 para que se pueda visualizar mejor, \autoref{tab:trazabilidad_I} y \autoref{tab:trazabilidad_II}.
+Para mostrar estas relaciones de manera clara se usa una matriz de trazabilidad, que consiste en una tabla que relaciona los requisitos de usuario (columnas) con los requisitos funcionales y no funcionales (filas). Se ha partido en 2 para que se pueda visualizar mejor, \autoref{tab:trazabilidad_I} y \autoref{tab:trazabilidad_II}.
 
 \begin{table}[H]
 	\centering
