@@ -164,7 +164,7 @@ Además, existe una relación directa con la tabla devices en cuanto a que el ca
 \section{Interfaz de Usuario}\label{sec:interfaz}
 En esta sección se trata otro de los elementos clave del sistema, la interfaz de usuario. Esta hace posible el uso del sistema a personas no expertas, de manera que puedan manipularlo y hacer uso de este sin la necesidad de saber cómo se desarrolla un sistema de estas características.
 
-La parte del sistema a la que se ha dotado de interfaz es la responsable de mostrar las medidas y video de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y moverse por las pantallas, se emplea PHP\@.
+La parte del sistema a la que se ha dotado de interfaz es la responsable de mostrar las medidas y vídeo de las salas, tal y como ha solicitado el cliente. Para lograr esto se utiliza una página web, que se ha diseñado en HTML y CSS, con la que se puede acceder a toda esta información de una manera sencilla y visual. En cuanto a la lógica para obtener la información y moverse por las pantallas, se emplea PHP\@.
 
 La web, además, es \textit{responsive} por lo que es totalmente funcional tanto en dispositivos de altas resoluciones (televisiones, ordenadores de sobremesa, portátiles, etc.), como en dispositivos de bajas resoluciones (móviles, tablets, etc.).
 
@@ -210,9 +210,9 @@ En cuanto a la versión móvil, se ha ajustado el tamaño del formulario para qu
 \end{figure}
 
 \subsection{Página: Principal}\label{subsec:iPrincipal}
-Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasa a la pantalla mostrada en la \autoref{fig:iPrincipal}, en la que se puede ver, que muestra un mensaje de saludo, indicando el nombre de usuario.
+Una vez el usuario ha iniciado la sesión de manera satisfactoria, se pasa a la pantalla mostrada en la \autoref{fig:iPrincipal}, en la que se puede ver que muestra un mensaje de saludo indicando el nombre de usuario.
 
-La clave de esta pantalla es la lista de los dispositivos, en la que se muestran de manera tabular los datos de estos. Se imprime, para cada dispositivo, los datos almacenados en la base.
+La clave de esta pantalla es la lista de los dispositivos, en la que se muestran de manera tabular los datos de estos. Se imprimen, para cada dispositivo, los datos almacenados en la base de datos.
 \vspace{.5cm}
 \begin{figure}[H]
 	\ffigbox[\textwidth]
@@ -283,7 +283,7 @@ Además, las gráficas ofrecen la posibilidad de acceder a un dato en particular
 \end{figure}
 
 \section{Servidor}\label{sec:servidor}
-Como ya se especifica en la \autoref{subsec:servidorDB}, el servidor que se emplea para alojar la página web es Apache, que cubre todas las necesidades de la aplicación, dado que permite lanzar al público un sitio web desarrollado en el lenguaje PHP. Este lenguaje de desarrollo web facilita la implementación de la lógica y acceso a la base de datos, a la vez que diseñar las pantallas vistas en la \autoref{sec:interfaz}. 
+Como ya se especificó en la \autoref{subsec:servidorDB}, el servidor que se emplea para alojar la página web es Apache, que cubre todas las necesidades de la aplicación, dado que permite lanzar al público un sitio web desarrollado en el lenguaje PHP. Este lenguaje de desarrollo web facilita la implementación de la lógica y el acceso a la base de datos, a la vez que diseñar las pantallas vistas en la \autoref{sec:interfaz}. 
 
 En el mismo servidor se aloja la base de datos tal y como ha quedado descrita en la \autoref{sec:modelo}, eso permite que sea accesible para el dispositivo de medición y videovigilancia, que posee los permisos para acceder a la misma.
 \pagebreak

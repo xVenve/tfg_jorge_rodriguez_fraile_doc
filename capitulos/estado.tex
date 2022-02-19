@@ -13,7 +13,7 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 	\item \textbf{Medidas contra incendios:} Aparte de estar construidos con materiales resistentes a altas temperaturas o ignífugos, existirán sensores de humo y calor que permiten detectar si se está produciendo un incendio. En cuanto se detecte un incendio, se activará el sistema de extinción por gas, para evitar dañar los equipos. Estos sistemas pasarán revisiones periódicamente para su correcto funcionamiento.
 	\item \textbf{Seguridad del cableado:} Se emplea cableado apantallado para evitar acoplamientos o interferencias, además de estar claramente diferenciados según su función, como los de alimentación y de comunicaciones, para facilitar el mantenimiento del CPD\@.
 	\item \textbf{Medidas contra problemas de suministro eléctrico:} Es otro de los sistemas fundamentales en los CPD, que permite mantener el suministro eléctrico necesario para garantizar la disponibilidad del servicio y evitar la pérdida o dañado de los datos y de los propios equipos. Las medidas que se toman a este respecto son la implantación de mecanismos de redundancia eléctrica para que los servidores no pierdan la alimentación eléctrica en caso de un corte de la empresa suministradora, como son los Sistemas de Alimentación Ininterrumpida (SAI) o grupos electrógenos.
-	\item \textbf{Suelo y techo técnico:} Este tipo de suelos permiten, a la vez que elevar los equipos respecto al nivel original de la sala, distribuir todo el cableado necesario por debajo de él, siendo más fácil el mantenimiento, quedando la sala más limpia y despejada, garantizando una ventilación que evite sobrecalentamientos. El techo técnico permite lo mismo que el suelo, pero con las instalaciones por encima de un falso techo registrable permitiendo a la vez instalar el propio sistema de climatización de la sala. Ambos sistemas son muy importantes para el reducir el consumo de energía empleado para climatizar, hasta en un 45 \%~\cite{polygroup_suelo_2020}, además de permitir un constante movimiento del flujo de aire por la sala. Otra función que ofrecen es evitar los daños por inundación.
+	\item \textbf{Suelo y techo técnico:} Este tipo de suelos permiten, a la vez que elevar los equipos respecto al nivel original de la sala, distribuir todo el cableado necesario por debajo de él, siendo más fácil el mantenimiento, quedando la sala más limpia y despejada, garantizando una ventilación que evite sobrecalentamientos. Otra función que ofrecen es evitar los daños por inundación. El techo técnico permite lo mismo que el suelo, pero con las instalaciones por encima de un falso techo registrable permitiendo a la vez instalar el propio sistema de climatización de la sala. Ambos sistemas son muy importantes para reducir el consumo de energía empleado para climatizar, hasta en un 45 \%~\cite{polygroup_suelo_2020}, además de permitir un constante movimiento del flujo de aire por la sala.
 	\item \textbf{Sistema de climatización:} Se encarga de controlar la temperatura y humedad de la sala regulando el enfriamiento, ventilación, humidificación y flujo de aire. También existen sistemas que mantienen la temperatura idónea de los equipos mediante refrigeración líquida e incluso inmersos en fluidos dieléctricos.
 
 	Además, hay sistemas que controlan la calidad del aire y la existencia de gases. Los límites ambientales recomendados internacionalmente son: para la temperatura, entre 18 °C y 27 °C, y para la humedad, entre el 40 \% y el 60 \%~\cite{serverscheck_recommended_nodate}.
@@ -22,7 +22,7 @@ Según los criterios del Instituto Nacional de Ciberseguridad de España (INCIBE
 \section{Soluciones actuales}\label{sec:soluciones-actuales}
 En esta sección se trata de presentar algunas de las alternativas que existen actualmente y que tendrían el mismo propósito que el sistema que se va a desarrollar en este proyecto. Como no se ha encontrado un sistema equivalente en cuanto a prestaciones conjuntas como el que se pretende desarrollar, se van a relacionar instrumentos que realizan sus mismas funciones, pero de forma independiente cada uno.
 
-Como se trata de un sistema de control ambiental y videovigilancia no se cubren todos los aspectos de seguridad presentados en la \autoref{sec:seguridad_fisica_CPD}. Se desarrollan los siguientes: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
+Como se trata de un sistema de control ambiental y videovigilancia no se cubren todos los aspectos de seguridad presentados en la \autoref{sec:seguridad_fisica_CPD}, solo se desarrollan los siguientes: Seguimiento dentro de la sala, Medidas contra incendios y Sistema de climatización.
 
 \subsection{Seguimiento dentro de la sala}\label{subsec:seguimiento-dentro-de-la-sala}
 Respecto a la videovigilancia de una empresa, o una vivienda en su caso, se han encontrado distintas compañías que ofrecen este servicio con la instalación de cámaras analógicas conectadas a un grabador o, incluso, visualización en remoto (móvil, ordenador portátil, tablet, etc.)~\cite{alarmadoo_videovigilancia_nodate}.
@@ -42,16 +42,16 @@ En lo que respecta a la detección de incendios existen mecanismos que permiten 
 Estos sistemas pueden ser, según el fenómeno detectado:
 \begin{itemize}
 	\item \textbf{Termostáticos:} Cuando se alcanza un determinado valor de temperatura salta una alarma.
-	\item \textbf{Termovelocímetros:} Salta cuando el incremento de temperatura / velocidad es superior un valor concreto.
+	\item \textbf{Termovelocímetros:} Salta cuando el incremento de temperatura/velocidad del aire es superior a un valor concreto.
 	\item \textbf{Combinados:} La unión de los anteriores en un único detector.
 	\item \textbf{Detectores de humos:} Detectan las partículas en el aire derivadas de la combustión.
 	\item \textbf{Detectores de gases:} Detectan los gases de la combustión.
-	\item \textbf{Detectores de llamas:} Detectan la radiación de las llamas.
+	\item \textbf{Detectores de llamas:} Detectan la radiación térmica de las llamas.
 	\item \textbf{Detectores multisensores:} Se activan ante, por ejemplo, por el calor y humo.
 \end{itemize}
 
 \subsection{Sistema de climatización}\label{subsec:sistema-de-climatización}
-Los sistemas de climatización existentes en el mercado se encargan de mantener una temperatura previamente fijada y eliminan la humedad del ambiente al tratar el aire interior para refrigerarlo~\cite{ruiz_sistemas_nodate}. También existen sistemas de extracción de la humedad interior de una estancia cuando se produce un elevado grado de humedad en ella, lo que es perjudicial para los equipos electrónicos y para la salud por la aparición de moho en su interior~\cite{murprotec_calidad_nodate}.
+Los sistemas de climatización existentes en el mercado se encargan de mantener una temperatura previamente fijada y eliminan la humedad del ambiente al tratar el aire interior para refrigerarlo~\cite{ruiz_sistemas_nodate}. También existen sistemas de extracción de la humedad interior de una estancia cuando se produce un elevado incremento de la misma en ella, lo que es perjudicial para los equipos electrónicos y para la salud por la aparición de moho en su interior~\cite{murprotec_calidad_nodate}.
 
 En nuestro caso no se trata de instalar un equipo de climatización, sino un sistema de medición de temperatura y humedad en el interior de un recinto cerrado. En el mercado se han encontrado medidores de temperatura y de humedad, juntos o por separados, pero no unidos al resto de parámetros, como se plantean en nuestro caso.
 
@@ -72,7 +72,7 @@ Este dispositivo consta de las siguientes funcionalidades:
 En esta sección se presentan las distintas alternativas que se pueden utilizar para dar solución a cada una de las necesidades planteadas en la \autoref{sec:propuesta}.
 
 \subsection{Alternativas: Placa}\label{subsec:altPlacas}
-Para comenzar se debe analizar cuáles son las posibles placas sobre las que  se puede desarrollar el dispositivo. Las placas que se buscan deben ser programables y permitir instalar una serie de sensores que poder monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation.
+Para comenzar, se deben analizar cuáles son las posibles placas sobre las que  se puede desarrollar el dispositivo. Las placas que se buscan deben ser programables y permitir instalar una serie de sensores que poder monitorear, por esta razón se ha decidido evaluar la línea de productos de Raspberry Pi Foundation.
 
 \begin{figure}[H]
 	\ffigbox[4.5cm]
@@ -226,7 +226,7 @@ Por último, antes de pasar a la parte de videovigilancia, se muestran las espec
 \endminipage
 
 \paragraph{Cámaras}\mbox{} \\
-Las cámaras que se presentan a continuación han sido buscadas con la intención de que sean compatibles con la Raspberry Pi, por lo que su conexión debe ser mediante la CSI de la placa. Se han propuesto una serie de cámaras con diferentes categorías~\cite{cholewiak_raspberry_2017}, algunas cuentan con una mejor resolución, angular o ambos. Aun así, las cuatro cámaras tienen los mismos modos de grabación: 1080p30, 720p60 y 640×480p60/90.
+Las cámaras que se presentan a continuación han sido seleccionadas con la intención de que sean compatibles con la Raspberry Pi, por lo que su conexión debe ser mediante la CSI de la placa. Se han propuesto una serie de cámaras con diferentes categorías~\cite{cholewiak_raspberry_2017}, algunas cuentan con una mejor resolución, angular o ambos. Aun así, las cuatro cámaras tienen los mismos modos de grabación: 1080p30, 720p60 y 640×480p60/90.
 
 \begin{table}[H]
 	\centering
@@ -299,7 +299,7 @@ Para desarrollar la web se utiliza el editor de código fuente Visual Studio Cod
 	{\caption{Logo Python}}
 	{\includegraphics[scale=0.1]{Python-logo.jpg}}\label{fig:logoPython}
 \end{figure}
-Python es un lenguaje de programación de alto nivel interpretado desarrollado por la Python Software Foundation en 1991~\cite{montoro_python_2012}, cuya intención es facilitar la legibilidad del código haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década, llegando a ser uno de los lenguajes de propósito general más extendidos, que puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
+Python es un lenguaje de programación de alto nivel interpretado, que fue desarrollado por la Python Software Foundation en 1991~\cite{montoro_python_2012}, cuya intención es facilitar la legibilidad del código haciendo la programación más accesible para todo el mundo. Su uso ha aumentado mucho en la última década, llegando a ser uno de los lenguajes de propósito general más extendidos, que puede ser utilizado para multitud de propósitos a diferencia de muchos otros lenguajes que se centran en un área específica.
 
 Para programar todo el comportamiento del dispositivo se emplea este lenguaje por su sencillez y utilidad. El IDE que emplea el programador es PyCharm Professional edition creado por JetBrains en 2010~\cite{noauthor_pycharm_2021}, al que se tiene acceso gracias a la licencia de estudiante, aunque también hay una edición gratuita llamada Community edition.
 
