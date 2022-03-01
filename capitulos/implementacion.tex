@@ -274,7 +274,7 @@ Para obtener las partículas por millón de dióxido de carbono del ambiente se 
 	\ffigbox[\textwidth]
 	{\caption{Lectura de concentración de CO$_2$ MH-Z14}
 		\label{fig:co2PPMcalc}}
-	{\includegraphics[width=\textwidth]{co2ppm.png}}
+	{\includegraphics[width=\textwidth]{co2ppm.jpg}}
 \end{figure}
 En primer lugar hay que identificar en qué puerto serial se encuentra el sensor, en este caso es el \textit{ttyS0} que corresponde al puerto UART. Tras esto, simplemente se realiza una \textit{request} de lectura que se indica en la \autoref{fig:co2PPMcalc} y de la que se obtiene como respuesta el valor de la concentración de CO$_2$ junto con un \textit{checksum} para verificar que la lectura es correcta.
 
