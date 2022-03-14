@@ -269,7 +269,7 @@ El código de este sensor se encarga fundamentalmente de realizar la lectura de 
 Antes de empezar a realizar mediciones necesita un tiempo de calentamiento de 20 segundos, a partir de este punto es capaz de hacer mediciones de manera continua.
 
 \subsection{Clase del sensor \texorpdfstring{CO$_2$}{CO2}}\label{subsec:clase-del-sensor-co2}
-Para obtener las partículas por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14~\cite{zhengzhou_winsen_electronics_technology_users_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
+Para obtener las partes por millón de dióxido de carbono del ambiente se sigue el proceso que describe el manual del sensor MH-Z14~\cite{zhengzhou_winsen_electronics_technology_users_nodate}, que se puede ver en la \autoref{fig:co2PPMcalc}.
 \begin{figure}[H]
 	\ffigbox[\textwidth]
 	{\caption{Lectura de concentración de CO$_2$ MH-Z14}
@@ -278,7 +278,7 @@ Para obtener las partículas por millón de dióxido de carbono del ambiente se 
 \end{figure}
 En primer lugar hay que identificar en qué puerto serial se encuentra el sensor, en este caso es el \textit{ttyS0} que corresponde al puerto UART. Tras esto, simplemente se realiza una \textit{request} de lectura que se indica en la \autoref{fig:co2PPMcalc} y de la que se obtiene como respuesta el valor de la concentración de CO$_2$ junto con un \textit{checksum} para verificar que la lectura es correcta.
 
-La función principal de esta clase es el método \textit{get()} que devuelve el número de partículas por millón, este valor se calcula con el \autoref{lst:co2PPMcalc}, que es una simplificación de esta clase.
+La función principal de esta clase es el método \textit{get()} que devuelve el número de partes por millón, este valor se calcula con el \autoref{lst:co2PPMcalc}, que es una simplificación de esta clase.
 \begin{lstlisting}[language=Python, label=lst:co2PPMcalc, caption=Cálculo de la concentración de CO$_2$]
 serial = serial.Serial(port='/dev/ttyS0', timeout=1)
 request = [0xff, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79]
